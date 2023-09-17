@@ -2,19 +2,45 @@ project:
   type: website
 
 website:
-  title: "DSAN-5000: Project"
+  title: "Kendall's DSAN 5000 Website"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: clustering/clustering.qmd
-        text: Clustering
-      - href: eda/eda.ipynb
-        text: Data Exploration
+      - href: about_me.ipynb
+        text: About Me
+      - text: Project Overview
+        menu:
+          - href: intro.ipynb
+            text: Introduction
+          - href: data.ipynb
+            text: Data
+      - text: Data
+        menu:
+          - href: data.ipynb
+            text: Data
+          - href: gathering.ipynb
+            text: Data Gathering
+          - href: cleaning.ipynb
+            text: Data Cleaning
+          - href: exploration.ipynb
+            text: Data Exploration
+          - href: clustering.ipynb
+            text: Data Clustering
+      - href: dimensionality.ipynb
+        text: Dimensionality Reduction
+      - href: trees.ipynb
+        text: Decision Trees
+      - href: arm.ipynb
+        text: ARM
+      - href: conclusions.ipynb
+        text: Conclusions
+
 format:
   html:
-    theme: cosmo
+    theme: Darkly
     toc: true
+
 
 
 
