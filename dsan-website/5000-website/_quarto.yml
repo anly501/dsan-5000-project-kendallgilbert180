@@ -2,31 +2,27 @@ project:
   type: website
 
 website:
-  title: "Kendall's DSAN 5000 Website"
+  title: "Minor League Sports"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: about_me.ipynb
         text: About Me
-      - text: Project Overview
-        menu:
-          - href: intro.ipynb
-            text: Introduction
-          - href: data.ipynb
-            text: Data
-      - text: Data
-        menu:
-          - href: data.ipynb
-            text: Data
-          - href: gathering.ipynb
-            text: Data Gathering
-          - href: cleaning.ipynb
-            text: Data Cleaning
-          - href: exploration.ipynb
-            text: Data Exploration
-          - href: clustering.ipynb
-            text: Data Clustering
+      - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180
+        text: Code
+      - href: intro.ipynb
+        text: Introduction
+      - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/.github
+        text: Data
+      - href: gathering.ipynb
+        text: Data Gathering
+      - href: cleaning.ipynb
+        text: Data Cleaning
+      - href: exploration.ipynb
+        text: Data Exploration
+      - href: clustering.ipynb
+        text: Data Clustering
       - href: dimensionality.ipynb
         text: Dimensionality Reduction
       - href: trees.ipynb
@@ -40,7 +36,3 @@ format:
   html:
     theme: Darkly
     toc: true
-
-
-
-
