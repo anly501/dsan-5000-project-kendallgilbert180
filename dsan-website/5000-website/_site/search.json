@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DSAN-5000: Introduction",
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
     "section": "",
-    "text": "See the following link for more information about the author: about me\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nHIGHLY RECOMMENDED\n\nIt is highly recommended that you build your website using .ipynb files and NOT .qmdfiles\nFunctionally the two formats are basically identical, i.e. they are just Markdown + Code\nHowever there is ONE MAJOR DIFFERENCE, i.e. .ipynb stores the code outputs in the meta-data of the file\n\nThis means you ONLY HAVE TO RUN THE CODE ONCE with .ipynb\n.qmd will run the code every time you build the website, which can be very slow\n\nThere are caching options for .qmd, however, they are “messier” that just using .ipynb\n\nNote: .qmd is fine if there is no code, in which case it is basically just a Markdown file\n\nConverting between the two\n\nYou can switch between the two formats using\nquarto convert clustering.qmd this will output a .ipynb version called clustering.ipynb\nquarto convert eda.ipynb this will output a .qmd version called eda.qmd\n\nYOU CAN RUN R CODE IN VSC WITH .ipynb, see the following link\n\nhttps://saturncloud.io/blog/how-to-use-jupyter-r-kernel-with-visual-studio-code/\n\nIt is possible, but NOT RECOMMENDED, to mix Python and R code in the same file\n\nIMPORTANT ASIDE\n\nA .ipynb file is simply a JSON file with a specialized structural format\nYou can see this by running more eda/eda.ipynb from the command line\nWhich will output the following;\n\n\nTIP FOR MAC USERS\n\ncommand+control+shift+4 is very useful on a mac.\n\nIt takes a screenshot and saves it to the clip-board\n\nThe following VSC extension allows you to paste images from the clip-board with alt+command+v.\n\ntab is your best friend when using the command line, since it does auto-completion\nopen ./path_to_file will open any file or directory from the command line"
+    "text": "This project will look at the data behind the impact minor league professional sports teams have on regional areas. Specifically, minor league baseball, basketball, soccer, football and ice hockey data."
+  },
+  {
+    "objectID": "about_me.html",
+    "href": "about_me.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Hi! My name is Kendall Gilbert and I am first year student in the Data Science and Analytics program at Georgetown University. I recently graduated in May from Elon University where I majored in Media Analytics with minors in Statistics and Business Administration. As a media analytics major, I learned a lot about analyzing, visualing and making sense of media data. A few relevant courses from this program included:\n\nCommunicating Media Insights\nApplied Media Analytics\nMeasuring Media Impact\n\nYou can learn more about my undergraduate major here! Junior year, in my Applied Media Analytics class I was introduced to R for the first time ever. This is where I fell in love with the idea of data manipulation and data visualtion. You can access my portfolio for this class here!\nFurthermore, my statistics and business classes provided a basic foundation for my transition into the data science world. A few key classes I completed for these minors included:\n\nSurvey Sampling Methods\nStatistical Modeling\nStatistics in Application\n\nTo further prepare for Georgetown’s DSAN Program I took Introduction to Computer Science, Calculus and Multi-Variable Calculus in order to prepare for my transition.\nI am originally from Narragansett Rhode Island but I have lived in California and Colorado as well. In my free time I like to spend time outdoors, hang out with my dogs and travel.\nMy dream one day is to work as a data scientist for a company I am passionate about.\nYou can learn more about me on my Linkedin! Click here!"
   },
   {
     "objectID": "eda/eda.html",
@@ -35,52 +42,17 @@
     "text": "Build out your website tab for “clustering”"
   },
   {
-    "objectID": "aboutme.html",
-    "href": "aboutme.html",
-    "title": "Kendall's DSAN 5000 Website",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSAN-5000 Project",
     "section": "",
-    "text": "Hi!"
+    "text": "Kendall Gilbert kmg180@georgetown.edu See the following link for more information about the author: about me\nThis is a Quarto website."
   },
   {
-    "objectID": "about_me.html",
-    "href": "about_me.html",
-    "title": "Who Am I?",
+    "objectID": "gathering.html",
+    "href": "gathering.html",
+    "title": "Minor League Sports",
     "section": "",
-    "text": "Hi! My name is Kendall Gilbert and I am first year student in the Data Science and Analytics program at Georgetown University. I recently graduated in May from Elon University where I majored in Media Analytics with minors in Statistics and Business Administration. As a media analytics major, I learned a lot about analyzing, visualing and making sense of media data. A few relevant courses from this program included:\n\nCommunicating Media Insights\nApplied Media Analytics\nMeasuring Media Impact\n\nYou can learn more about my undergraduate major here! Junior year, in my Applied Media Analytics class I was introduced to R for the first time ever. This is where I fell in love with the idea of data manipulation and data visualtion. You can access my portfolio for this class here!\nFurthermore, my statistics and business classes provided a basic foundation for my transition into the data science world. A few key classes I completed for these minors included:\n\nSurvey Sampling Methods\nStatistical Modeling\nStatistics in Application\n\nTo further prepare for Georgetown’s DSAN Program I took Introduction to Computer Science, Calculus and Multi-Variable Calculus in order to prepare for my transition.\nI am originally from Narragansett Rhode Island but I have lived in California and Colorado as well. In my free time I like to spend time outdoors, hang out with my dogs and travel.\nMy dream one day is to work as a data scientist for a company I am passionate about.\nYou can learn more about me on my Linkedin! Click here!"
-  },
-  {
-    "objectID": "About Me/about_me.html",
-    "href": "About Me/about_me.html",
-    "title": "Who Am I?",
-    "section": "",
-    "text": "Hi! My name is Kendall Gilbert and I am first year student in the Data Science and Analytics program at Georgetown University. I recently graduated in May from Elon University where I majored in Media Analytics with minors in Statistics and Business Administration. As a media analytics major, I learned a lot about analyzing, visualing and making sense of media data. A few relevant courses from this program included:\n\nCommunicating Media Insights\nApplied Media Analytics\nMeasuring Media Impact\n\nYou can learn more about my undergraduate major here! Junior year, in my Applied Media Analytics class I was introduced to R for the first time ever. This is where I fell in love with the idea of data manipulation and data visualtion. You can access my portfolio for this class here!\nFurthermore, my statistics and business classes provided a basic foundation for my transition into the data science world. A few key classes I completed for these minors included:\n\nSurvey Sampling Methods\nStatistical Modeling\nStatistics in Application\n\nTo further prepare for Georgetown’s DSAN Program I took Introduction to Computer Science, Calculus and Multi-Variable Calculus in order to prepare for my transition.\nI am originally from Narragansett Rhode Island but I have lived in California and Colorado as well. In my free time I like to spend time outdoors, hang out with my dogs and travel.\nMy dream one day is to work as a data scientist for a company I am passionate about.\nYou can learn more about me on my Linkedin! Click here!"
-  },
-  {
-    "objectID": "Introduction/intro.html",
-    "href": "Introduction/intro.html",
-    "title": "About",
-    "section": "",
-    "text": "This project will look at the data behind the impact minor league professional sports teams have on regional areas. Specifically, minor league baseball, basketball, soccer, football and ice hockey data."
-  },
-  {
-    "objectID": "About Me/about_me.html#who-am-i",
-    "href": "About Me/about_me.html#who-am-i",
-    "title": "About",
-    "section": "",
-    "text": "Hi! My name is Kendall Gilbert and I am first year student in the Data Science and Analytics program at Georgetown University. I recently graduated in May from Elon University where I majored in Media Analytics with minors in Statistics and Business Administration. As a media analytics major, I learned a lot about analyzing, visualing and making sense of media data. A few relevant courses from this program included:\n\nCommunicating Media Insights\nApplied Media Analytics\nMeasuring Media Impact\n\nYou can learn more about my undergraduate major here! Junior year, in my Applied Media Analytics class I was introduced to R for the first time ever. This is where I fell in love with the idea of data manipulation and data visualtion. You can access my portfolio for this class here!\nFurthermore, my statistics and business classes provided a basic foundation for my transition into the data science world. A few key classes I completed for these minors included:\n\nSurvey Sampling Methods\nStatistical Modeling\nStatistics in Application\n\nTo further prepare for Georgetown’s DSAN Program I took Introduction to Computer Science, Calculus and Multi-Variable Calculus in order to prepare for my transition.\nI am originally from Narragansett Rhode Island but I have lived in California and Colorado as well. In my free time I like to spend time outdoors, hang out with my dogs and travel.\nMy dream one day is to work as a data scientist for a company I am passionate about.\nYou can learn more about me on my Linkedin! Click here!"
-  },
-  {
-    "objectID": "eda/intro.html",
-    "href": "eda/intro.html",
-    "title": "Globalization of Sports",
-    "section": "",
-    "text": "Test"
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "This project will look at the data behind the impact minor league professional sports teams have on regional areas. Specifically, minor league baseball, basketball, soccer, football and ice hockey data."
+    "text": "Title: Gathering Format: HTML"
   }
 ]

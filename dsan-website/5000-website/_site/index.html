@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Globalization of Sports - DSAN-5000: Introduction</title>
+<title>Minor League Sports - DSAN-5000 Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Globalization of Sports</span>
+    <span class="navbar-title">Minor League Sports</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -79,14 +79,14 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about_me.ipynb" rel="" target="">
- <span class="menu-text">About Me</span></a>
+    <a class="nav-link" href="./about_me.html" rel="" target="">
+ <span class="menu-text">Me</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180" rel="" target="">
@@ -100,22 +100,20 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/.github" rel="" target="">
  <span class="menu-text">Data</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./gathering.ipynb" rel="" target="">
- <span class="menu-text">Data Gathering</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-steps" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data Steps</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-steps">    
+        <li>
+    <a class="dropdown-item" href="./gathering.html" rel="" target="">
+ <span class="dropdown-text">Gathering</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./cleaning.ipynb" rel="" target="">
- <span class="menu-text">Data Cleaning</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./exploration.ipynb" rel="" target="">
- <span class="menu-text">Data Exploration</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./clustering.ipynb" rel="" target="">
- <span class="menu-text">Data Clustering</span></a>
-  </li>  
+        <li class="dropdown-header">cleaning.ipynb</li>
+        <li class="dropdown-header">exploration.ipynb</li>
+        <li class="dropdown-header">clustering.ipynb</li>
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./dimensionality.ipynb" rel="" target="">
  <span class="menu-text">Dimensionality Reduction</span></a>
@@ -133,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conclusions</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -151,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">DSAN-5000: Introduction</h1>
+<h1 class="title">DSAN-5000 Project</h1>
 </div>
 
 
@@ -166,52 +164,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>See the following link for more information about the author: <a href="../../index.html">about me</a></p>
+<p>Kendall Gilbert kmg180@georgetown.edu See the following link for more information about the author: <a href="./about_me.html">about me</a></p>
 <p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<p><code>HIGHLY RECOMMENDED</code></p>
-<ul>
-<li>It is <code>highly recommended</code> that you build your website using <code>.ipynb</code> files and NOT <code>.qmd</code>files</li>
-<li>Functionally the two formats are basically identical, i.e.&nbsp;they are just <code>Markdown</code> + <code>Code</code></li>
-<li>However there is <code>ONE MAJOR DIFFERENCE</code>, i.e.&nbsp;<code>.ipynb</code> stores the code outputs in the meta-data of the file
-<ul>
-<li>This means you <code>ONLY HAVE TO RUN THE CODE ONCE</code> with <code>.ipynb</code></li>
-<li><code>.qmd</code> will run the code every time you build the website, which can be very slow
-<ul>
-<li>There are <code>caching</code> options for <code>.qmd</code>, however, they are “messier” that just using <code>.ipynb</code></li>
-</ul></li>
-<li><strong>Note</strong>: <code>.qmd</code> is fine if there is no code, in which case it is basically just a <code>Markdown</code> file</li>
-</ul></li>
-<li>Converting between the two
-<ul>
-<li>You can switch between the two formats using</li>
-<li><code>quarto convert clustering.qmd</code> this will output a <code>.ipynb</code> version called <code>clustering.ipynb</code></li>
-<li><code>quarto convert eda.ipynb</code> this will output a <code>.qmd</code> version called <code>eda.qmd</code></li>
-</ul></li>
-<li>YOU CAN RUN <code>R CODE</code> IN VSC WITH <code>.ipynb</code>, see the following link
-<ul>
-<li><a href="https://saturncloud.io/blog/how-to-use-jupyter-r-kernel-with-visual-studio-code/">https://saturncloud.io/blog/how-to-use-jupyter-r-kernel-with-visual-studio-code/</a></li>
-</ul></li>
-<li>It is possible, but <code>NOT RECOMMENDED</code>, to mix Python and R code in the same file</li>
-</ul>
-<p><code>IMPORTANT ASIDE</code></p>
-<ul>
-<li>A <code>.ipynb</code> file is simply a <code>JSON</code> file with a specialized structural format</li>
-<li>You can see this by running <code>more eda/eda.ipynb</code> from the command line</li>
-<li>Which will output the following;<br>
-<img src="images/2023-08-23-09-39-14.png" class="img-fluid" width="500"></li>
-</ul>
-<p><code>TIP FOR MAC USERS</code></p>
-<ul>
-<li><code>command+control+shift+4</code> is very useful on a mac.
-<ul>
-<li>It takes a screenshot and saves it to the clip-board</li>
-</ul></li>
-<li>The following VSC extension allows you to paste images from the clip-board with <code>alt+command+v</code>.<br>
-<img src="images/2023-08-23-09-35-05.png" class="img-fluid" width="300"></li>
-<li><code>tab</code> is your best friend when using the command line, since it does <code>auto-completion</code></li>
-<li><code>open ./path_to_file</code> will open any file or directory from the command line</li>
-</ul>
 
 
 

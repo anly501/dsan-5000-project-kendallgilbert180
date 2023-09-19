@@ -4,25 +4,23 @@ project:
 website:
   title: "Minor League Sports"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - href: about_me.ipynb
-        text: About Me
+        text: Me
       - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180
         text: Code
       - href: intro.ipynb
         text: Introduction
       - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/.github
         text: Data
-      - href: gathering.ipynb
-        text: Data Gathering
-      - href: cleaning.ipynb
-        text: Data Cleaning
-      - href: exploration.ipynb
-        text: Data Exploration
-      - href: clustering.ipynb
-        text: Data Clustering
+      - text: Data Steps
+        menu:
+        - gathering.ipynb
+        - cleaning.ipynb
+        - exploration.ipynb
+        - clustering.ipynb
       - href: dimensionality.ipynb
         text: Dimensionality Reduction
       - href: trees.ipynb
@@ -34,5 +32,5 @@ website:
 
 format:
   html:
-    theme: Darkly
+    theme: flatly
     toc: true
