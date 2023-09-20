@@ -1,9 +1,9 @@
 ---
 title: "DSAN-5000 Project"
 ---
-
 Kendall Gilbert 
-kmg180@georgetown.edu
-See the following link for more information about the author: [about me](about_me.ipynb)
 
-This is a Quarto website.
+Contact:
+kmg180@georgetown.edu
+
+This website will act as a hub for my DSAN Project. You can learn more about me, this project and my goals by toggling through the nav bar. Enjoy!
