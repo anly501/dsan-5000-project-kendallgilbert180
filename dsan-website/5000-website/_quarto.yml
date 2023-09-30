@@ -32,5 +32,5 @@ website:
 
 format:
   html:
-    theme: united
+    theme: flatly 
     toc: true
