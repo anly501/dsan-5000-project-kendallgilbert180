@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Minor League Sports - Cleaning</title>
+<title>Ocean Sustainability - Data Cleaning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Minor League Sports</span>
+    <span class="navbar-title">Ocean Sustainability</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -107,14 +107,20 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-steps">    
         <li>
     <a class="dropdown-item" href="./gathering.html" rel="" target="">
- <span class="dropdown-text">Gathering</span></a>
+ <span class="dropdown-text">Data Gathering</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./cleaning.html" rel="" target="">
- <span class="dropdown-text">Cleaning</span></a>
+ <span class="dropdown-text">Data Cleaning</span></a>
   </li>  
-        <li class="dropdown-header">exploration.ipynb</li>
-        <li class="dropdown-header">clustering.ipynb</li>
+        <li>
+    <a class="dropdown-item" href="./exploration.html" rel="" target="">
+ <span class="dropdown-text">Exploration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./clustering.html" rel="" target="">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -145,14 +151,24 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-ocean-sustainability-is-necessary" id="toc-why-ocean-sustainability-is-necessary" class="nav-link active" data-scroll-target="#why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</a></li>
+  <li><a href="#how-the-ocean-helps-us" id="toc-how-the-ocean-helps-us" class="nav-link" data-scroll-target="#how-the-ocean-helps-us">How the Ocean Helps Us</a></li>
+  <li><a href="#negative-impacts-on-ocean-sustainability-human-impact" id="toc-negative-impacts-on-ocean-sustainability-human-impact" class="nav-link" data-scroll-target="#negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</a></li>
+  <li><a href="#benefits-of-investing-in-sustainability" id="toc-benefits-of-investing-in-sustainability" class="nav-link" data-scroll-target="#benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</a></li>
+  <li><a href="#what-is-currently-being-done" id="toc-what-is-currently-being-done" class="nav-link" data-scroll-target="#what-is-currently-being-done">What is Currently Being Done</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cleaning</h1>
+<h1 class="title">Data Cleaning</h1>
 </div>
 
 
@@ -167,8 +183,70 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p><img src="images/cleaning.png" class="img-fluid" style="width:30.0%"></p>
+<p>Data Cleaning is a key step in any project. Within this tab you will have access to all of my data, descriptions about how it was cleaned, and access to the codes used to clean it.</p>
+<p>This tab will be split up into the same section as the data cleaning tab:</p>
+<ol type="1">
+<li>Why Ocean Sustainability is Necessary</li>
+<li>How the Ocean Helps Us</li>
+<li>Negative Impacts on Ocean Sustainability / Human Impact</li>
+<li>Benefits of Investing in Sustainability</li>
+<li>What is Currently Being Done to Help</li>
+</ol>
+<p>I will walk through my data cleaning experience as well as provide links to every step.</p>
+<p>I will remain consistent in the labeling of all data sources and steps.</p>
+<ul>
+<li><strong>Raw Data:</strong> “1a” - In “00-raw-data”</li>
+<li><strong>Cleaning Steps:</strong> Cleaning_1a” - In “02-data-cleaning”</li>
+<li><strong>Cleaned Data:</strong> “Clean_1a” - In “1-modified-data”</li>
+</ul>
+<section id="why-ocean-sustainability-is-necessary" class="level2">
+<h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
+<p><strong>Plastic Leakage by Region (1a)</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/1a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data1a.R">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>First look at data</li>
+<li>Viewing Column Names to see duplicates
+<ul>
+<li>Noticed duplicate names for location, water source and time</li>
+<li>Looked into if the duplicates had the same values and if not what was the difference between them</li>
+</ul></li>
+<li>Getting rid of rows that had numbers for freshwater since my project is only addressing ocean sustainability.</li>
+<li>Removing Unnecessary columns that won’t help me address my question</li>
+<li>Exporting as a CSV dataset to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/1a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 4</li>
+<li>Number of Rows: 630</li>
+<li>Column Names: Location, Water Source, Time, Values(Tonnes of Plastic)</li>
+</ul>
+</section>
+<section id="how-the-ocean-helps-us" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-ocean-helps-us">How the Ocean Helps Us</h2>
+<p><strong>Beach Attendance (2a)</strong></p>
+<p><strong>Employment in Ocean Sectors (2b)</strong></p>
+</section>
+<section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
+<h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
+<p><strong>Plastic Pollution (3a)</strong></p>
+<p><strong>Mismanaged Plastic Waste (3b)</strong></p>
+</section>
+<section id="benefits-of-investing-in-sustainability" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
+<p><strong>Aquaculture Production (4a)</strong></p>
+<p><strong>Aquaculture Production - CatFish (4b)</strong></p>
+</section>
+<section id="what-is-currently-being-done" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
+<p><strong>Marine Pollution Act (5a)</strong></p>
+<p><strong>Marine Pollution Act Numbers (5b)</strong></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

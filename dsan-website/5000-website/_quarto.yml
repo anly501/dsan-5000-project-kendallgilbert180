@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Minor League Sports"
+  title: "Ocean Sustainability"
   navbar:
     right:
       - href: index.qmd
@@ -32,5 +32,5 @@ website:
 
 format:
   html:
-    theme: flatly 
+    theme: simplex 
     toc: true

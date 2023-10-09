@@ -51,16 +51,16 @@
   {
     "objectID": "gathering.html",
     "href": "gathering.html",
-    "title": "Minor League Sports",
+    "title": "Data Gathering",
     "section": "",
-    "text": "Title: Gathering Format: HTML"
+    "text": "Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.\nI divided this page into five sections. Within each section, I will provided datasets that relate to the topic stated. These sections include:\nFurthemore, I added labels to each data set to reference them in the data cleaning tab.\nWithin this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted"
   },
   {
     "objectID": "cleaning.html",
     "href": "cleaning.html",
-    "title": "Minor League Sports",
+    "title": "Data Cleaning",
     "section": "",
-    "text": "## Gathering"
+    "text": "Data Cleaning is a key step in any project. Within this tab you will have access to all of my data, descriptions about how it was cleaned, and access to the codes used to clean it.\nThis tab will be split up into the same section as the data cleaning tab:\nI will walk through my data cleaning experience as well as provide links to every step.\nI will remain consistent in the labeling of all data sources and steps."
   },
   {
     "objectID": "intro.html#hypothesis-goals",
@@ -89,5 +89,166 @@
     "title": "Introduction",
     "section": "Relevant Academic Publications",
     "text": "Relevant Academic Publications\nThe article, “The Economic Impact of Stadiums and Teams: The Case of Minor League Baseball” goes in depth on the impact minor league baseball stadiums have on their surrounding communities. The results of the extensive research is non positive with minimal negative results, and the researcher makes it clear that, “considerable work is still necessary to refine our understanding of the effects of minor league sports on local economies.” The publication also mentions that the positive impact of minor league sports may not be just related to baseball but other sports like hockey and soccer (Agha 2013). My research will aim to further pursue the impact of minor league sports.\nThe article, “Minor League Baseball: Risks and Potential Benefits for Communities Large and Small.” talks about the potential risks of investing in a minor league baseball stadium. The article homes in on the point that the risks can outweigh the benefits if approached correctly. These minor league baseball stadiums are not always bringing in large quantities of money but they are improving the communities quality of life and may be worth it from a public policy standpoint. Furthermore, this article talks about where stadiums will be most beneficial. For example, a team must be playing more than 70 games (Johnson 1998)."
+  },
+  {
+    "objectID": "gathering.html#first-steps",
+    "href": "gathering.html#first-steps",
+    "title": "Gathering",
+    "section": "First Steps",
+    "text": "First Steps\nWhen first approaching the data gathering process I decided that I need to find data relating to the minor league sports stadiums. I realized that there is almost no data on minor league stadiums that are not baseball stadiums. Naturally, I decided to start gathering data on baseball first."
+  },
+  {
+    "objectID": "gathering.html#community-quality-of-life",
+    "href": "gathering.html#community-quality-of-life",
+    "title": "Gathering",
+    "section": "Community Quality of Life",
+    "text": "Community Quality of Life"
+  },
+  {
+    "objectID": "gathering.html#baseball",
+    "href": "gathering.html#baseball",
+    "title": "Gathering",
+    "section": "Baseball",
+    "text": "Baseball\nMinor League Teams Data 2023 Minor League Baseball Teams This data is crucial to see the team name, their location, the MLB parent, and the league name. Below I have attached a screenshot that shows the original form of the data.\n\n\n\nData1\n\n\n2020 Ranks of Minor League Teams Minor League Baseball Ranks This data provides the ranking of minor league teams in the year 2020.\n\n\n\nData2\n\n\nMinor League Baseball Attendance Attendance\n\n\n\nData3"
+  },
+  {
+    "objectID": "gathering.html#economy",
+    "href": "gathering.html#economy",
+    "title": "Gathering",
+    "section": "Economy",
+    "text": "Economy"
+  },
+  {
+    "objectID": "gathering.html#baseball-data",
+    "href": "gathering.html#baseball-data",
+    "title": "Gathering",
+    "section": "Baseball Data",
+    "text": "Baseball Data\nMinor League Teams Data 2023 Minor League Baseball Teams\n\nThis data is crucial to see the team name, their location, the MLB parent, and the league name.\nExtraction Method:\n\n\n\n\nData1\n\n\n2020 Ranks of Minor League Teams Minor League Baseball Ranks\n\nThis data provides the ranking of minor league teams in the year 2020.\nExtraction Method:\n\n\n\n\nData2\n\n\nMinor League Baseball Attendance Attendance\n\nThis data shows the 2022 Minor League Baseball Attendence\nExtraction Method:\n\n\n\n\nData3\n\n\nMost Valuable Minor League Teams Valuable Minor League Teams\n\nThis data, posted by Forbes provides evidence behind the 20 most “valuable” minor league teams\nExtraction Method:\n\n\n\n\nData4"
+  },
+  {
+    "objectID": "gathering.html#community-quality-of-life-data",
+    "href": "gathering.html#community-quality-of-life-data",
+    "title": "Gathering",
+    "section": "Community Quality of Life Data",
+    "text": "Community Quality of Life Data"
+  },
+  {
+    "objectID": "gathering.html#data",
+    "href": "gathering.html#data",
+    "title": "Gathering",
+    "section": "Data",
+    "text": "Data"
+  },
+  {
+    "objectID": "gathering.html#data-1",
+    "href": "gathering.html#data-1",
+    "title": "Gathering",
+    "section": "Data 1",
+    "text": "Data 1\nPlastic Leakage by Region Data\n\nThis data set provides estimates of plastics leakage for the 15 different global regions.\nPossible Question Addressed: What will happen in future if ocean sustainability is ignored?\nExtraction Method: Exporting as CSV\n\n\n\n\nData1\n\n\nBeach Attendance Data\n\nThis data set covers the beach attendance in the state of New York\nPossible Question Addressed: How does the ocean help us?\nExtraction Method: Exporting as CSV\n\n\n\n\nData2\n\n\nPlastic Pollution Data\n\nThis dataset includes global data on plastic waste generation, pollution and trade. This resource also includes data visualiation already created to help readerse understand the dataset.\nPossible Question Addressed: What are the negative impacts on ocean sustainability?\nExtraction Method: Exporting as CSV\n\n\n\n\nData3\n\n\nAquaculture Production Data\n\n\nPossible Question Addressed: How do human activities impact marine species and habitats?\nExtraction Method: Exporting as CSV\n\n\n\n\nData4"
+  },
+  {
+    "objectID": "gathering.html#future-of-ocean-sustainability",
+    "href": "gathering.html#future-of-ocean-sustainability",
+    "title": "Gathering",
+    "section": "Future of Ocean Sustainability",
+    "text": "Future of Ocean Sustainability\nPlastic Leakage by Region Data\n\nThis data set provides estimates of plastics leakage for the 15 different global regions.\nExtraction Method: Exporting as CSV\n\n\n\n\nData1"
+  },
+  {
+    "objectID": "gathering.html#how-the-ocean-helps-us",
+    "href": "gathering.html#how-the-ocean-helps-us",
+    "title": "Data Gathering",
+    "section": "How the Ocean Helps Us",
+    "text": "How the Ocean Helps Us\nBeach Attendance (2a) Source\n\nThis data set covers the beach attendance in the state of New York\nExtraction Method: Exporting as CSV\n\n\nEmployment in Ocean Sectors (2b) Source\n\nThis layer illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise 33 counties from Maine to New York.\nExtraction Method: Exporting as CSV"
+  },
+  {
+    "objectID": "gathering.html#negative-impacts-on-ocean-sustainability",
+    "href": "gathering.html#negative-impacts-on-ocean-sustainability",
+    "title": "Gathering",
+    "section": "Negative Impacts on Ocean Sustainability",
+    "text": "Negative Impacts on Ocean Sustainability\nPlastic Pollution Data\n\nThis dataset includes global data on plastic waste generation, pollution and trade. This resource also includes data visualiation already created to help readerse understand the dataset.\nExtraction Method: Exporting as CSV\n\n\n\n\nData3"
+  },
+  {
+    "objectID": "gathering.html#human-impacts-on-ocean-sustainability",
+    "href": "gathering.html#human-impacts-on-ocean-sustainability",
+    "title": "Gathering",
+    "section": "Human Impacts on Ocean Sustainability",
+    "text": "Human Impacts on Ocean Sustainability"
+  },
+  {
+    "objectID": "gathering.html#benefits-of-investing-in-sustainabiltiy",
+    "href": "gathering.html#benefits-of-investing-in-sustainabiltiy",
+    "title": "Gathering",
+    "section": "Benefits of Investing in Sustainabiltiy",
+    "text": "Benefits of Investing in Sustainabiltiy\nAquaculture Production Data\n\n\nPossible Question Addressed: How do human activities impact marine species and habitats?\nExtraction Method: Exporting as CSV\n\n\n\n\nData4"
+  },
+  {
+    "objectID": "gathering.html#why-ocean-sustainability-is-necessary",
+    "href": "gathering.html#why-ocean-sustainability-is-necessary",
+    "title": "Data Gathering",
+    "section": "Why Ocean Sustainability is Necessary",
+    "text": "Why Ocean Sustainability is Necessary\nPlastic Leakage by Region (1a) Source\n\nThis data set provides estimates of plastics leakage for the 15 different global regions.\nExtraction Method: Exporting as CSV\nLink to Cleaned Data:"
+  },
+  {
+    "objectID": "gathering.html#benefits-of-investing-in-sustainability",
+    "href": "gathering.html#benefits-of-investing-in-sustainability",
+    "title": "Data Gathering",
+    "section": "Benefits of Investing in Sustainability",
+    "text": "Benefits of Investing in Sustainability\nAquaculture Production (4a) Source\n\nThis data set provides the Aquaculture Production by Country from 2000 to 2021.\nExtraction Method: Exporting as CSV\n\n\nAquaculture Production - CatFish (4b) Source\n\nStatistics on domestically grown fish / U.S. imports and exports of fish that may be products of aquaculture, such as salmon, shrimp, and oysters.\nExtraction Method: Exporting as CSV"
+  },
+  {
+    "objectID": "gathering.html#what-is-currently-being-done",
+    "href": "gathering.html#what-is-currently-being-done",
+    "title": "Data Gathering",
+    "section": "What is Currently Being Done",
+    "text": "What is Currently Being Done\nMarine Pollution Act (5a) Source\n\nThe Transport Operations (Marine Pollution) Act 1995 and regulations protect Queensland’s marine and coastal environment by minimising deliberate and negligent discharges of ship-sourced pollutants into coastal waters.\nExtraction Method: API in Python\n\n\nMarine Pollution Act Numbers (5b) Source\n\nGives the numbers for the total MPA in a country\nExtraction Method: Export as CSV"
+  },
+  {
+    "objectID": "gathering.html#human-impacts-on-the-ocean",
+    "href": "gathering.html#human-impacts-on-the-ocean",
+    "title": "Gathering",
+    "section": "Human Impacts on the Ocean",
+    "text": "Human Impacts on the Ocean"
+  },
+  {
+    "objectID": "gathering.html#negative-impacts-on-ocean-sustainability-human-impact",
+    "href": "gathering.html#negative-impacts-on-ocean-sustainability-human-impact",
+    "title": "Data Gathering",
+    "section": "Negative Impacts on Ocean Sustainability / Human Impact",
+    "text": "Negative Impacts on Ocean Sustainability / Human Impact\nPlastic Pollution (3a) Source\n\nThis dataset includes global data on plastic waste generation, pollution and trade. This resource also includes data visualiation already created to help readerse understand the dataset.\nExtraction Method: Exporting as CSV\n\n\nMismanaged Plastic Waste (3b) Source\n\nThis dataset provides information on mismanaged waste on many countries. Mismanaged waste is material at high risk of entering the ocean.\nExtraction Method: Exporting as CSV"
+  },
+  {
+    "objectID": "cleaning.html#why-ocean-sustainability-is-necessary",
+    "href": "cleaning.html#why-ocean-sustainability-is-necessary",
+    "title": "Data Cleaning",
+    "section": "Why Ocean Sustainability is Necessary",
+    "text": "Why Ocean Sustainability is Necessary\nPlastic Leakage by Region (1a)\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nFirst look at data\nViewing Column Names to see duplicates\n\nNoticed duplicate names for location, water source and time\nLooked into if the duplicates had the same values and if not what was the difference between them\n\nGetting rid of rows that had numbers for freshwater since my project is only addressing ocean sustainability.\nRemoving Unnecessary columns that won’t help me address my question\nExporting as a CSV dataset to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 4\nNumber of Rows: 630\nColumn Names: Location, Water Source, Time, Values(Tonnes of Plastic)"
+  },
+  {
+    "objectID": "cleaning.html#how-the-ocean-helps-us",
+    "href": "cleaning.html#how-the-ocean-helps-us",
+    "title": "Data Cleaning",
+    "section": "How the Ocean Helps Us",
+    "text": "How the Ocean Helps Us\nBeach Attendance (2a)\nEmployment in Ocean Sectors (2b)"
+  },
+  {
+    "objectID": "cleaning.html#negative-impacts-on-ocean-sustainability-human-impact",
+    "href": "cleaning.html#negative-impacts-on-ocean-sustainability-human-impact",
+    "title": "Data Cleaning",
+    "section": "Negative Impacts on Ocean Sustainability / Human Impact",
+    "text": "Negative Impacts on Ocean Sustainability / Human Impact\nPlastic Pollution (3a)\nMismanaged Plastic Waste (3b)"
+  },
+  {
+    "objectID": "cleaning.html#benefits-of-investing-in-sustainability",
+    "href": "cleaning.html#benefits-of-investing-in-sustainability",
+    "title": "Data Cleaning",
+    "section": "Benefits of Investing in Sustainability",
+    "text": "Benefits of Investing in Sustainability\nAquaculture Production (4a)\nAquaculture Production - CatFish (4b)"
+  },
+  {
+    "objectID": "cleaning.html#what-is-currently-being-done",
+    "href": "cleaning.html#what-is-currently-being-done",
+    "title": "Data Cleaning",
+    "section": "What is Currently Being Done",
+    "text": "What is Currently Being Done\nMarine Pollution Act (5a)\nMarine Pollution Act Numbers (5b)"
   }
 ]
