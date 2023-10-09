@@ -13,10 +13,10 @@ website:
         text: Code
       - href: intro.ipynb
         text: Introduction
-      - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data
-        text: Data
-      - text: Data Steps
+      - text: Data
         menu:
+        - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data
+          text: Data
         - gathering.ipynb
         - cleaning.ipynb
         - exploration.ipynb

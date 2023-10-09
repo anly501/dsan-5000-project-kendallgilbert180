@@ -19,6 +19,10 @@ categories2
 numberOfCategories2 <- length(categories2) 
 numberOfCategories2
 
+#Checking Time Frame
+time <- unique(data1a$Time)
+time
+
 #Both have 15 different Categories. Location is easier to understand. 
 
 #Removing "LOCATION"

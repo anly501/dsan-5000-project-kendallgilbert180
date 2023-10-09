@@ -96,15 +96,15 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./intro.html" rel="" target="">
  <span class="menu-text">Introduction</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data" rel="" target="">
- <span class="menu-text">Data</span></a>
-  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-steps" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Data Steps</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-steps">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data" rel="" target="">
+ <span class="dropdown-text">Data</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./gathering.html" rel="" target="">
  <span class="dropdown-text">Data Gathering</span></a>
@@ -194,20 +194,20 @@ ul.task-list li input[type="checkbox"] {
 <li>What is Currently Being Done to Help</li>
 </ol>
 <p>I will walk through my data cleaning experience as well as provide links to every step.</p>
-<p>I will remain consistent in the labeling of all data sources and steps.</p>
+<p>I will remain consistent in the labeling of all data sources and steps. (Data 1a example shown below)</p>
 <ul>
 <li><strong>Raw Data:</strong> “1a” - In “00-raw-data”</li>
 <li><strong>Cleaning Steps:</strong> Cleaning_1a” - In “02-data-cleaning”</li>
-<li><strong>Cleaned Data:</strong> “Clean_1a” - In “1-modified-data”</li>
+<li><strong>Cleaned Data:</strong> “Clean_1a” - In “01-modified-data”</li>
 </ul>
 <section id="why-ocean-sustainability-is-necessary" class="level2">
 <h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
-<p><strong>Plastic Leakage by Region (1a)</strong></p>
+<p><strong>1a. Plastic Leakage by Region</strong></p>
 <p><strong>Raw Data:</strong> <a href="data/00-raw-data/1a.csv">Here</a></p>
 <p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data1a.R">R Code</a></p>
 <ol type="1">
 <li>Reading in Dataset as CSV to R Studio</li>
-<li>First look at data</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
 <li>Viewing Column Names to see duplicates
 <ul>
 <li>Noticed duplicate names for location, water source and time</li>
@@ -217,32 +217,146 @@ ul.task-list li input[type="checkbox"] {
 <li>Removing Unnecessary columns that won’t help me address my question</li>
 <li>Exporting as a CSV dataset to clean data folder</li>
 </ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/1a.csv">Here</a></p>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata1a.csv">Here</a></p>
 <p><strong>Overview:</strong></p>
 <ul>
 <li>Number of Columns: 4</li>
 <li>Number of Rows: 630</li>
-<li>Column Names: Location, Water Source, Time, Values(Tonnes of Plastic)</li>
+<li>Column Names: Location, Water Source, Time, Values (Tonnes of Plastic)</li>
+<li>Time Frame: 2019 - 2060</li>
 </ul>
 </section>
 <section id="how-the-ocean-helps-us" class="level2">
 <h2 class="anchored" data-anchor-id="how-the-ocean-helps-us">How the Ocean Helps Us</h2>
-<p><strong>Beach Attendance (2a)</strong></p>
-<p><strong>Employment in Ocean Sectors (2b)</strong></p>
+<p><strong>2a. Beach Attendance</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2a.R">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Adding a month and year column to make analysis easier in the future</li>
+<li>Exporting as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 5</li>
+<li>Number of Rows: 5052</li>
+<li>Column Names: Date, Beach, Attendance, Month, Year</li>
+<li>Time Frame: 2017 - 2022</li>
+</ul>
+<p><strong>2b. Employment in Ocean Sectors</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2b.R">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Made column headers shorter for ALL columns</li>
+<li>Added a total employees column that calculates the total ocean sector employees for each county</li>
+<li>Exporting as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 8</li>
+<li>Number of Rows: 34</li>
+<li>Column Names: Employment Construction, Employment Living Resources, Employment Minerals, Employment Ship/Boat Building, Employment Tourism Recreation, Employment Transportation</li>
+<li>Time Frame: 2013</li>
+</ul>
 </section>
 <section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
 <h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
-<p><strong>Plastic Pollution (3a)</strong></p>
-<p><strong>Mismanaged Plastic Waste (3b)</strong></p>
+<p><strong>3a. Plastic Pollution</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/3a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data3a.py">Python Code</a></p>
+<ol type="1">
+<li>Importing Data into a Python Environment</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Counting number of NaN values in columns</li>
+<li>Only five in the country code column.</li>
+<li>Determined it is okay to keep these nan values as the country is also listed</li>
+<li>Renaming columns - ‘Entity’ to ‘Country’ and ‘Mismanaged plastic waste to ocean per capita (kg per year)’ to ‘Mismanaged Plastic’</li>
+<li>Exporting data as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata3a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 4</li>
+<li>Number of Rows: 165</li>
+<li>Column Names: Country, Code, Year, Mismanaged Plastic</li>
+<li>Time Frame: 2019</li>
+</ul>
+<p><strong>3b. Mismanaged Plastic Waste</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/3b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data3b.py">Python Code</a></p>
+<ol type="1">
+<li>Importing Data into a Python Environment</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Counting number of NaN values in columns</li>
+<li>Renaming columns to make headers shorter</li>
+<li>Exporting data as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata3b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 5</li>
+<li>Number of Rows: 194</li>
+<li>Column Names: Country, 2010_Mismanaged_Waste, 2019_Mismanaged_Waste, Mismanaged_PlasticWaste_PerCapita_2010 (kg per year),Mismanaged_PlasticWaste_PerCapita_2019 (kg per year)</li>
+<li>Time Frame: 2010 and 2019</li>
+</ul>
 </section>
 <section id="benefits-of-investing-in-sustainability" class="level2">
 <h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
-<p><strong>Aquaculture Production (4a)</strong></p>
-<p><strong>Aquaculture Production - CatFish (4b)</strong></p>
+<p><strong>4a. Aquaculture Production</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/4a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data4a.r">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Getting Rid of Indicator, Subject and Frequency Columns because all rows have the same value</li>
+<li>Editing Column names to be more clear and concise</li>
+<li>Finding out time frame</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata4a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 5</li>
+<li>Number of Rows: 2862</li>
+<li>Column Names: Location, Measure (Tonnes), Year, Value, Flag.codes</li>
+<li>Time Frame: 1995 - 2021</li>
+</ul>
+<p><strong>4b. Aquaculture Production - CatFish (Cleaning In PROGRESS)</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/4b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data4b.r">R Code</a></p>
+<ol type="1">
+<li></li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata4b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns:</li>
+<li>Number of Rows:</li>
+<li>Column Names:</li>
+<li>Time Frame:</li>
+</ul>
 </section>
 <section id="what-is-currently-being-done" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
 <p><strong>Marine Pollution Act (5a)</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data5a.r">R Code</a></p>
+<ol type="1">
+<li></li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns:</li>
+<li>Number of Rows:</li>
+<li>Column Names:</li>
+<li>Time Frame:</li>
+</ul>
 <p><strong>Marine Pollution Act Numbers (5b)</strong></p>
 
 

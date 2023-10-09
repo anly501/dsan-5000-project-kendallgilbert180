@@ -96,15 +96,15 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./intro.html" rel="" target="">
  <span class="menu-text">Introduction</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data" rel="" target="">
- <span class="menu-text">Data</span></a>
-  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-steps" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Data Steps</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Data</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-steps">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data" rel="" target="">
+ <span class="dropdown-text">Data</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./gathering.html" rel="" target="">
  <span class="dropdown-text">Data Gathering</span></a>
@@ -160,6 +160,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#negative-impacts-on-ocean-sustainability-human-impact" id="toc-negative-impacts-on-ocean-sustainability-human-impact" class="nav-link" data-scroll-target="#negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</a></li>
   <li><a href="#benefits-of-investing-in-sustainability" id="toc-benefits-of-investing-in-sustainability" class="nav-link" data-scroll-target="#benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</a></li>
   <li><a href="#what-is-currently-being-done" id="toc-what-is-currently-being-done" class="nav-link" data-scroll-target="#what-is-currently-being-done">What is Currently Being Done</a></li>
+  <li><a href="#python-api" id="toc-python-api" class="nav-link" data-scroll-target="#python-api">Python API</a></li>
+  <li><a href="#r-api" id="toc-r-api" class="nav-link" data-scroll-target="#r-api">R API</a></li>
   </ul>
 </nav>
     </div>
@@ -183,6 +185,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p><img src="images/gathering.png" class="img-fluid" style="width:20.0%"></p>
 <p>Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.</p>
 <p>I divided this page into five sections. Within each section, I will provided datasets that relate to the topic stated. These sections include:</p>
 <ol type="1">
@@ -196,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Within this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted</p>
 <section id="why-ocean-sustainability-is-necessary" class="level2">
 <h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
-<p><strong>Plastic Leakage by Region (1a)</strong> <a href="https://stats.oecd.org/viewhtml.aspx?datasetcode=PLASTIC_LEAKAGE_V2_2&amp;lang=en">Source</a></p>
+<p><strong>1a. Plastic Leakage by Region</strong> <a href="https://stats.oecd.org/viewhtml.aspx?datasetcode=PLASTIC_LEAKAGE_V2_2&amp;lang=en">Source</a></p>
 <ul>
 <li>This data set provides estimates of plastics leakage for the 15 different global regions.</li>
 <li>Extraction Method: Exporting as CSV</li>
@@ -206,13 +209,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="how-the-ocean-helps-us" class="level2">
 <h2 class="anchored" data-anchor-id="how-the-ocean-helps-us">How the Ocean Helps Us</h2>
-<p><strong>Beach Attendance (2a)</strong> <a href="https://catalog.data.gov/dataset/swimming-beach-attendance">Source</a></p>
+<p><strong>2a. Beach Attendance</strong> <a href="https://catalog.data.gov/dataset/swimming-beach-attendance">Source</a></p>
 <ul>
 <li>This data set covers the beach attendance in the state of New York</li>
 <li>Extraction Method: Exporting as CSV</li>
 </ul>
 <p><img src="images/data2.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>Employment in Ocean Sectors (2b)</strong> <a href="https://opdgig.dos.ny.gov/datasets/e25794dc9cab4fe8bd40d76a18c80f66/explore?showTable=true">Source</a></p>
+<p><strong>2b. Employment in Ocean Sectors</strong> <a href="https://opdgig.dos.ny.gov/datasets/e25794dc9cab4fe8bd40d76a18c80f66/explore?showTable=true">Source</a></p>
 <ul>
 <li>This layer illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise 33 counties from Maine to New York.</li>
 <li>Extraction Method: Exporting as CSV</li>
@@ -221,13 +224,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
 <h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
-<p><strong>Plastic Pollution (3a)</strong> <a href="https://ourworldindata.org/plastic-pollution">Source</a></p>
+<p><strong>3a. Plastic Pollution</strong> <a href="https://ourworldindata.org/plastic-pollution">Source</a></p>
 <ul>
 <li>This dataset includes global data on plastic waste generation, pollution and trade. This resource also includes data visualiation already created to help readerse understand the dataset.</li>
 <li>Extraction Method: Exporting as CSV</li>
 </ul>
 <p><img src="images/data3.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>Mismanaged Plastic Waste (3b)</strong> <a href="https://www.kaggle.com/datasets/kkhandekar/mismanaged-plastic-waste-around-the-world/data">Source</a></p>
+<p><strong>3b. Mismanaged Plastic Waste</strong> <a href="https://www.kaggle.com/datasets/kkhandekar/mismanaged-plastic-waste-around-the-world/data">Source</a></p>
 <ul>
 <li>This dataset provides information on mismanaged waste on many countries. Mismanaged waste is material at high risk of entering the ocean.</li>
 <li>Extraction Method: Exporting as CSV</li>
@@ -236,13 +239,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="benefits-of-investing-in-sustainability" class="level2">
 <h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
-<p><strong>Aquaculture Production (4a)</strong> <a href="https://data.oecd.org/fish/aquaculture-production.htm">Source</a></p>
+<p><strong>4a. Aquaculture Production</strong> <a href="https://data.oecd.org/fish/aquaculture-production.htm">Source</a></p>
 <ul>
 <li>This data set provides the Aquaculture Production by Country from 2000 to 2021.</li>
 <li>Extraction Method: Exporting as CSV</li>
 </ul>
 <p><img src="images/data9.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>Aquaculture Production - CatFish (4b)</strong> <a href="https://data.world/agriculture/aquaculture-data">Source</a></p>
+<p><strong>4b. Aquaculture Production - CatFish</strong> <a href="https://data.world/agriculture/aquaculture-data">Source</a></p>
 <ul>
 <li>Statistics on domestically grown fish / U.S. imports and exports of fish that may be products of aquaculture, such as salmon, shrimp, and oysters.</li>
 <li>Extraction Method: Exporting as CSV</li>
@@ -251,18 +254,26 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="what-is-currently-being-done" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
-<p><strong>Marine Pollution Act (5a)</strong> <a href="https://www.data.qld.gov.au/dataset/marine-oil-spills-data">Source</a></p>
+<p><strong>5a. Marine Pollution Act</strong> <a href="https://www.data.qld.gov.au/dataset/marine-oil-spills-data">Source</a></p>
 <ul>
 <li>The Transport Operations (Marine Pollution) Act 1995 and regulations protect Queensland’s marine and coastal environment by minimising deliberate and negligent discharges of ship-sourced pollutants into coastal waters.</li>
 <li>Extraction Method: API in Python</li>
 </ul>
 <p><img src="images/data8.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>Marine Pollution Act Numbers (5b)</strong> <a href="https://www.google.com/url?q=https://stats.oecd.org/viewhtml.aspx?datasetcode%3DOCEAN%26lang%3Den%23&amp;sa=D&amp;source=docs&amp;ust=1696810131575373&amp;usg=AOvVaw0rMGZtX0PlL1T2mnFrbzpp">Source</a></p>
+<p><strong>5b. Marine Pollution Act Numbers</strong> <a href="https://www.google.com/url?q=https://stats.oecd.org/viewhtml.aspx?datasetcode%3DOCEAN%26lang%3Den%23&amp;sa=D&amp;source=docs&amp;ust=1696810131575373&amp;usg=AOvVaw0rMGZtX0PlL1T2mnFrbzpp">Source</a></p>
 <ul>
 <li>Gives the numbers for the total MPA in a country</li>
 <li>Extraction Method: Export as CSV</li>
 </ul>
 <p><img src="images/data6.png" class="img-fluid" style="width:40.0%"></p>
+</section>
+<section id="python-api" class="level2">
+<h2 class="anchored" data-anchor-id="python-api">Python API</h2>
+<p>I used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do a text analysis with this data.</p>
+<p>Link to Code: <a href="./codes/01-data-gathering/Python API/apinews_gathering.html">Here</a> Text Files:</p>
+</section>
+<section id="r-api" class="level2">
+<h2 class="anchored" data-anchor-id="r-api">R API</h2>
 
 
 </section>
