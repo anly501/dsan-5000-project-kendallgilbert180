@@ -15,12 +15,16 @@ website:
         text: Introduction
       - text: Data
         menu:
-        - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data
+        - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/data
           text: Data
         - gathering.ipynb
         - cleaning.ipynb
         - exploration.ipynb
         - clustering.ipynb
+      - text: ML
+        menu:
+        - FS.ipynb
+        - NB.ipynb
       - href: dimensionality.ipynb
         text: Dimensionality Reduction
       - href: trees.ipynb
@@ -33,4 +37,5 @@ website:
 format:
   html:
     theme: simplex 
+    background-color: beige;
     toc: true

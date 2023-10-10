@@ -1,12 +1,13 @@
 ---
 title: "DSAN-5000 Project"
+author: Kendall Gilbert
 ---
-Kendall Gilbert 
 
 **Contact:**
 
-Email: kmg180@georgetown.edu
-
-GU Net ID: G00998695
+- Email: kmg180@georgetown.edu
+- GU Net ID: G00998695
 
 This website will act as a hub for my DSAN Project. You can learn more about me, this project and my goals by toggling through the nav bar. Enjoy!
+
+<center> ![ ](images/hp.jpeg){width=90%} </center>

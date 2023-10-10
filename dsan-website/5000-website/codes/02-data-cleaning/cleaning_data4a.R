@@ -1,4 +1,3 @@
-
 #Reading in Data 
 data4a <- read.csv("~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/4a.csv")
 

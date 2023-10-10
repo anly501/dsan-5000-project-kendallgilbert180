@@ -115,11 +115,26 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./exploration.html" rel="" target="">
- <span class="dropdown-text">Exploration</span></a>
+ <span class="dropdown-text">Data Exploration</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./clustering.html" rel="" target="">
  <span class="dropdown-text">Clustering</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">ML</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ml">    
+        <li>
+    <a class="dropdown-item" href="./FS.html" rel="" target="">
+ <span class="dropdown-text">Feature Selection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./NB.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes</span></a>
   </li>  
     </ul>
   </li>
@@ -197,14 +212,14 @@ ul.task-list li input[type="checkbox"] {
 <p>I will remain consistent in the labeling of all data sources and steps. (Data 1a example shown below)</p>
 <ul>
 <li><strong>Raw Data:</strong> “1a” - In “00-raw-data”</li>
-<li><strong>Cleaning Steps:</strong> Cleaning_1a” - In “02-data-cleaning”</li>
-<li><strong>Cleaned Data:</strong> “Clean_1a” - In “01-modified-data”</li>
+<li><strong>Cleaning Steps:</strong> “cleaning_data1a” - In “02-data-cleaning”</li>
+<li><strong>Cleaned Data:</strong> “cleandata1a” - In “01-modified-data”</li>
 </ul>
 <section id="why-ocean-sustainability-is-necessary" class="level2">
 <h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
 <p><strong>1a. Plastic Leakage by Region</strong></p>
 <p><strong>Raw Data:</strong> <a href="data/00-raw-data/1a.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data1a.R">R Code</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data1a.rmd">R Code</a></p>
 <ol type="1">
 <li>Reading in Dataset as CSV to R Studio</li>
 <li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
@@ -343,12 +358,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="what-is-currently-being-done" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
-<p><strong>Marine Pollution Act (5a)</strong></p>
+<p><strong>5a. Marine Pollution Act (CLEANING IN PROGRESS)</strong></p>
 <p><strong>Raw Data:</strong> <a href="data/00-raw-data/5a.csv">Here</a></p>
 <p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data5a.r">R Code</a></p>
-<ol type="1">
-<li></li>
-</ol>
 <p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5a.csv">Here</a></p>
 <p><strong>Overview:</strong></p>
 <ul>
@@ -358,6 +370,16 @@ ul.task-list li input[type="checkbox"] {
 <li>Time Frame:</li>
 </ul>
 <p><strong>Marine Pollution Act Numbers (5b)</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data5b.r">R Code</a></p>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns:</li>
+<li>Number of Rows:</li>
+<li>Column Names:</li>
+<li>Time Frame:</li>
+</ul>
 
 
 </section>
