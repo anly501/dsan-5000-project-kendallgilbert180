@@ -53,4 +53,5 @@ colnames(data1a) #4
 #Exporting to Clean Data Folder as cleandata1a
 write.csv(data1a, file = "cleandata1a.csv", row.names = TRUE)
 
+head(data1a)
 ```

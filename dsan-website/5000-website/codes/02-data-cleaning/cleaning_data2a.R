@@ -13,6 +13,5 @@ data2a <- data2a %>%
 
 data2a <- data2a %>%
   mutate(Year = format(as.Date(Date, format = "%m/%d/%Y"), "%Y"))
-
 #Exporting Data
 write.csv(data2a, file = "cleandata2a.csv", row.names = TRUE)

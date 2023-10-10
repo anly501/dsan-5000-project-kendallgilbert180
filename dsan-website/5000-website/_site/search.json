@@ -4,7 +4,7 @@
     "href": "intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "*Updates in progress"
+    "text": "This project will look at the data behind ocean sustainability. This project will analyze data touching upon the necessity of ocean sustainability, how the ocean benefits us, the negative impacts humans have on ocean sustainability, the benefits of investing in ocean sustainability and what is currently being done to help sustainability.\nThe analysis seeks to answer questions such as:\n\nWhat is the Importance of Ocean Sustainability?\nWhat Negative Impacts Do Humans Have on Ocean Sustainability?\nWhat Is Currently Being Done for Ocean Sustainability?\n\nOcean sustainability is the approach required to manage our oceans and the services they provide. Ocean-related industries in many countries have expanded with insufficient consideration for the environment, risking the natural resources and the essential marine ecosystem services on which economies and people’s well-being depend. The ocean is our planet’s largest ecosystem, with over a million species and scientists have yet to explore a majority of this ecosystem[]"
   },
   {
     "objectID": "about_me.html",
@@ -67,21 +67,21 @@
     "href": "intro.html#hypothesis-goals",
     "title": "Introduction",
     "section": "Hypothesis / Goals",
-    "text": "Hypothesis / Goals"
+    "text": "Hypothesis / Goals\nOcean sustainability has an impact on our world and is necessary for the future health of our world’s oceans.\nI want this project to clearly and concisely display the need for ocean sustainability in addition to what is being done and how it has helped so far. By the end of the project, I will be able to support my hypothesis through data exploration and clearly display the impact of ocean sustainability.\nThe analysis will also provide a tool for organizations, local governments and developers to use when deciding if and how to invest in ocean sustainability."
   },
   {
     "objectID": "intro.html#overview",
     "href": "intro.html#overview",
     "title": "Introduction",
-    "section": "Overview",
-    "text": "Overview"
+    "section": "",
+    "text": "This project will look at the data behind ocean sustainability. This project will analyze data touching upon the necessity of ocean sustainability, how the ocean benefits us, the negative impacts humans have on ocean sustainability, the benefits of investing in ocean sustainability and what is currently being done to help sustainability.\nThe analysis seeks to answer questions such as:\n\nWhat is the Importance of Ocean Sustainability?\nWhat Negative Impacts Do Humans Have on Ocean Sustainability?\nWhat Is Currently Being Done for Ocean Sustainability?\n\nOcean sustainability is the approach required to manage our oceans and the services they provide. Ocean-related industries in many countries have expanded with insufficient consideration for the environment, risking the natural resources and the essential marine ecosystem services on which economies and people’s well-being depend. The ocean is our planet’s largest ecosystem, with over a million species and scientists have yet to explore a majority of this ecosystem[]"
   },
   {
     "objectID": "intro.html#additional-questions-being-addressed",
     "href": "intro.html#additional-questions-being-addressed",
     "title": "Introduction",
     "section": "Additional Questions Being Addressed:",
-    "text": "Additional Questions Being Addressed:"
+    "text": "Additional Questions Being Addressed:\n\nWhat is the importance of ocean sustainability?\nWhy is ocean sustainability necessary for the future of our world?\nWhat negative impacts do humans have on ocean sustainability?\nWhat Is currently being done to help ocean sustainability?\nWhat are the benefits of investing in ocean sustainability?\nHow does the ocean benefit us?\nWhy is the ocean important to the economy?\nWhy is the ocean important to marine life?\nHow does the ocean contribute to the wellness of communities?\nWhat will happen if we do not invest time in ocean sustainability?"
   },
   {
     "objectID": "intro.html#relevant-academic-publications",
@@ -158,7 +158,7 @@
     "href": "gathering.html#how-the-ocean-helps-us",
     "title": "Data Gathering",
     "section": "How the Ocean Helps Us",
-    "text": "How the Ocean Helps Us\n2a. Beach Attendance Source\n\nThis data set covers the beach attendance in the state of New York\nExtraction Method: Exporting as CSV\n\n\n2b. Employment in Ocean Sectors Source\n\nThis layer illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise 33 counties from Maine to New York.\nExtraction Method: Exporting as CSV"
+    "text": "How the Ocean Helps Us\n2a. Beach Attendance Source\n\nThis data set covers the beach attendance in the state of New York\nExtraction Method: Exporting as CSV\n\n\n2b. Employment in Ocean Sectors Source\n\nThis data illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise of 33 counties from Maine to New York.\nExtraction Method: Exporting as CSV"
   },
   {
     "objectID": "gathering.html#negative-impacts-on-ocean-sustainability",
@@ -277,7 +277,7 @@
     "href": "codes/02-data-cleaning/cleaning_data1a.html",
     "title": "cleaning_data1a",
     "section": "",
-    "text": "#Reading in Data \ndata1a &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/1a.csv\")\n#First Look at Data\nhead(data1a)\n\n  LOCATION      Location WATER_SOURCE Water.source TIME Time    Value\n1     USA1 United States   FRESHWATER   Freshwater 2019 2019 75.97225\n2     USA1 United States   FRESHWATER   Freshwater 2020 2020 76.86793\n3     USA1 United States   FRESHWATER   Freshwater 2021 2021 77.72686\n4     USA1 United States   FRESHWATER   Freshwater 2022 2022 78.55104\n5     USA1 United States   FRESHWATER   Freshwater 2023 2023 79.29890\n6     USA1 United States   FRESHWATER   Freshwater 2024 2024 79.97288\n  Flag.Codes Flags\n1         NA    NA\n2         NA    NA\n3         NA    NA\n4         NA    NA\n5         NA    NA\n6         NA    NA\n\nnrow(data1a)\n\n[1] 1260\n\n#Viewing Column Names\ncolnames(data1a) #Noticing a lot of duplicates- need to look into that\n\n[1] \"LOCATION\"     \"Location\"     \"WATER_SOURCE\" \"Water.source\" \"TIME\"        \n[6] \"Time\"         \"Value\"        \"Flag.Codes\"   \"Flags\"       \n\n#\"Location\" vs \"LOCATION\"\ncategories &lt;- unique(data1a$Location) \nnumberOfCategories &lt;- length(categories) \ncategories \n\n [1] \"United States\"              \"OECD Non-EU\"               \n [3] \"China\"                      \"Other OECD America\"        \n [5] \"Other Africa\"               \"Other non-OECD Asia\"       \n [7] \"OECD Asia\"                  \"Other Eurasia\"             \n [9] \"Latin America\"              \"OECD EU \"                  \n[11] \"Canada\"                     \"Middle East & North Africa\"\n[13] \"Other EU\"                   \"OECD Oceania\"              \n[15] \"India\"                     \n\nnumberOfCategories #15 Categories\n\n[1] 15\n\ncategories2 &lt;- unique(data1a$LOCATION)\ncategories2\n\n [1] \"USA1\" \"OE6\"  \"CHN1\" \"OAM\"  \"OAF\"  \"ODA\"  \"OPA\"  \"RAN\"  \"LAM\"  \"O22\" \n[11] \"CAN1\" \"MEN\"  \"EU5\"  \"OCE\"  \"IND1\"\n\nnumberOfCategories2 &lt;- length(categories2) \nnumberOfCategories2\n\n[1] 15\n\n#Checking Time Frame\ntime &lt;- unique(data1a$Time)\ntime\n\n [1] 2019 2020 2021 2022 2023 2024 2025 2026 2027 2028 2029 2030 2031 2032 2033\n[16] 2034 2035 2036 2037 2038 2039 2040 2041 2042 2043 2044 2045 2046 2047 2048\n[31] 2049 2050 2051 2052 2053 2054 2055 2056 2057 2058 2059 2060\n\n#Both have 15 different Categories. Location is easier to understand. \n\n#Removing \"LOCATION\"\ndata1a &lt;- subset(data1a, select = -LOCATION)\n\n#Water Source Columns \ncategories3 &lt;- unique(data1a$WATER_SOURCE)\ncategories3 #This dataset has freshwater and ocean... we do not care about freshwater so that needs to be removed\n\n[1] \"FRESHWATER\" \"OCEAN\"     \n\ndata1a &lt;- subset(data1a, select = -WATER_SOURCE)\ndata1a &lt;- data1a[data1a$Water.source != \"Freshwater\", ]\n\n#Getting Rid of Extra Time Columns \ndata1a &lt;- subset(data1a, select = -TIME)\ndata1a &lt;- subset(data1a, select = -Flag.Codes)\ndata1a &lt;- subset(data1a, select = -Flags)\n\n#Statistics to Include\nnrow(data1a) #630\n\n[1] 630\n\ncolnames(data1a) #4\n\n[1] \"Location\"     \"Water.source\" \"Time\"         \"Value\"       \n\n#Exporting to Clean Data Folder as cleandata1a\nwrite.csv(data1a, file = \"cleandata1a.csv\", row.names = TRUE)"
+    "text": "#Reading in Data \ndata1a &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/1a.csv\")\n#First Look at Data\nhead(data1a)\n\n  LOCATION      Location WATER_SOURCE Water.source TIME Time    Value\n1     USA1 United States   FRESHWATER   Freshwater 2019 2019 75.97225\n2     USA1 United States   FRESHWATER   Freshwater 2020 2020 76.86793\n3     USA1 United States   FRESHWATER   Freshwater 2021 2021 77.72686\n4     USA1 United States   FRESHWATER   Freshwater 2022 2022 78.55104\n5     USA1 United States   FRESHWATER   Freshwater 2023 2023 79.29890\n6     USA1 United States   FRESHWATER   Freshwater 2024 2024 79.97288\n  Flag.Codes Flags\n1         NA    NA\n2         NA    NA\n3         NA    NA\n4         NA    NA\n5         NA    NA\n6         NA    NA\n\nnrow(data1a)\n\n[1] 1260\n\n#Viewing Column Names\ncolnames(data1a) #Noticing a lot of duplicates- need to look into that\n\n[1] \"LOCATION\"     \"Location\"     \"WATER_SOURCE\" \"Water.source\" \"TIME\"        \n[6] \"Time\"         \"Value\"        \"Flag.Codes\"   \"Flags\"       \n\n#\"Location\" vs \"LOCATION\"\ncategories &lt;- unique(data1a$Location) \nnumberOfCategories &lt;- length(categories) \ncategories \n\n [1] \"United States\"              \"OECD Non-EU\"               \n [3] \"China\"                      \"Other OECD America\"        \n [5] \"Other Africa\"               \"Other non-OECD Asia\"       \n [7] \"OECD Asia\"                  \"Other Eurasia\"             \n [9] \"Latin America\"              \"OECD EU \"                  \n[11] \"Canada\"                     \"Middle East & North Africa\"\n[13] \"Other EU\"                   \"OECD Oceania\"              \n[15] \"India\"                     \n\nnumberOfCategories #15 Categories\n\n[1] 15\n\ncategories2 &lt;- unique(data1a$LOCATION)\ncategories2\n\n [1] \"USA1\" \"OE6\"  \"CHN1\" \"OAM\"  \"OAF\"  \"ODA\"  \"OPA\"  \"RAN\"  \"LAM\"  \"O22\" \n[11] \"CAN1\" \"MEN\"  \"EU5\"  \"OCE\"  \"IND1\"\n\nnumberOfCategories2 &lt;- length(categories2) \nnumberOfCategories2\n\n[1] 15\n\n#Checking Time Frame\ntime &lt;- unique(data1a$Time)\ntime\n\n [1] 2019 2020 2021 2022 2023 2024 2025 2026 2027 2028 2029 2030 2031 2032 2033\n[16] 2034 2035 2036 2037 2038 2039 2040 2041 2042 2043 2044 2045 2046 2047 2048\n[31] 2049 2050 2051 2052 2053 2054 2055 2056 2057 2058 2059 2060\n\n#Both have 15 different Categories. Location is easier to understand. \n\n#Removing \"LOCATION\"\ndata1a &lt;- subset(data1a, select = -LOCATION)\n\n#Water Source Columns \ncategories3 &lt;- unique(data1a$WATER_SOURCE)\ncategories3 #This dataset has freshwater and ocean... we do not care about freshwater so that needs to be removed\n\n[1] \"FRESHWATER\" \"OCEAN\"     \n\ndata1a &lt;- subset(data1a, select = -WATER_SOURCE)\ndata1a &lt;- data1a[data1a$Water.source != \"Freshwater\", ]\n\n#Getting Rid of Extra Time Columns \ndata1a &lt;- subset(data1a, select = -TIME)\ndata1a &lt;- subset(data1a, select = -Flag.Codes)\ndata1a &lt;- subset(data1a, select = -Flags)\n\n#Statistics to Include\nnrow(data1a) #630\n\n[1] 630\n\ncolnames(data1a) #4\n\n[1] \"Location\"     \"Water.source\" \"Time\"         \"Value\"       \n\n#Exporting to Clean Data Folder as cleandata1a\nwrite.csv(data1a, file = \"cleandata1a.csv\", row.names = TRUE)\n\nhead(data1a)\n\n      Location Water.source Time    Value\n43 OECD Non-EU        Ocean 2019 10.03620\n44 OECD Non-EU        Ocean 2020 10.40809\n45 OECD Non-EU        Ocean 2021 10.78269\n46 OECD Non-EU        Ocean 2022 11.15956\n47 OECD Non-EU        Ocean 2023 11.53769\n48 OECD Non-EU        Ocean 2024 11.91631"
   },
   {
     "objectID": "exploration.html",
@@ -291,27 +291,223 @@
     "href": "exploration.html#why-ocean-sustainability-is-necessary",
     "title": "Data Exploration",
     "section": "Why Ocean Sustainability is Necessary",
-    "text": "Why Ocean Sustainability is Necessary\n1a. Plastic Leakage by Region\nLink to Code Used in EDA: Python Code\nData Understanding\nThis dataset gives us predictions of the future plastic leakage for 15 different regions. According to OECD.stat “Plastic leakages to aquatic environments and the subcategory transport to oceans are estimated by applying the methodology adapted from Lebreton and Andrady (2019), on OECD ENV-Linkages model outputs and plastic leakage from mismanaged and litter. I have cleaned this data to only include the ocean data - NOT freshwater.\nThis data consists of categorical and numerical data. The categorical data is location and water source and the numerical data is time and values (tonnes).\nThis data is crucial to my project as it shows what may happen if time is not invested into ocean sustainability.\nDescriptive Statistics\n\nData Visualization\n, , ,  , \nCorrelation Analysis\nIdentifying Outliers\nData Set Findings"
+    "text": "Why Ocean Sustainability is Necessary\n1a. Plastic Leakage by Region\nExploratory Data Analysis: Python Code and Analysis"
   },
   {
     "objectID": "exploration.html#overview",
     "href": "exploration.html#overview",
     "title": "Data Exploration",
     "section": "Overview",
-    "text": "Overview\nThis tab will explore all the datasets that I have collected. This tab will be split up into the same sections as the other tabs:\n\nWhy Ocean Sustainability is Necessary\nHow the Ocean Helps Us\nNegative Impacts on Ocean Sustainability / Human Impact\nBenefits of Investing in Sustainability\nWhat is Currently Being Done to Help\n\nFor each data set I will address the following:\n\nOverall Data Understanding:\n\nProblem you are trying to solve. Familiarize yourself with the characteristics of each feature\nData types (numerical, categorical)\nRelevance to the project’s objectives.\n\nDescriptive Statistics:\n\nSummary Statistics such as mean, median, mode, standard deviation, and variance for numerical variables.\nFor categorical variables, provide frequency distributions and bar charts to visualize data distribution.\n\nData Visualizations\nCorrelation Analysis\n\nI will aslo pay attention to data grouping and segmentation as well as outliers.\nAt the end I will update and provide information on:\n\nHypothesis Generation\nMethods and Findings\n\nThis section will be lengthy. I will remain consistent in the dataset labels that I created in the beginning of this project."
+    "text": "Overview\nThis tab will explore all the datasets that I have collected. This tab will be split up into the same sections as the other tabs:\n\nWhy Ocean Sustainability is Necessary\nHow the Ocean Helps Us\nNegative Impacts on Ocean Sustainability / Human Impact\nBenefits of Investing in Sustainability\nWhat is Currently Being Done to Help\n\nFor each data set I will address the following:\n\nOverall Data Understanding\nDescriptive Statistics\nData Visualizations\nCorrelation Analysis\nIdentifying Outliers\nMethods and Findings\n\nI will also pay attention to data grouping and segmentation as well as updating and providing information on Hypothesis Generation"
   },
   {
     "objectID": "codes/03-data-exploration/eda_1a.html",
     "href": "codes/03-data-exploration/eda_1a.html",
-    "title": "Ocean Sustainability",
+    "title": "Data 1a Exploratory Data Analysis",
     "section": "",
-    "text": "import pandas as pd\ndata1a = pd.read_csv('/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/cleandata1a.csv')\n\ndata1a[[\"Value\"]].describe()\n\n\n\n\n\n\n\n\nValue\n\n\n\n\ncount\n630.000000\n\n\nmean\n34.537254\n\n\nstd\n38.067211\n\n\nmin\n0.211856\n\n\n25%\n8.962933\n\n\n50%\n21.689714\n\n\n75%\n45.564320\n\n\nmax\n219.560846\n\n\n\n\n\n\n\n\nimport matplotlib.pyplot as plt\naverage_tonnes = data1a.groupby(\"Time\")[\"Value\"].mean()\nprint(average_tonnes)\n# Create a bar chart to visualize the average tonnes for each year\nplt.figure(figsize=(8, 6))\nplt.bar(average_tonnes.index, average_tonnes.values, color='#ADD8E6')\nplt.xlabel(\"Year\")\nplt.ylabel(\"Average Tonnes\")\nplt.title(\"Average Tonnes Each Year\")\nplt.show()\n\nTime\n2019    14.190713\n2020    14.991558\n2021    15.815873\n2022    16.661638\n2023    17.526139\n2024    18.408037\n2025    19.305978\n2026    20.218833\n2027    21.145476\n2028    22.084971\n2029    23.036863\n2030    24.000722\n2031    24.977092\n2032    25.965641\n2033    26.966224\n2034    27.978738\n2035    29.003360\n2036    30.039738\n2037    31.087691\n2038    32.147030\n2039    33.217568\n2040    34.298923\n2041    35.390826\n2042    36.493203\n2043    37.605950\n2044    38.728821\n2045    39.861560\n2046    41.003898\n2047    42.155371\n2048    43.315662\n2049    44.484259\n2050    45.660990\n2051    46.845424\n2052    48.037173\n2053    49.235762\n2054    50.440719\n2055    51.651467\n2056    52.867548\n2057    54.088356\n2058    55.313384\n2059    56.541971\n2060    57.773511\nName: Value, dtype: float64\n\n\n\n\n\n\ncountry_sum = data1a.groupby(\"Location\")[\"Value\"].sum()\n# Print the sum of values for each country\ncountry_sum = country_sum.sort_values(ascending=False)\nprint(country_sum)\nplt.figure(figsize=(8, 6))\nplt.bar(country_sum.index, country_sum.values, color='#ADD8E6')\nplt.xlabel(\"Country\")\nplt.ylabel(\"Sum of Value\")\nplt.title(\"Estimated Total Leakage by Country in 2060\")\nplt.xticks(rotation=45)  # Rotate x-axis labels for better readability\nplt.show()\n\nLocation\nOther non-OECD Asia           5219.555210\nChina                         3171.411114\nOther Africa                  2683.444158\nLatin America                 2184.368092\nOECD EU                       1630.250955\nUnited States                 1517.991740\nIndia                         1431.290918\nMiddle East & North Africa    1388.940608\nOECD Non-EU                    712.730233\nOther OECD America             628.464360\nOECD Asia                      578.911133\nOther Eurasia                  332.924609\nCanada                         222.498466\nOther EU                        32.281595\nOECD Oceania                    23.406731\nName: Value, dtype: float64\n\n\n\n\n\n\n#HeatMap\nimport seaborn as sns\nheatmap_data = data1a.pivot_table(index=\"Location\", values=\"Value\", aggfunc=\"sum\")\nplt.figure(figsize=(10, 6))\nsns.heatmap(heatmap_data, cmap=\"YlGnBu\", annot=True, fmt='g', cbar=True, linewidths=0.5)\nplt.title(\"Heatmap of Values by Location\")\n\n# Show the plot\nplt.show()\n\n\n\n\n\nselected_countries = [\"United States\", \"China\"]\nfiltered_df = data1a[data1a[\"Location\"].isin(selected_countries)]\n\n# Create a boxplot\nplt.figure(figsize=(8, 6))\nsns.boxplot(x=\"Location\", y=\"Value\", data=filtered_df, palette=\"Set3\")\nplt.xlabel(\"Country\")\nplt.ylabel(\"Tonnes\")\nplt.title(\"Boxplot of Values for the United States and China\")\n\n# Show the plot\nplt.show()\n\n\n\n\n\ncorrelation_matrix = data1a[[\"Time\", \"Value\"]].corr()\nprint(correlation_matrix)\n\n           Time     Value\nTime   1.000000  0.341206\nValue  0.341206  1.000000\n\n\n\nQ1 = data1a['Value'].quantile(0.25)\nQ3 = data1a['Value'].quantile(0.75)\nIQR = Q3 - Q1\n\nlower_bound = Q1 - 1.5 * IQR\nupper_bound = Q3 + 1.5 * IQR\n\noutliers = data1a[(data1a['Value'] &lt; lower_bound) | (data1a['Value'] &gt; upper_bound)]\nprint(outliers)\nlen(outliers)\n\n     Unnamed: 0             Location Water.source  Time       Value\n120         205         Other Africa        Ocean  2055  103.514712\n121         206         Other Africa        Ocean  2056  106.766738\n122         207         Other Africa        Ocean  2057  110.080365\n123         208         Other Africa        Ocean  2058  113.455910\n124         209         Other Africa        Ocean  2059  116.893767\n125         210         Other Africa        Ocean  2060  120.393706\n310         605  Other non-OECD Asia        Ocean  2035  101.316394\n311         606  Other non-OECD Asia        Ocean  2036  105.610127\n312         607  Other non-OECD Asia        Ocean  2037  109.955133\n313         608  Other non-OECD Asia        Ocean  2038  114.349970\n314         609  Other non-OECD Asia        Ocean  2039  118.794493\n315         610  Other non-OECD Asia        Ocean  2040  123.282896\n316         611  Other non-OECD Asia        Ocean  2041  127.815092\n317         612  Other non-OECD Asia        Ocean  2042  132.389913\n318         613  Other non-OECD Asia        Ocean  2043  137.007533\n319         614  Other non-OECD Asia        Ocean  2044  141.665721\n320         615  Other non-OECD Asia        Ocean  2045  146.362498\n321         616  Other non-OECD Asia        Ocean  2046  151.096308\n322         617  Other non-OECD Asia        Ocean  2047  155.863270\n323         618  Other non-OECD Asia        Ocean  2048  160.661118\n324         619  Other non-OECD Asia        Ocean  2049  165.485974\n325         620  Other non-OECD Asia        Ocean  2050  170.337292\n326         621  Other non-OECD Asia        Ocean  2051  175.211990\n327         622  Other non-OECD Asia        Ocean  2052  180.106833\n328         623  Other non-OECD Asia        Ocean  2053  185.018967\n329         624  Other non-OECD Asia        Ocean  2054  189.944589\n330         625  Other non-OECD Asia        Ocean  2055  194.879941\n331         626  Other non-OECD Asia        Ocean  2056  199.821810\n332         627  Other non-OECD Asia        Ocean  2057  204.765528\n333         628  Other non-OECD Asia        Ocean  2058  209.707077\n334         629  Other non-OECD Asia        Ocean  2059  214.640667\n335         630  Other non-OECD Asia        Ocean  2060  219.560846\n409         830                China        Ocean  2050  102.290257\n410         831                China        Ocean  2051  105.114931\n411         832                China        Ocean  2052  107.947629\n412         833                China        Ocean  2053  110.785835\n413         834                China        Ocean  2054  113.627613\n414         835                China        Ocean  2055  116.471098\n415         836                China        Ocean  2056  119.313546\n416         837                China        Ocean  2057  122.154453\n417         838                China        Ocean  2058  124.993092\n418         839                China        Ocean  2059  127.828023\n419         840                China        Ocean  2060  130.657616\n\n\n43"
+    "text": "This dataset gives us predictions of the future plastic leakage for 15 different regions. According to OECD.stat “Plastic leakages to aquatic environments and the subcategory transport to oceans are estimated by applying the methodology adapted from Lebreton and Andrady (2019), on OECD ENV-Linkages model outputs and plastic leakage from mismanaged and litter. I have cleaned this data to only include the ocean data - NOT freshwater.\nThis data consists of categorical and numerical data. The categorical data is location and water source and the numerical data is time and values (tonnes).\nThis data is crucial to my project as it shows what may happen if time is not invested into ocean sustainability."
   },
   {
     "objectID": "exploration.html#how-the-ocean-helps-us",
     "href": "exploration.html#how-the-ocean-helps-us",
     "title": "Data Exploration",
     "section": "How the Ocean Helps Us",
-    "text": "How the Ocean Helps Us\n2a. Beach Attendance\nLink to Code Used in EDA: Python Code"
+    "text": "How the Ocean Helps Us\n2a. Beach Attendance\nExploratory Data Analysis: Python Code and Analysis\n2b. Employment in Ocean Sectors\nExploratory Data Analysis: Python Code and Analysis"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2a.html",
+    "href": "codes/03-data-exploration/eda_2a.html",
+    "title": "Data 2a Exploratory Data Analysis",
+    "section": "",
+    "text": "I included this code because I want to show how important the ocean is in regards to tourism and being a summer activity. This data set collected from the State of New Yorks website gives information on the numbers of people who attended New York beaches from 2017 to 2022. This data set includes categorical and numerical data. This data will help me proove that the ocean brings a lot of people joy in the summertime and without clean oceans - these numbers would go down."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2a.html#data-visualization",
+    "href": "codes/03-data-exploration/eda_2a.html#data-visualization",
+    "title": "Data 2a Exploratory Data Analysis",
+    "section": "Data Visualization",
+    "text": "Data Visualization\n\n\nCode\n#Data Visualization\nimport matplotlib.pyplot as plt\naverage = data2a.groupby(\"Month\")[\"Attendance\"].mean().reset_index()\nprint(average)\n# Create a bar chart\nplt.figure(figsize=(8, 6))\nplt.bar(average[\"Month\"], average[\"Attendance\"], color='#ADD8E6')\nplt.xlabel(\"Month\")\nplt.ylabel(\"Average Attendance\")\nplt.title(\"Average Attendance by Month (2017 - 2021)\")\nplt.gca().get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: \"{:,}\".format(int(x))))\nplt.xticks(rotation=45)\nplt.show()\n\n\n       Month  Attendance\n0     August    14959.65\n1       July    21816.85\n2       June    11504.00\n3        May     8720.81\n4  September    14255.65\n\n\n\n\n\n\n\nCode\nplt.figure(figsize=(8, 6))\nsns.pointplot(x=\"Month\", y=\"Attendance\", data=data2a, color='#ADD8E6')\nplt.xlabel(\"Month\")\nplt.ylabel(\"Attendance\")\nplt.title(\"Attendance Variation by Month\")\nplt.gca().get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: \"{:,}\".format(int(x))))\nplt.xticks(rotation=45)\nplt.show()\n\n\n\n\n\n\n\nCode\ndata2a[\"Date\"] = pd.to_datetime(data2a[\"Date\"])\ndata2a[\"Year\"] = data2a[\"Date\"].dt.year\nyearly_sum = data2a.groupby(\"Year\")[\"Attendance\"].sum()\nplt.figure(figsize=(8, 6))\nplt.plot(yearly_sum.index, yearly_sum.values, marker='o', linestyle='-')\nplt.xlabel(\"Year\")\nplt.ylabel(\"Sum of Attendance\")\nplt.title(\"Sum of Attendance Each Year\")\nplt.gca().get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: \"{:,}\".format(int(x))))\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2a.html#descriptive-statistics",
+    "href": "codes/03-data-exploration/eda_2a.html#descriptive-statistics",
+    "title": "Data 2a Exploratory Data Analysis",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\n\nCode\nimport pandas as pd\npd.options.display.float_format = '{:.2f}'.format\ndata2a = pd.read_csv('/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/cleandata2a.csv')\n#Summary Statistics\ndata2a[[\"Attendance\"]].describe()\n\n\n\n\n\n\n\n\n\nAttendance\n\n\n\n\ncount\n5051.00\n\n\nmean\n15606.51\n\n\nstd\n47840.66\n\n\nmin\n0.00\n\n\n25%\n350.00\n\n\n50%\n1600.00\n\n\n75%\n7800.00\n\n\nmax\n1520000.00\n\n\n\n\n\n\n\nOn average, from the years 2017 - 2021 and the months May through September: 15,000 people went to the beach in the state of New York. Furthemore, the highest recorded attendance was 1,520,000 in Coney Island on July 4th, 2018. (Looking into this number)\n\n\nCode\n#Frequency Distribution\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nlocation_freq = data2a[\"Month\"].value_counts()\nprint(location_freq)\nplt.figure(figsize=(8, 6))\nsns.barplot(x=location_freq.index, y=location_freq.values, palette=\"Set2\")\nplt.xlabel(\"Location\")\nplt.ylabel(\"Frequency\")\nplt.title(\"Frequency Distribution of Locations\")\nplt.xticks(rotation=45)  # Rotate x-axis labels for better readability\nplt.show()\n\n\nMonth\nJuly         1488\nAugust       1488\nJune         1440\nSeptember     364\nMay           272\nName: count, dtype: int64"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2a.html#correlation-analysis",
+    "href": "codes/03-data-exploration/eda_2a.html#correlation-analysis",
+    "title": "Data 2a Exploratory Data Analysis",
+    "section": "Correlation Analysis",
+    "text": "Correlation Analysis"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2a.html#outlier-detection",
+    "href": "codes/03-data-exploration/eda_2a.html#outlier-detection",
+    "title": "Data 2a Exploratory Data Analysis",
+    "section": "Outlier Detection",
+    "text": "Outlier Detection\n\nOne year that seems to be an outlier is this data set is the year 2020. This makes sense because this is when COVID was at its peak.\nNumbers are very high around the 4th of July\n\n\n\nCode\ndata2a[\"Date\"] = pd.to_datetime(data2a[\"Date\"])\n# Filter the DataFrame for Fourth of July (July 4th)\nfourth_of_july_data = data2a[data2a[\"Date\"].dt.month == 7]  # Filter for July\npd.options.display.float_format = '{:.2f}'.format\nplt.figure(figsize=(8, 6))\nplt.bar(fourth_of_july_data[\"Year\"], fourth_of_july_data[\"Attendance\"], color='#ADD8E6')\nplt.xlabel(\"Beach\")\nplt.ylabel(\"Attendance\")\nplt.title(\"Attendance on July 4th for Each Beach\")\nplt.xticks(rotation=45)\nplt.gca().get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: \"{:,}\".format(int(x))))\nplt.show()"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2a.html#methods-and-findings",
+    "href": "codes/03-data-exploration/eda_2a.html#methods-and-findings",
+    "title": "Data 2a Exploratory Data Analysis",
+    "section": "Methods and Findings",
+    "text": "Methods and Findings\nUsing this dataset, I was able to visualize how many people go to the beach. These numbers are very high and they are just for the state of New York. This dataset helps proove that people enjoy going to the beach, especially around holidays like fourth of July.\nA few key takeaways from the data visualizations:\n\nPeople visit the beach the most in months June, July and August\nBeach attendance is highest in July and specifically on the fourth\nBeach attendance went down in 2020 as a result of Covid (an outlier)\n\nOverall, I am able to use this data to proove that a lot of people enjoy going to the beach."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2a.html#data-understanding",
+    "href": "codes/03-data-exploration/eda_2a.html#data-understanding",
+    "title": "Data 2a Exploratory Data Analysis",
+    "section": "",
+    "text": "I included this code because I want to show how important the ocean is in regards to tourism and being a summer activity. This data set collected from the State of New Yorks website gives information on the numbers of people who attended New York beaches from 2017 to 2022. This data set includes categorical and numerical data. This data will help me proove that the ocean brings a lot of people joy in the summertime and without clean oceans - these numbers would go down."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_1a.html#data-understanding",
+    "href": "codes/03-data-exploration/eda_1a.html#data-understanding",
+    "title": "Data 1a Exploratory Data Analysis",
+    "section": "",
+    "text": "This dataset gives us predictions of the future plastic leakage for 15 different regions. According to OECD.stat “Plastic leakages to aquatic environments and the subcategory transport to oceans are estimated by applying the methodology adapted from Lebreton and Andrady (2019), on OECD ENV-Linkages model outputs and plastic leakage from mismanaged and litter. I have cleaned this data to only include the ocean data - NOT freshwater.\nThis data consists of categorical and numerical data. The categorical data is location and water source and the numerical data is time and values (tonnes).\nThis data is crucial to my project as it shows what may happen if time is not invested into ocean sustainability."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_1a.html#descriptive-statistics",
+    "href": "codes/03-data-exploration/eda_1a.html#descriptive-statistics",
+    "title": "Data 1a Exploratory Data Analysis",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\n\nCode\n# Importing Data\nimport pandas as pd\ndata1a = pd.read_csv(\n    '/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/cleandata1a.csv')\n# Summary Statistics\ndata1a[[\"Value\"]].describe()\n\n\n\n\n\n\n\n\n\nValue\n\n\n\n\ncount\n630.000000\n\n\nmean\n34.537254\n\n\nstd\n38.067211\n\n\nmin\n0.211856\n\n\n25%\n8.962933\n\n\n50%\n21.689714\n\n\n75%\n45.564320\n\n\nmax\n219.560846\n\n\n\n\n\n\n\nThese summary statistics help us better understand our dataset. It is most improtant to take into account the number for the mean - 34.54. This number tells us the average million tonnes of plastic that will be leaked into the ocean each year from each country. It is also notable to look at the max - 219.56. This is estimated value a country will leak into the ocean in one year.s"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_1a.html#data-visualization",
+    "href": "codes/03-data-exploration/eda_1a.html#data-visualization",
+    "title": "Data 1a Exploratory Data Analysis",
+    "section": "Data Visualization",
+    "text": "Data Visualization\n\n\nCode\nimport matplotlib.pyplot as plt\n#average Tones by Year\naverage_tonnes = data1a.groupby(\"Time\")[\"Value\"].mean()\nprint(average_tonnes)\n# Bar chart showing the average tonnes for each year\nplt.figure(figsize=(8, 6))\nplt.bar(average_tonnes.index, average_tonnes.values, color='#ADD8E6')\nplt.xlabel(\"Year\")\nplt.ylabel(\"Average Tonnes\")\nplt.title(\"Average Tonnes Each Year\")\nplt.show()\n\n\nTime\n2019    14.190713\n2020    14.991558\n2021    15.815873\n2022    16.661638\n2023    17.526139\n2024    18.408037\n2025    19.305978\n2026    20.218833\n2027    21.145476\n2028    22.084971\n2029    23.036863\n2030    24.000722\n2031    24.977092\n2032    25.965641\n2033    26.966224\n2034    27.978738\n2035    29.003360\n2036    30.039738\n2037    31.087691\n2038    32.147030\n2039    33.217568\n2040    34.298923\n2041    35.390826\n2042    36.493203\n2043    37.605950\n2044    38.728821\n2045    39.861560\n2046    41.003898\n2047    42.155371\n2048    43.315662\n2049    44.484259\n2050    45.660990\n2051    46.845424\n2052    48.037173\n2053    49.235762\n2054    50.440719\n2055    51.651467\n2056    52.867548\n2057    54.088356\n2058    55.313384\n2059    56.541971\n2060    57.773511\nName: Value, dtype: float64\n\n\n\n\n\n\n\nCode\ncountry_sum = data1a.groupby(\"Location\")[\"Value\"].sum()\n# Sum of values for each country Bar Chart\ncountry_sum = country_sum.sort_values(ascending=False)\nprint(country_sum)\nplt.figure(figsize=(8, 6))\nplt.bar(country_sum.index, country_sum.values, color='#ADD8E6')\nplt.xlabel(\"Country\")\nplt.ylabel(\"Sum of Value\")\nplt.title(\"Estimated Total Leakage by Country in 2060\")\nplt.xticks(rotation=45)\nplt.show()\n\n\nLocation\nOther non-OECD Asia           5219.555210\nChina                         3171.411114\nOther Africa                  2683.444158\nLatin America                 2184.368092\nOECD EU                       1630.250955\nUnited States                 1517.991740\nIndia                         1431.290918\nMiddle East & North Africa    1388.940608\nOECD Non-EU                    712.730233\nOther OECD America             628.464360\nOECD Asia                      578.911133\nOther Eurasia                  332.924609\nCanada                         222.498466\nOther EU                        32.281595\nOECD Oceania                    23.406731\nName: Value, dtype: float64\n\n\n\n\n\n\n\nCode\n#HeatMap\nimport seaborn as sns\nheatmap_data = data1a.pivot_table(index=\"Location\", values=\"Value\", aggfunc=\"sum\")\nplt.figure(figsize=(10, 6))\nsns.heatmap(heatmap_data, cmap=\"YlGnBu\", annot=True, fmt='g', cbar=True, linewidths=0.5)\nplt.title(\"Heatmap of Values by Location\")\nplt.show()\n# Darker Colors = Higher SUM\n\n\n\n\n\n\n\nCode\n#Filtering Data to just show United States and China\nselected_countries = [\"United States\", \"China\"]\nfiltered_df = data1a[data1a[\"Location\"].isin(selected_countries)]\n\n# Create a boxplot\nplt.figure(figsize=(8, 6))\nsns.boxplot(x=\"Location\", y=\"Value\", data=filtered_df, palette=\"Set3\")\nplt.xlabel(\"Country\")\nplt.ylabel(\"Tonnes\")\nplt.title(\"Boxplot of Values for the United States and China\")\nplt.show()"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_1a.html#correlation-analysis",
+    "href": "codes/03-data-exploration/eda_1a.html#correlation-analysis",
+    "title": "Data 1a Exploratory Data Analysis",
+    "section": "Correlation Analysis",
+    "text": "Correlation Analysis\n\n\nCode\n#Correlation Matrix\ncorrelation_matrix = data1a[[\"Time\", \"Value\"]].corr()\nprint(correlation_matrix)\n\n\n           Time     Value\nTime   1.000000  0.341206\nValue  0.341206  1.000000\n\n\nBelow I have included the correlation matrix. A correlation matrix is a statistical technique used to evaluate the relationship between two variables in a data set. I looked at the relationship between time and value (tonnes).\nThe correlation coefficient between “Time” and “Time” is 1.0. This makes sense as a corelation with itself will equal 1.0 also known as a perfect correlation.\nThe correlation coefficient between “Time” and “Value” is approximately 0.3412. This value suggests a positive correlation between “Time” and “Value”."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_1a.html#identifying-outliers",
+    "href": "codes/03-data-exploration/eda_1a.html#identifying-outliers",
+    "title": "Data 1a Exploratory Data Analysis",
+    "section": "Identifying Outliers",
+    "text": "Identifying Outliers\n\n\nCode\n#Possible Outliers in 2060\ndata_2060 = data1a[data1a[\"Time\"] == 2060]\nplt.figure(figsize=(8, 6))\nplt.bar(data_2060[\"Location\"], data_2060[\"Value\"], color='#ADD8E6')\nplt.xlabel(\"Country\")\nplt.ylabel(\"Value\")\nplt.title(\"Estimated Leakage for the Year 2060\")\nplt.xticks(rotation=45)\nplt.show()\n\n\n\n\n\nWithin this dataset I am techniclly looking at only one numerical value that will help me answer my overall question (Value).\nTo identify possible outliers in the future, I created a bar graph to show which location will have the highest leakeage in the year 2060.\nIt is clear that the United States will have a significantly higher amount of plastic leakage into the ocean."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_1a.html#methods-and-findings",
+    "href": "codes/03-data-exploration/eda_1a.html#methods-and-findings",
+    "title": "Data 1a Exploratory Data Analysis",
+    "section": "Methods and Findings",
+    "text": "Methods and Findings"
+  },
+  {
+    "objectID": "exploration.html#negative-impacts-on-ocean-sustainability-human-impact",
+    "href": "exploration.html#negative-impacts-on-ocean-sustainability-human-impact",
+    "title": "Data Exploration",
+    "section": "Negative Impacts on Ocean Sustainability / Human Impact",
+    "text": "Negative Impacts on Ocean Sustainability / Human Impact\n3a. Plastic Pollution\nExploratory Data Analysis: Python Code and Analysis\n3b. Mismanaged Plastic Waste\nExploratory Data Analysis: Python Code and Analysis"
+  },
+  {
+    "objectID": "exploration.html#benefits-of-investing-in-sustainability",
+    "href": "exploration.html#benefits-of-investing-in-sustainability",
+    "title": "Data Exploration",
+    "section": "Benefits of Investing in Sustainability",
+    "text": "Benefits of Investing in Sustainability\n4a. Aquaculture Production\nExploratory Data Analysis: Python Code and Analysis\n4b. Aquaculture Production - CatFish\nExploratory Data Analysis: Python Code and Analysis"
+  },
+  {
+    "objectID": "exploration.html#what-is-currently-being-done",
+    "href": "exploration.html#what-is-currently-being-done",
+    "title": "Data Exploration",
+    "section": "What is Currently Being Done",
+    "text": "What is Currently Being Done\n5a. Marine Pollution Act\nExploratory Data Analysis: Python Code and Analysis\n5b. Marine Pollution Act Numbers\nExploratory Data Analysis: Python Code and Analysis"
+  },
+  {
+    "objectID": "codes/03-data-exploration/outline_da.html#descriptive-statistics",
+    "href": "codes/03-data-exploration/outline_da.html#descriptive-statistics",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics"
+  },
+  {
+    "objectID": "codes/03-data-exploration/outline_da.html#data-visualization",
+    "href": "codes/03-data-exploration/outline_da.html#data-visualization",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Data Visualization",
+    "text": "Data Visualization"
+  },
+  {
+    "objectID": "codes/03-data-exploration/outline_da.html#correlation-analysis",
+    "href": "codes/03-data-exploration/outline_da.html#correlation-analysis",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Correlation Analysis",
+    "text": "Correlation Analysis"
+  },
+  {
+    "objectID": "codes/03-data-exploration/outline_da.html#identifying-outliers",
+    "href": "codes/03-data-exploration/outline_da.html#identifying-outliers",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Identifying Outliers",
+    "text": "Identifying Outliers"
+  },
+  {
+    "objectID": "codes/03-data-exploration/outline_da.html#methods-and-findings",
+    "href": "codes/03-data-exploration/outline_da.html#methods-and-findings",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Methods and Findings",
+    "text": "Methods and Findings"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2b.html",
+    "href": "codes/03-data-exploration/eda_2b.html",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "",
+    "text": "This data illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise of 33 counties from Maine to New York. This data is relatively simple and is mainly numerical. I will use this dataset to illlustrate the number of jobs that come with the ocean economy sector."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2b.html#data-understanding",
+    "href": "codes/03-data-exploration/eda_2b.html#data-understanding",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "",
+    "text": "This data illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise of 33 counties from Maine to New York. This data is relatively simple and is mainly numerical. I will use this dataset to illlustrate the number of jobs that come with the ocean economy sector."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2b.html#descriptive-statistics",
+    "href": "codes/03-data-exploration/eda_2b.html#descriptive-statistics",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\n\nCode\nimport pandas as pd\ndata2b = pd.read_csv(\n    '/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/cleandata2b.csv')\n# Summary Statistics\ndata2b[[\"Total Employment\"]].describe()\n\n\n\n\n\n\n\n\n\nTotal Employment\n\n\n\n\ncount\n33.000000\n\n\nmean\n8191.757576\n\n\nstd\n7154.331795\n\n\nmin\n136.000000\n\n\n25%\n2148.000000\n\n\n50%\n6566.000000\n\n\n75%\n12858.000000\n\n\nmax\n31569.000000\n\n\n\n\n\n\n\nThis table shows the summary statistics for the “Total Employment Column.” This table gives us some crucial infromation. First, we can see that on average, 8,191 people per county work in the ocean sector. In fact, in one county, the total number of employment reaches over 31,000! These summary statistics help us understand how many people one county can employ just when it comes to the ocean."
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2b.html#data-visualization",
+    "href": "codes/03-data-exploration/eda_2b.html#data-visualization",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Data Visualization",
+    "text": "Data Visualization"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2b.html#correlation-analysis",
+    "href": "codes/03-data-exploration/eda_2b.html#correlation-analysis",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Correlation Analysis",
+    "text": "Correlation Analysis"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2b.html#identifying-outliers",
+    "href": "codes/03-data-exploration/eda_2b.html#identifying-outliers",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Identifying Outliers",
+    "text": "Identifying Outliers"
+  },
+  {
+    "objectID": "codes/03-data-exploration/eda_2b.html#methods-and-findings",
+    "href": "codes/03-data-exploration/eda_2b.html#methods-and-findings",
+    "title": "Data 2b Exploratory Data Analysis",
+    "section": "Methods and Findings",
+    "text": "Methods and Findings"
   }
 ]

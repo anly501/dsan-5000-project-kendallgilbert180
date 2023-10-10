@@ -138,7 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
         <li>
-    <a class="dropdown-item" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data" rel="" target="">
+    <a class="dropdown-item" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/data" rel="" target="">
  <span class="dropdown-text">Data</span></a>
   </li>  
         <li>
@@ -156,6 +156,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../clustering.html" rel="" target="">
  <span class="dropdown-text">Clustering</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">ML</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ml">    
+        <li>
+    <a class="dropdown-item" href="../../FS.html" rel="" target="">
+ <span class="dropdown-text">Feature Selection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../NB.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes</span></a>
   </li>  
     </ul>
   </li>
@@ -318,7 +333,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "Location"     "Water.source" "Time"         "Value"       </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting to Clean Data Folder as cleandata1a</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data1a, <span class="at">file =</span> <span class="st">"cleandata1a.csv"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data1a, <span class="at">file =</span> <span class="st">"cleandata1a.csv"</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data1a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Location Water.source Time    Value
+43 OECD Non-EU        Ocean 2019 10.03620
+44 OECD Non-EU        Ocean 2020 10.40809
+45 OECD Non-EU        Ocean 2021 10.78269
+46 OECD Non-EU        Ocean 2022 11.15956
+47 OECD Non-EU        Ocean 2023 11.53769
+48 OECD Non-EU        Ocean 2024 11.91631</code></pre>
+</div>
 </div>
 
 

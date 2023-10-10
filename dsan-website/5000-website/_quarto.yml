@@ -9,10 +9,10 @@ website:
         text: Home
       - href: about_me.ipynb
         text: Me
-      - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180
-        text: Code
       - href: intro.ipynb
         text: Introduction
+      - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/codes
+        text: Code
       - text: Data
         menu:
         - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/data

@@ -89,12 +89,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180" rel="" target="">
- <span class="menu-text">Code</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./intro.html" rel="" target="">
  <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/codes" rel="" target="">
+ <span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
@@ -173,6 +173,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#why-ocean-sustainability-is-necessary" id="toc-why-ocean-sustainability-is-necessary" class="nav-link" data-scroll-target="#why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</a></li>
   <li><a href="#how-the-ocean-helps-us" id="toc-how-the-ocean-helps-us" class="nav-link" data-scroll-target="#how-the-ocean-helps-us">How the Ocean Helps Us</a></li>
+  <li><a href="#negative-impacts-on-ocean-sustainability-human-impact" id="toc-negative-impacts-on-ocean-sustainability-human-impact" class="nav-link" data-scroll-target="#negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</a></li>
+  <li><a href="#benefits-of-investing-in-sustainability" id="toc-benefits-of-investing-in-sustainability" class="nav-link" data-scroll-target="#benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</a></li>
+  <li><a href="#what-is-currently-being-done" id="toc-what-is-currently-being-done" class="nav-link" data-scroll-target="#what-is-currently-being-done">What is Currently Being Done</a></li>
   </ul>
 </nav>
     </div>
@@ -211,48 +214,47 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>For each data set I will address the following:</p>
 <ul>
-<li>Overall Data Understanding:
-<ul>
-<li>Problem you are trying to solve. Familiarize yourself with the characteristics of each feature</li>
-<li>Data types (numerical, categorical)</li>
-<li>Relevance to the project’s objectives.</li>
-</ul></li>
-<li>Descriptive Statistics:
-<ul>
-<li>Summary Statistics such as mean, median, mode, standard deviation, and variance for numerical variables.</li>
-<li>For categorical variables, provide frequency distributions and bar charts to visualize data distribution.</li>
-</ul></li>
+<li>Overall Data Understanding</li>
+<li>Descriptive Statistics</li>
 <li>Data Visualizations</li>
 <li>Correlation Analysis</li>
-</ul>
-<p>I will aslo pay attention to data grouping and segmentation as well as outliers.</p>
-<p>At the end I will update and provide information on:</p>
-<ul>
-<li>Hypothesis Generation</li>
+<li>Identifying Outliers</li>
 <li>Methods and Findings</li>
 </ul>
-<p>This section will be lengthy. I will remain consistent in the dataset labels that I created in the beginning of this project.</p>
+<p>I will also pay attention to data grouping and segmentation as well as updating and providing information on Hypothesis Generation</p>
 </section>
 <section id="why-ocean-sustainability-is-necessary" class="level2">
 <h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
 <p><strong>1a. Plastic Leakage by Region</strong></p>
-<p>Link to Code Used in EDA: <a href="./codes/03-data-exploration/eda_1a.html">Python Code</a></p>
-<p><em>Data Understanding</em></p>
-<p>This dataset gives us predictions of the future plastic leakage for 15 different regions. According to OECD.stat “Plastic leakages to aquatic environments and the subcategory transport to oceans are estimated by applying the methodology adapted from Lebreton and Andrady (2019), on OECD ENV-Linkages model outputs and plastic leakage from mismanaged and litter. I have cleaned this data to only include the ocean data - NOT freshwater.</p>
-<p>This data consists of categorical and numerical data. The categorical data is location and water source and the numerical data is time and values (tonnes).</p>
-<p>This data is crucial to my project as it shows what may happen if time is not invested into ocean sustainability.</p>
-<p><em>Descriptive Statistics</em></p>
-<p><img src="images/1a_sumstats.png" class="img-fluid" style="width:30.0%"></p>
-<p><em>Data Visualization</em></p>
-<p><img src="images/1a_eda/1a_viz1.png" class="img-fluid" style="width:50.0%" alt="Viz 1">, <img src="images/1a_eda/1a_viz6.png" class="img-fluid" style="width:50.0%" alt="Viz 6">, <img src="images/1a_eda/1a_viz2.png" class="img-fluid" style="width:50.0%" alt="Viz 2">, <img src="images/1a_viz3.png" class="img-fluid" style="width:40.0%" alt="Viz 3"> <img src="images/1a_eda/1a_viz4.png" class="img-fluid" style="width:50.0%" alt="Viz 4">, <img src="images/1a_eda/1a_viz5.png" class="img-fluid" style="width:40.0%" alt="Viz 5"></p>
-<p><em>Correlation Analysis</em></p>
-<p><em>Identifying Outliers</em></p>
-<p><em>Data Set Findings</em></p>
+<p><em>Exploratory Data Analysis</em>: <a href="./codes/03-data-exploration/eda_1a.html">Python Code and Analysis</a></p>
 </section>
 <section id="how-the-ocean-helps-us" class="level2">
 <h2 class="anchored" data-anchor-id="how-the-ocean-helps-us">How the Ocean Helps Us</h2>
 <p><strong>2a. Beach Attendance</strong></p>
-<p>Link to Code Used in EDA: <a href="codes/03-data-exploration/eda_2a.ipynb">Python Code</a></p>
+<p><em>Exploratory Data Analysis:</em> <a href="./codes/03-data-exploration/eda_2a.html">Python Code and Analysis</a></p>
+<p><strong>2b. Employment in Ocean Sectors</strong></p>
+<p><em>Exploratory Data Analysis:</em> <a href="./codes/03-data-exploration/eda_2b.html">Python Code and Analysis</a></p>
+</section>
+<section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
+<h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
+<p><strong>3a. Plastic Pollution</strong></p>
+<p><em>Exploratory Data Analysis:</em> <a href="codes/03-data-exploration/eda_3a.ipynb">Python Code and Analysis</a></p>
+<p><strong>3b. Mismanaged Plastic Waste</strong></p>
+<p><em>Exploratory Data Analysis:</em> <a href="codes/03-data-exploration/eda_3b.ipynb">Python Code and Analysis</a></p>
+</section>
+<section id="benefits-of-investing-in-sustainability" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
+<p><strong>4a. Aquaculture Production</strong></p>
+<p><em>Exploratory Data Analysis:</em> <a href="codes/03-data-exploration/eda_4a.ipynb">Python Code and Analysis</a></p>
+<p><strong>4b. Aquaculture Production - CatFish</strong></p>
+<p><em>Exploratory Data Analysis:</em> <a href="codes/03-data-exploration/eda_4b.ipynb">Python Code and Analysis</a></p>
+</section>
+<section id="what-is-currently-being-done" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
+<p><strong>5a. Marine Pollution Act</strong></p>
+<p><em>Exploratory Data Analysis:</em> <a href="codes/03-data-exploration/eda_5a.ipynb">Python Code and Analysis</a></p>
+<p><strong>5b. Marine Pollution Act Numbers</strong></p>
+<p><em>Exploratory Data Analysis:</em> <a href="codes/03-data-exploration/eda_5b.ipynb">Python Code and Analysis</a></p>
 
 
 </section>
