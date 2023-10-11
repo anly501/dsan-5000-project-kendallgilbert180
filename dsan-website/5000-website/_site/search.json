@@ -53,14 +53,14 @@
     "href": "gathering.html",
     "title": "Data Gathering",
     "section": "",
-    "text": "Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.\nI divided this page into five sections. Within each section, I will provided datasets that relate to the topic stated. These sections include:\nWithin this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted"
+    "text": "Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.\nI divided this page into five sections. Within each section, I will provided datasets that relate to the topic stated. These sections include:\nI want to point out is a lot of this data came from the OECD Ocean sustainability database. To make things more manageable I created datasets for each variable I want to analyze. The datasets that came from this database are 2c, 4b, 5c, and 5b.\nWithin this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted"
   },
   {
     "objectID": "cleaning.html",
     "href": "cleaning.html",
     "title": "Data Cleaning",
     "section": "",
-    "text": "Data Cleaning is a key step in any project. Within this tab you will have access to all of my data, descriptions about how it was cleaned, and access to the codes used to clean it.\nThis tab will be split up into the same section as the data cleaning tab:\nI will walk through my data cleaning experience as well as provide links to every step.\nI will remain consistent in the labeling of all data sources and steps. (Data 1a example shown below)"
+    "text": "Data Cleaning is a key step in any project. Within this tab you will have access to all of my data, descriptions about how it was cleaned, and access to the codes used to clean it.\nThis tab will be split up into the same section as the data cleaning tab:\nI will walk through my data cleaning experience as well as provide links to every step.\nAnother thing I want to point out is a lot of this data came from the OECD Ocean sustainability database. To make things more manageable I created dataset for each variable I want to analze. The datasets that came from this database are 2c, 4b, 5c, and 5b.\nI will remain consistent in the labeling of all data sources and steps. (Data 1a example shown below)"
   },
   {
     "objectID": "intro.html#hypothesis-goals",
@@ -158,7 +158,7 @@
     "href": "gathering.html#how-the-ocean-helps-us",
     "title": "Data Gathering",
     "section": "How the Ocean Helps Us",
-    "text": "How the Ocean Helps Us\n2a. Beach Attendance Source\n\nThis data set covers the beach attendance in the state of New York\nExtraction Method: Exporting as CSV\nLink to Cleaned Data: Here\n\n\n2b. Employment in Ocean Sectors Source\n\nThis data illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise of 33 counties from Maine to New York.\nExtraction Method: Exporting as CSV"
+    "text": "How the Ocean Helps Us\n2a. Beach Attendance Source\n\nThis data set covers the beach attendance in the state of New York\nExtraction Method: Exporting as CSV\nLink to Cleaned Data: Here\n\n\n2b. Employment in Ocean Sectors Source\n\nThis data illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise of 33 counties from Maine to New York.\nExtraction Method: Exporting as CSV\n\n\n2c. Fishing Vessels Source\n\nThis dataset gives numbers for the total number of fishing vessels in many countries. According to this source, ““Fishery vessels” refers to mobile floating objects of any kind and size, operating in freshwater, brackish water and marine waters which are used for catching, harvesting, searching, transporting, landing, preserving and/or processing fish, shellfish and other aquatic organisms, residues and plants. The term ‘fishing vessel’ is used instead when the vessel is engaged only in catching operations.”\nExtraction Method: Exporting as XLS"
   },
   {
     "objectID": "gathering.html#negative-impacts-on-ocean-sustainability",
@@ -193,14 +193,14 @@
     "href": "gathering.html#benefits-of-investing-in-sustainability",
     "title": "Data Gathering",
     "section": "Benefits of Investing in Sustainability",
-    "text": "Benefits of Investing in Sustainability\n4a. Aquaculture Production Source\n\nThis data set provides the Aquaculture Production by Country from 2000 to 2021.\nExtraction Method: Exporting as CSV\n\n\n4b. Aquaculture Production - CatFish Source\n\nStatistics on domestically grown fish / U.S. imports and exports of fish that may be products of aquaculture, such as salmon, shrimp, and oysters.\nExtraction Method: Exporting as CSV"
+    "text": "Benefits of Investing in Sustainability\n4a. Aquaculture Production Source\n\nThis data set provides the Aquaculture Production by Country from 2000 to 2021.\nExtraction Method: Exporting as CSV\n\n\n4b. Marine Landings Source\n\nDataset with the total number(in millions) of how much marine landings are bringing in profit wise for 40 different countries\nExtraction Method: Exporting as XLS"
   },
   {
     "objectID": "gathering.html#what-is-currently-being-done",
     "href": "gathering.html#what-is-currently-being-done",
     "title": "Data Gathering",
     "section": "What is Currently Being Done",
-    "text": "What is Currently Being Done\n5a. Marine Pollution Act Source\n\nThe Transport Operations (Marine Pollution) Act 1995 and regulations protect Queensland’s marine and coastal environment by minimising deliberate and negligent discharges of ship-sourced pollutants into coastal waters.\nExtraction Method: API in Python\n\n\n5b. Marine Pollution Act Numbers Source\n\nGives the numbers for the total MPA in a country\nExtraction Method: Export as CSV"
+    "text": "What is Currently Being Done\n5b. Marine Pollution Act Numbers Source\n\nGives the numbers for the total MPA in a country\nExtraction Method: Export as XLS\n\n\n5c. Money Going into Ocean Energy Research Source\n\nGives the numbers for the amount of money that is going into research and development of renewable energy (in millions).\nExtraction Method: Export as XLS"
   },
   {
     "objectID": "gathering.html#human-impacts-on-the-ocean",
@@ -228,28 +228,28 @@
     "href": "cleaning.html#how-the-ocean-helps-us",
     "title": "Data Cleaning",
     "section": "How the Ocean Helps Us",
-    "text": "How the Ocean Helps Us\n2a. Beach Attendance\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nAdding a month and year column to make analysis easier in the future\nExporting as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 5\nNumber of Rows: 5052\nColumn Names: Date, Beach, Attendance, Month, Year\nTime Frame: 2017 - 2022\n\n2b. Employment in Ocean Sectors\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nMade column headers shorter for ALL columns\nAdded a total employees column that calculates the total ocean sector employees for each county\nExporting as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 8\nNumber of Rows: 34\nColumn Names: Employment Construction, Employment Living Resources, Employment Minerals, Employment Ship/Boat Building, Employment Tourism Recreation, Employment Transportation\nTime Frame: 2013\n\n2c. Fishing Vessels\nRaw Data: Here\nCleaning Steps: R Code\nClean Data: Here\nOverview:\n\nNumber of Columns:\nNumber of Rows:\nColumn Names:\nTime Frame:"
+    "text": "How the Ocean Helps Us\n2a. Beach Attendance\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nAdding a month and year column to make analysis easier in the future\nExporting as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 5\nNumber of Rows: 5052\nColumn Names: Date, Beach, Attendance, Month, Year\nTime Frame: 2017 - 2022\n\n2b. Employment in Ocean Sectors\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nMade column headers shorter for ALL columns\nAdded a total employees column that calculates the total ocean sector employees for each county\nExporting as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 8\nNumber of Rows: 34\nColumn Names: Employment Construction, Employment Living Resources, Employment Minerals, Employment Ship/Boat Building, Employment Tourism Recreation, Employment Transportation\nTime Frame: 2013\n\n2c. Fishing Vessels\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nChaning Header Names and making NA values for missing data\nExporting as CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 22\nNumber of Rows: 45\nColumn Names: Country, 2000 - 2021\nTime Frame: 2000 - 2021"
   },
   {
     "objectID": "cleaning.html#negative-impacts-on-ocean-sustainability-human-impact",
     "href": "cleaning.html#negative-impacts-on-ocean-sustainability-human-impact",
     "title": "Data Cleaning",
     "section": "Negative Impacts on Ocean Sustainability / Human Impact",
-    "text": "Negative Impacts on Ocean Sustainability / Human Impact\n3a. Plastic Pollution\nRaw Data: Here\nCleaning Steps: Python Code\n\nImporting Data into a Python Environment\nViewing Data to see errors / inconsistencies / modifications needed to be made\nCounting number of NaN values in columns\nOnly five in the country code column.\nDetermined it is okay to keep these nan values as the country is also listed\nRenaming columns - ‘Entity’ to ‘Country’ and ‘Mismanaged plastic waste to ocean per capita (kg per year)’ to ‘Mismanaged Plastic’\nExporting data as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 4\nNumber of Rows: 165\nColumn Names: Country, Code, Year, Mismanaged Plastic\nTime Frame: 2019\n\n3b. Mismanaged Plastic Waste\nRaw Data: Here\nCleaning Steps: Python Code\n\nImporting Data into a Python Environment\nViewing Data to see errors / inconsistencies / modifications needed to be made\nCounting number of NaN values in columns\nRenaming columns to make headers shorter\nExporting data as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 5\nNumber of Rows: 194\nColumn Names: Country, 2010_Mismanaged_Waste, 2019_Mismanaged_Waste, Mismanaged_PlasticWaste_PerCapita_2010 (kg per year),Mismanaged_PlasticWaste_PerCapita_2019 (kg per year)\nTime Frame: 2010 and 2019\n\n3c. Threatened Marine Species\nRaw Data: Here\nCleaning Steps: Python Code\nClean Data: Here\nOverview:\n\nNumber of Columns:\nNumber of Rows:\nColumn Names:\nTime Frame:"
+    "text": "Negative Impacts on Ocean Sustainability / Human Impact\n3a. Plastic Pollution\nRaw Data: Here\nCleaning Steps: Python Code\n\nImporting Data into a Python Environment\nViewing Data to see errors / inconsistencies / modifications needed to be made\nCounting number of NaN values in columns\nOnly five in the country code column.\nDetermined it is okay to keep these nan values as the country is also listed\nRenaming columns - ‘Entity’ to ‘Country’ and ‘Mismanaged plastic waste to ocean per capita (kg per year)’ to ‘Mismanaged Plastic’\nExporting data as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 4\nNumber of Rows: 165\nColumn Names: Country, Code, Year, Mismanaged Plastic\nTime Frame: 2019\n\n3b. Mismanaged Plastic Waste\nRaw Data: Here\nCleaning Steps: Python Code\n\nImporting Data into a Python Environment\nViewing Data to see errors / inconsistencies / modifications needed to be made\nCounting number of NaN values in columns\nRenaming columns to make headers shorter\nExporting data as a CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 5\nNumber of Rows: 194\nColumn Names: Country, 2010_Mismanaged_Waste, 2019_Mismanaged_Waste, Mismanaged_PlasticWaste_PerCapita_2010 (kg per year),Mismanaged_PlasticWaste_PerCapita_2019 (kg per year)\nTime Frame: 2010 and 2019"
   },
   {
     "objectID": "cleaning.html#benefits-of-investing-in-sustainability",
     "href": "cleaning.html#benefits-of-investing-in-sustainability",
     "title": "Data Cleaning",
     "section": "Benefits of Investing in Sustainability",
-    "text": "Benefits of Investing in Sustainability\n4a. Aquaculture Production\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nGetting Rid of Indicator, Subject and Frequency Columns because all rows have the same value\nEditing Column names to be more clear and concise\nFinding out time frame\nExporting as CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 5\nNumber of Rows: 2862\nColumn Names: Location, Measure (Tonnes), Year, Value, Flag.codes\nTime Frame: 1995 - 2021\n\n4b. Marine Landings\nRaw Data: Here\nCleaning Steps: R Code\nClean Data: Here\nOverview:\n\nNumber of Columns:\nNumber of Rows:\nColumn Names:\nTime Frame:\n\n4c.All Ocean Energy Revenue"
+    "text": "Benefits of Investing in Sustainability\n4a. Aquaculture Production\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nGetting Rid of Indicator, Subject and Frequency Columns because all rows have the same value\nEditing Column names to be more clear and concise\nFinding out time frame\nExporting as CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 5\nNumber of Rows: 2862\nColumn Names: Location, Measure (Tonnes), Year, Value, Flag.codes\nTime Frame: 1995 - 2021\n\n4b. Marine Landings\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nFormatting Headers to correct years\nAdding NA to unknown values\nExporting as CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 22\nNumber of Rows: 38\nColumn Names: Country, 2000 - 2021\nTime Frame: 2000 - 2021"
   },
   {
     "objectID": "cleaning.html#what-is-currently-being-done",
     "href": "cleaning.html#what-is-currently-being-done",
     "title": "Data Cleaning",
     "section": "What is Currently Being Done",
-    "text": "What is Currently Being Done\n5a. Pollution Inventions\nRaw Data: Here\nCleaning Steps: R Code\nClean Data: Here\nOverview:\n\nNumber of Columns:\nNumber of Rows:\nColumn Names:\nTime Frame:\n\n5b. Marine Pollution Act Numbers\nRaw Data: Here\nCleaning Steps: R Code\nClean Data: Here\nOverview:\n\nNumber of Columns:\nNumber of Rows:\nColumn Names:\nTime Frame:"
+    "text": "What is Currently Being Done\n5b. Marine Pollution Act Numbers\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nFormatting Headers to correct years\nAdding NA to unknown values\nExporting as CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 24\nNumber of Rows: 129\nColumn Names: Country, 2000 - 2023\nTime Frame: 2000 - 2023\n\n5c.Money Going into Ocean Energy Research\nRaw Data: Here\nCleaning Steps: R Code\n\nReading in Dataset as CSV to R Studio\nViewing Data to see errors / inconsistencies / modifications needed to be made\nFormatting Headers to correct years\nAdding NA to unknown values\nExporting as CSV to clean data folder\n\nClean Data: Here\nOverview:\n\nNumber of Columns: 23\nNumber of Rows: 35\nColumn Names: Country, 2000 - 2022\nTime Frame: 2000 - 2022"
   },
   {
     "objectID": "gathering.html#python-api",
@@ -263,7 +263,7 @@
     "href": "gathering.html#r-api",
     "title": "Data Gathering",
     "section": "R API",
-    "text": "R API"
+    "text": "R API\nI used the API on the website . I used this API in R.\nLink to Code: R Code"
   },
   {
     "objectID": "codes/01-data-gathering/Python API/apinews_gathering.html",
@@ -509,5 +509,19 @@
     "title": "Data 2b Exploratory Data Analysis",
     "section": "Methods and Findings",
     "text": "Methods and Findings\nAfter completing this EDA, I am able to understand a few key things. Although, this dataset is from ten years ago and only gives data for 33 counties in the northeast United States. I am unsure how much of a sway this dataset will have when trying to achieve my goals.\nThis data set tells us a few things:\n\nOcean tourism brings numerous jobs to many counties\nIn some counties, ocean related jobs employ over 30,000 people - specifically, in Suffolk County also known as Long Island\nOcean transportation also brings in a wealth of jobs"
+  },
+  {
+    "objectID": "codes/02-data-cleaning/cleaning_data2c.html",
+    "href": "codes/02-data-cleaning/cleaning_data2c.html",
+    "title": "cleaning_data2c",
+    "section": "",
+    "text": "Reading in Data and Formatting Headers and dealing with NA Values\n\n\nCode\ndata2c &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/2c.csv\", header=FALSE, comment.char=\"#\")\ndata2c &lt;- data2c[-1,]\ndata2c &lt;- setNames(data2c, c(\"Country\",\"2000\",\"2001\",\"2003\",\"2004\",\"2005\",\"2006\",\"2007\",\"2008\",\"2009\", \"2010\", \"2011\",\"2012\",\"2013\",\"2014\",\"2015\",\"2016\",\"2017\", \"2018\", \"2019\", \"2020\", \"2021\"))\ndata2c[data2c == \"..\"] &lt;- NA\nwrite.csv(data2c, file = \"cleandata2c.csv\", row.names = TRUE)"
+  },
+  {
+    "objectID": "codes/02-data-cleaning/cleaning_data4b.html",
+    "href": "codes/02-data-cleaning/cleaning_data4b.html",
+    "title": "cleaning_data4b",
+    "section": "",
+    "text": "Importing and Cleaning Data\n\n\nCode\ndata4b &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/4b.csv\", header=FALSE, comment.char=\"#\")\ndata4b &lt;- setNames(data4b, c(\"Country\",\"2000\",\"2001\",\"2003\",\"2004\",\"2005\",\"2006\",\"2007\",\"2008\",\"2009\", \"2010\", \"2011\",\"2012\",\"2013\",\"2014\",\"2015\",\"2016\",\"2017\", \"2018\", \"2019\", \"2020\", \"2021\"))\ndata4b[data4b == \"..\"] &lt;- NA\n\n\nExporting Data\n\n\nCode\nwrite.csv(data4b, file = \"cleandata4b.csv\", row.names = TRUE)"
   }
 ]

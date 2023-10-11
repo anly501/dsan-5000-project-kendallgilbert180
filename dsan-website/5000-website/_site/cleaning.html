@@ -209,6 +209,7 @@ ul.task-list li input[type="checkbox"] {
 <li>What is Currently Being Done to Help</li>
 </ol>
 <p>I will walk through my data cleaning experience as well as provide links to every step.</p>
+<p>Another thing I want to point out is a lot of this data came from the OECD Ocean sustainability database. To make things more manageable I created dataset for each variable I want to analze. The datasets that came from this database are 2c, 4b, 5c, and 5b.</p>
 <p>I will remain consistent in the labeling of all data sources and steps. (Data 1a example shown below)</p>
 <ul>
 <li><strong>Raw Data:</strong> “1a” - In “00-raw-data”</li>
@@ -279,15 +280,21 @@ ul.task-list li input[type="checkbox"] {
 <li>Time Frame: 2013</li>
 </ul>
 <p><strong>2c. Fishing Vessels</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2c.csv">Here</a></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2c.xls">Here</a></p>
 <p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2c.r">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Chaning Header Names and making NA values for missing data</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
 <p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2c.csv">Here</a></p>
 <p><strong>Overview:</strong></p>
 <ul>
-<li>Number of Columns:</li>
-<li>Number of Rows:</li>
-<li>Column Names:</li>
-<li>Time Frame:</li>
+<li>Number of Columns: 22</li>
+<li>Number of Rows: 45</li>
+<li>Column Names: Country, 2000 - 2021</li>
+<li>Time Frame: 2000 - 2021</li>
 </ul>
 </section>
 <section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
@@ -330,17 +337,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Column Names: Country, 2010_Mismanaged_Waste, 2019_Mismanaged_Waste, Mismanaged_PlasticWaste_PerCapita_2010 (kg per year),Mismanaged_PlasticWaste_PerCapita_2019 (kg per year)</li>
 <li>Time Frame: 2010 and 2019</li>
 </ul>
-<p><strong>3c. Threatened Marine Species</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/3c.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data3c.py">Python Code</a></p>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata3c.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns:</li>
-<li>Number of Rows:</li>
-<li>Column Names:</li>
-<li>Time Frame:</li>
-</ul>
 </section>
 <section id="benefits-of-investing-in-sustainability" class="level2">
 <h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
@@ -365,40 +361,60 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>4b. Marine Landings</strong></p>
 <p><strong>Raw Data:</strong> <a href="data/00-raw-data/4b.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data4b.r">R Code</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="./codes/02-data-cleaning/cleaning_data4b.html">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Formatting Headers to correct years</li>
+<li>Adding NA to unknown values</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
 <p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata4b.csv">Here</a></p>
 <p><strong>Overview:</strong></p>
 <ul>
-<li>Number of Columns:</li>
-<li>Number of Rows:</li>
-<li>Column Names:</li>
-<li>Time Frame:</li>
+<li>Number of Columns: 22</li>
+<li>Number of Rows: 38</li>
+<li>Column Names: Country, 2000 - 2021</li>
+<li>Time Frame: 2000 - 2021</li>
 </ul>
-<p><strong>4c.All Ocean Energy Revenue</strong></p>
 </section>
 <section id="what-is-currently-being-done" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
-<p><strong>5a. Pollution Inventions</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5a.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data5a.r">R Code</a></p>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5a.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns:</li>
-<li>Number of Rows:</li>
-<li>Column Names:</li>
-<li>Time Frame:</li>
-</ul>
 <p><strong>5b. Marine Pollution Act Numbers</strong></p>
 <p><strong>Raw Data:</strong> <a href="data/00-raw-data/5b.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data5b.r">R Code</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="./codes/02-data-cleaning/cleaning_data5b.html">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Formatting Headers to correct years</li>
+<li>Adding NA to unknown values</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
 <p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5b.csv">Here</a></p>
 <p><strong>Overview:</strong></p>
 <ul>
-<li>Number of Columns:</li>
-<li>Number of Rows:</li>
-<li>Column Names:</li>
-<li>Time Frame:</li>
+<li>Number of Columns: 24</li>
+<li>Number of Rows: 129</li>
+<li>Column Names: Country, 2000 - 2023</li>
+<li>Time Frame: 2000 - 2023</li>
+</ul>
+<p><strong>5c.Money Going into Ocean Energy Research</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5c.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="./codes/02-data-cleaning/cleaning_data5c.html">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Formatting Headers to correct years</li>
+<li>Adding NA to unknown values</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5c.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 23</li>
+<li>Number of Rows: 35</li>
+<li>Column Names: Country, 2000 - 2022</li>
+<li>Time Frame: 2000 - 2022</li>
 </ul>
 
 

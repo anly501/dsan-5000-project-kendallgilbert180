@@ -210,6 +210,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Benefits of Investing in Sustainability</li>
 <li>What is Currently Being Done to Help</li>
 </ol>
+<p>I want to point out is a lot of this data came from the OECD Ocean sustainability database. To make things more manageable I created datasets for each variable I want to analyze. The datasets that came from this database are 2c, 4b, 5c, and 5b.</p>
 <p>Within this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted</p>
 <section id="why-ocean-sustainability-is-necessary" class="level2">
 <h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
@@ -236,6 +237,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Extraction Method: Exporting as CSV</li>
 </ul>
 <p><img src="images/data10.png" class="img-fluid" style="width:50.0%"></p>
+<p><strong>2c. Fishing Vessels</strong> <a href="https://stats.oecd.org/BrandedView.aspx?oecd_bv_id=env-data-en&amp;doi=4c44ff65-en">Source</a></p>
+<ul>
+<li>This dataset gives numbers for the total number of fishing vessels in many countries. According to this source, ““Fishery vessels” refers to mobile floating objects of any kind and size, operating in freshwater, brackish water and marine waters which are used for catching, harvesting, searching, transporting, landing, preserving and/or processing fish, shellfish and other aquatic organisms, residues and plants. The term ‘fishing vessel’ is used instead when the vessel is engaged only in catching operations.”</li>
+<li>Extraction Method: Exporting as XLS</li>
+</ul>
+<p><img src="images/data2c.png" class="img-fluid" style="width:40.0%"></p>
 </section>
 <section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
 <h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
@@ -260,27 +267,27 @@ ul.task-list li input[type="checkbox"] {
 <li>Extraction Method: Exporting as CSV</li>
 </ul>
 <p><img src="images/data9.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>4b. Aquaculture Production - CatFish</strong> <a href="https://data.world/agriculture/aquaculture-data">Source</a></p>
+<p><strong>4b. Marine Landings</strong> <a href="https://data.world/agriculture/aquaculture-data">Source</a></p>
 <ul>
-<li>Statistics on domestically grown fish / U.S. imports and exports of fish that may be products of aquaculture, such as salmon, shrimp, and oysters.</li>
-<li>Extraction Method: Exporting as CSV</li>
+<li>Dataset with the total number(in millions) of how much marine landings are bringing in profit wise for 40 different countries</li>
+<li>Extraction Method: Exporting as XLS</li>
 </ul>
-<p><img src="images/data9.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="images/data4b.png" class="img-fluid" style="width:40.0%"></p>
 </section>
 <section id="what-is-currently-being-done" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
-<p><strong>5a. Marine Pollution Act</strong> <a href="https://www.data.qld.gov.au/dataset/marine-oil-spills-data">Source</a></p>
-<ul>
-<li>The Transport Operations (Marine Pollution) Act 1995 and regulations protect Queensland’s marine and coastal environment by minimising deliberate and negligent discharges of ship-sourced pollutants into coastal waters.</li>
-<li>Extraction Method: API in Python</li>
-</ul>
-<p><img src="images/data8.png" class="img-fluid" style="width:50.0%"></p>
 <p><strong>5b. Marine Pollution Act Numbers</strong> <a href="https://www.google.com/url?q=https://stats.oecd.org/viewhtml.aspx?datasetcode%3DOCEAN%26lang%3Den%23&amp;sa=D&amp;source=docs&amp;ust=1696810131575373&amp;usg=AOvVaw0rMGZtX0PlL1T2mnFrbzpp">Source</a></p>
 <ul>
 <li>Gives the numbers for the total MPA in a country</li>
-<li>Extraction Method: Export as CSV</li>
+<li>Extraction Method: Export as XLS</li>
 </ul>
 <p><img src="images/data6.png" class="img-fluid" style="width:40.0%"></p>
+<p><strong>5c. Money Going into Ocean Energy Research</strong> <a href="https://stats.oecd.org/BrandedView.aspx?oecd_bv_id=env-data-en&amp;doi=4c44ff65-en">Source</a></p>
+<ul>
+<li>Gives the numbers for the amount of money that is going into research and development of renewable energy (in millions).</li>
+<li>Extraction Method: Export as XLS</li>
+</ul>
+<p><img src="images/5c.png" class="img-fluid" style="width:40.0%"></p>
 </section>
 <section id="python-api" class="level2">
 <h2 class="anchored" data-anchor-id="python-api">Python API</h2>
@@ -290,6 +297,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="r-api" class="level2">
 <h2 class="anchored" data-anchor-id="r-api">R API</h2>
+<p>I used the API on the website <a href="https://www.data.qld.gov.au/dataset/marine-oil-spills-data/resource/6d5865f0-b7fc-4770-a303-a0b1f85f661f"></a>. I used this API in R.</p>
+<p>Link to Code: <a href="codes/01-data-gathering/R_API_DATA.Rmd">R Code</a></p>
 
 
 </section>
