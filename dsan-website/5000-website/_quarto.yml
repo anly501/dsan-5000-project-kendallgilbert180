@@ -39,3 +39,5 @@ format:
     theme: simplex 
     background-color: beige;
     toc: true
+    code-fold: true
+
