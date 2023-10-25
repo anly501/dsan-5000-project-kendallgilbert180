@@ -170,11 +170,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-ocean-sustainability-is-necessary" id="toc-why-ocean-sustainability-is-necessary" class="nav-link active" data-scroll-target="#why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</a></li>
-  <li><a href="#how-the-ocean-helps-us" id="toc-how-the-ocean-helps-us" class="nav-link" data-scroll-target="#how-the-ocean-helps-us">How the Ocean Helps Us</a></li>
-  <li><a href="#negative-impacts-on-ocean-sustainability-human-impact" id="toc-negative-impacts-on-ocean-sustainability-human-impact" class="nav-link" data-scroll-target="#negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</a></li>
-  <li><a href="#benefits-of-investing-in-sustainability" id="toc-benefits-of-investing-in-sustainability" class="nav-link" data-scroll-target="#benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</a></li>
-  <li><a href="#what-is-currently-being-done" id="toc-what-is-currently-being-done" class="nav-link" data-scroll-target="#what-is-currently-being-done">What is Currently Being Done</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link active" data-scroll-target="#data-sources">Data Sources</a>
+  <ul class="collapse">
+  <li><a href="#plastic-leakage-by-region" id="toc-plastic-leakage-by-region" class="nav-link" data-scroll-target="#plastic-leakage-by-region"><strong>Plastic Leakage by Region</strong></a></li>
+  <li><a href="#marine-pollution-act-numbers" id="toc-marine-pollution-act-numbers" class="nav-link" data-scroll-target="#marine-pollution-act-numbers"><strong>Marine Pollution Act Numbers</strong></a></li>
+  <li><a href="#aquaculture-production" id="toc-aquaculture-production" class="nav-link" data-scroll-target="#aquaculture-production"><strong>Aquaculture Production</strong></a></li>
+  <li><a href="#ocean-related-envtech-inventions" id="toc-ocean-related-envtech-inventions" class="nav-link" data-scroll-target="#ocean-related-envtech-inventions"><strong>Ocean Related ENVTECH Inventions</strong></a></li>
+  <li><a href="#policy-instruments" id="toc-policy-instruments" class="nav-link" data-scroll-target="#policy-instruments"><strong>Policy Instruments</strong></a></li>
+  <li><a href="#fishing-exports" id="toc-fishing-exports" class="nav-link" data-scroll-target="#fishing-exports"><strong>Fishing Exports</strong></a></li>
+  </ul></li>
   <li><a href="#python-api" id="toc-python-api" class="nav-link" data-scroll-target="#python-api">Python API</a></li>
   <li><a href="#r-api" id="toc-r-api" class="nav-link" data-scroll-target="#r-api">R API</a></li>
   </ul>
@@ -200,21 +204,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><img src="images/gathering.png" class="img-fluid" style="width:20.0%"></p>
+<p><img src="images/gathering.png" class="img-fluid" style="width:20.0%"><img src="images/oecd.png" class="img-fluid" style="width:40.0%"></p>
 <p>Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.</p>
-<p>I divided this page into five sections. Within each section, I will provided datasets that relate to the topic stated. These sections include:</p>
-<ol type="1">
-<li>Why Ocean Sustainability is Necessary</li>
-<li>How the Ocean Helps Us</li>
-<li>Negative Impacts on Ocean Sustainability / Human Impact</li>
-<li>Benefits of Investing in Sustainability</li>
-<li>What is Currently Being Done to Help</li>
-</ol>
-<p>I want to point out is a lot of this data came from the OECD Ocean sustainability database. To make things more manageable I created datasets for each variable I want to analyze. The datasets that came from this database are 2c, 4b, 5c, and 5b.</p>
-<p>Within this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted</p>
-<section id="why-ocean-sustainability-is-necessary" class="level2">
-<h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
-<p><strong>1a. Plastic Leakage by Region</strong> <a href="https://stats.oecd.org/viewhtml.aspx?datasetcode=PLASTIC_LEAKAGE_V2_2&amp;lang=en">Source</a></p>
+<p>The data that I have chosen to use for this project comes from the OECD. OECD stands for Organization for Economic Co-operation and Development. This organization, founded in 1961 has 38 member countries and was created in attempt to stimulate economic progress and world trade.</p>
+<p>Within this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted.</p>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<section id="plastic-leakage-by-region" class="level3">
+<h3 class="anchored" data-anchor-id="plastic-leakage-by-region"><strong>Plastic Leakage by Region</strong></h3>
+<p><a href="https://stats.oecd.org/viewhtml.aspx?datasetcode=PLASTIC_LEAKAGE_V2_2&amp;lang=en">Source</a></p>
 <ul>
 <li>This data set provides estimates of plastics leakage for the 15 different global regions.</li>
 <li>Extraction Method: Exporting as CSV</li>
@@ -222,77 +220,61 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><img src="images/data1.png" class="img-fluid" style="width:50.0%"></p>
 </section>
-<section id="how-the-ocean-helps-us" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-ocean-helps-us">How the Ocean Helps Us</h2>
-<p><strong>2a. Beach Attendance</strong> <a href="https://catalog.data.gov/dataset/swimming-beach-attendance">Source</a></p>
-<ul>
-<li>This data set covers the beach attendance in the state of New York</li>
-<li>Extraction Method: Exporting as CSV</li>
-<li>Link to Cleaned Data: <a href="data/01-modified-data/cleandata2a.csv">Here</a></li>
-</ul>
-<p><img src="images/data2.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>2b. Employment in Ocean Sectors</strong> <a href="https://opdgig.dos.ny.gov/datasets/e25794dc9cab4fe8bd40d76a18c80f66/explore?showTable=true">Source</a></p>
-<ul>
-<li>This data illustrates 2013 ocean economy employment (number of jobs) for Northeast coastal counties, which comprise of 33 counties from Maine to New York.</li>
-<li>Extraction Method: Exporting as CSV</li>
-</ul>
-<p><img src="images/data10.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>2c. Fishing Vessels</strong> <a href="https://stats.oecd.org/BrandedView.aspx?oecd_bv_id=env-data-en&amp;doi=4c44ff65-en">Source</a></p>
-<ul>
-<li>This dataset gives numbers for the total number of fishing vessels in many countries. According to this source, ““Fishery vessels” refers to mobile floating objects of any kind and size, operating in freshwater, brackish water and marine waters which are used for catching, harvesting, searching, transporting, landing, preserving and/or processing fish, shellfish and other aquatic organisms, residues and plants. The term ‘fishing vessel’ is used instead when the vessel is engaged only in catching operations.”</li>
-<li>Extraction Method: Exporting as XLS</li>
-</ul>
-<p><img src="images/data2c.png" class="img-fluid" style="width:40.0%"></p>
-</section>
-<section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
-<h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
-<p><strong>3a. Plastic Pollution</strong> <a href="https://ourworldindata.org/plastic-pollution">Source</a></p>
-<ul>
-<li>This dataset includes global data on plastic waste generation, pollution and trade. This resource also includes data visualiation already created to help readerse understand the dataset.</li>
-<li>Extraction Method: Exporting as CSV</li>
-</ul>
-<p><img src="images/data3.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>3b. Mismanaged Plastic Waste</strong> <a href="https://www.kaggle.com/datasets/kkhandekar/mismanaged-plastic-waste-around-the-world/data">Source</a></p>
-<ul>
-<li>This dataset provides information on mismanaged waste on many countries. Mismanaged waste is material at high risk of entering the ocean.</li>
-<li>Extraction Method: Exporting as CSV</li>
-</ul>
-<p><img src="images/data7.png" class="img-fluid" style="width:50.0%"></p>
-</section>
-<section id="benefits-of-investing-in-sustainability" class="level2">
-<h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
-<p><strong>4a. Aquaculture Production</strong> <a href="https://data.oecd.org/fish/aquaculture-production.htm">Source</a></p>
-<ul>
-<li>This data set provides the Aquaculture Production by Country from 2000 to 2021.</li>
-<li>Extraction Method: Exporting as CSV</li>
-</ul>
-<p><img src="images/data9.png" class="img-fluid" style="width:50.0%"></p>
-<p><strong>4b. Marine Landings</strong> <a href="https://data.world/agriculture/aquaculture-data">Source</a></p>
-<ul>
-<li>Dataset with the total number(in millions) of how much marine landings are bringing in profit wise for 40 different countries</li>
-<li>Extraction Method: Exporting as XLS</li>
-</ul>
-<p><img src="images/data4b.png" class="img-fluid" style="width:40.0%"></p>
-</section>
-<section id="what-is-currently-being-done" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
-<p><strong>5b. Marine Pollution Act Numbers</strong> <a href="https://www.google.com/url?q=https://stats.oecd.org/viewhtml.aspx?datasetcode%3DOCEAN%26lang%3Den%23&amp;sa=D&amp;source=docs&amp;ust=1696810131575373&amp;usg=AOvVaw0rMGZtX0PlL1T2mnFrbzpp">Source</a></p>
+<section id="marine-pollution-act-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="marine-pollution-act-numbers"><strong>Marine Pollution Act Numbers</strong></h3>
+<p><a href="https://www.google.com/url?q=https://stats.oecd.org/viewhtml.aspx?datasetcode%3DOCEAN%26lang%3Den%23&amp;sa=D&amp;source=docs&amp;ust=1696810131575373&amp;usg=AOvVaw0rMGZtX0PlL1T2mnFrbzpp">Source</a></p>
 <ul>
 <li>Gives the numbers for the total MPA in a country</li>
 <li>Extraction Method: Export as XLS</li>
 </ul>
 <p><img src="images/data6.png" class="img-fluid" style="width:40.0%"></p>
-<p><strong>5c. Money Going into Ocean Energy Research</strong> <a href="https://stats.oecd.org/BrandedView.aspx?oecd_bv_id=env-data-en&amp;doi=4c44ff65-en">Source</a></p>
+</section>
+<section id="aquaculture-production" class="level3">
+<h3 class="anchored" data-anchor-id="aquaculture-production"><strong>Aquaculture Production</strong></h3>
+<p><a href="https://data.oecd.org/fish/aquaculture-production.htm">Source</a></p>
 <ul>
-<li>Gives the numbers for the amount of money that is going into research and development of renewable energy (in millions).</li>
+<li>This data set provides the Aquaculture Production by Country from 2000 to 2021.</li>
+<li>Extraction Method: Exporting as XLS</li>
+</ul>
+<p><img src="images/data9.png" class="img-fluid" style="width:50.0%"></p>
+</section>
+<section id="ocean-related-envtech-inventions" class="level3">
+<h3 class="anchored" data-anchor-id="ocean-related-envtech-inventions"><strong>Ocean Related ENVTECH Inventions</strong></h3>
+<p><a href="">Source</a></p>
+<ul>
+<li>This data set provides the number of ocean related inventions by Country from 2000 to 2021.</li>
+<li>Extraction Method: Exporting as XLS</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">NEED PIC</figcaption>
+</figure>
+</div>
+</section>
+<section id="policy-instruments" class="level3">
+<h3 class="anchored" data-anchor-id="policy-instruments"><strong>Policy Instruments</strong></h3>
+<p><a href="">Source</a></p>
+<ul>
+<li>This data set provides the number of policy instruments in each Country from 2000 to 2021.</li>
+</ul>
+<p><img src=".png" class="img-fluid" style="width:40.0%"></p>
+</section>
+<section id="fishing-exports" class="level3">
+<h3 class="anchored" data-anchor-id="fishing-exports"><strong>Fishing Exports</strong></h3>
+<p><a href="https://stats.oecd.org/BrandedView.aspx?oecd_bv_id=env-data-en&amp;doi=4c44ff65-en">Source</a></p>
+<ul>
+<li>The amount of fishing exports (in millions) by Country from 2000 to 2021</li>
 <li>Extraction Method: Export as XLS</li>
 </ul>
-<p><img src="images/5c.png" class="img-fluid" style="width:40.0%"></p>
+<p><img src=".png" class="img-fluid" style="width:40.0%"></p>
+</section>
 </section>
 <section id="python-api" class="level2">
 <h2 class="anchored" data-anchor-id="python-api">Python API</h2>
 <p>I used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do text analysis with this data.</p>
 <p>Link to Code: <a href="./codes/01-data-gathering/Python API/apinews_gathering.html">Here</a></p>
+<p>This code also cleans the text data.</p>
 </section>
 <section id="r-api" class="level2">
 <h2 class="anchored" data-anchor-id="r-api">R API</h2>

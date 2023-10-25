@@ -20,3 +20,4 @@ print(data3a.head()) #Checking Switch
 
 # %%Exporting as CSV
 data3a.to_csv('cleandata3a.csv', index=False)
+

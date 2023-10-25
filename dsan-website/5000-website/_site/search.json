@@ -53,7 +53,7 @@
     "href": "gathering.html",
     "title": "Data Gathering",
     "section": "",
-    "text": "Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.\nI divided this page into five sections. Within each section, I will provided datasets that relate to the topic stated. These sections include:\nI want to point out is a lot of this data came from the OECD Ocean sustainability database. To make things more manageable I created datasets for each variable I want to analyze. The datasets that came from this database are 2c, 4b, 5c, and 5b.\nWithin this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted"
+    "text": "Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.\nThe data that I have chosen to use for this project comes from the OECD. OECD stands for Organization for Economic Co-operation and Development. This organization, founded in 1961 has 38 member countries and was created in attempt to stimulate economic progress and world trade.\nWithin this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted."
   },
   {
     "objectID": "cleaning.html",
@@ -256,7 +256,7 @@
     "href": "gathering.html#python-api",
     "title": "Data Gathering",
     "section": "Python API",
-    "text": "Python API\nI used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do text analysis with this data.\nLink to Code: Here"
+    "text": "Python API\nI used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do text analysis with this data.\nLink to Code: Here\nThis code also cleans the text data."
   },
   {
     "objectID": "gathering.html#r-api",
@@ -312,7 +312,7 @@
     "href": "exploration.html#how-the-ocean-helps-us",
     "title": "Data Exploration",
     "section": "How the Ocean Helps Us",
-    "text": "How the Ocean Helps Us\n2a. Beach Attendance\nExploratory Data Analysis: Python Code and Analysis\n2b. Employment in Ocean Sectors\nExploratory Data Analysis: Python Code and Analysis"
+    "text": "How the Ocean Helps Us\n2a. Beach Attendance\nExploratory Data Analysis: Python Code and Analysis\n2b. Employment in Ocean Sectors\nExploratory Data Analysis: Python Code and Analysis\n2c. Fishing Vessels\nExploratory Data Analysis: Python Code and Analysis"
   },
   {
     "objectID": "codes/03-data-exploration/eda_2a.html",
@@ -382,7 +382,7 @@
     "href": "codes/03-data-exploration/eda_1a.html#data-visualization",
     "title": "Data 1a Exploratory Data Analysis",
     "section": "Data Visualization",
-    "text": "Data Visualization\n\n\nCode\nimport matplotlib.pyplot as plt\n\n#average Tones by Year\naverage_tonnes = data1a.groupby(\"Time\")[\"Value\"].mean()\n\n# Bar Chart - Average Tonnes Each Year\nplt.figure(figsize=(8, 6))\nplt.bar(average_tonnes.index, average_tonnes.values, color='#ADD8E6')\nplt.xlabel(\"Year\")\nplt.ylabel(\"Average Tonnes\")\nplt.title(\"Average Tonnes Each Year (2019 - 2060)\")\nplt.show()\n\n\n\n\n\n\n\nCode\ncountry_sum = data1a.groupby(\"Location\")[\"Value\"].sum()\n\n# Bar Chart - Sum of Values for Each Location \ncountry_sum = country_sum.sort_values(ascending=False)\nprint(country_sum)\nplt.figure(figsize=(8, 6))\nplt.bar(country_sum.index, country_sum.values, color='#ADD8E6')\nplt.xlabel(\"Country\")\nplt.ylabel(\"Sum of Value\")\nplt.title(\"Estimated Total Leakage by Country Over 40 Years\")\nplt.xticks(rotation=45)\nplt.show()\n\n\nLocation\nOther non-OECD Asia           5219.555210\nChina                         3171.411114\nOther Africa                  2683.444158\nLatin America                 2184.368092\nOECD EU                       1630.250955\nUnited States                 1517.991740\nIndia                         1431.290918\nMiddle East & North Africa    1388.940608\nOECD Non-EU                    712.730233\nOther OECD America             628.464360\nOECD Asia                      578.911133\nOther Eurasia                  332.924609\nCanada                         222.498466\nOther EU                        32.281595\nOECD Oceania                    23.406731\nName: Value, dtype: float64\n\n\n\n\n\n\n\nCode\n#HeatMap\nimport seaborn as sns\nheatmap_data = data1a.pivot_table(index=\"Location\", values=\"Value\", aggfunc=\"sum\")\nplt.figure(figsize=(10, 6))\nsns.heatmap(heatmap_data, cmap=\"YlGnBu\", annot=True, fmt='g', cbar=True, linewidths=0.5)\nplt.title(\"Heatmap of Values by Location\")\nplt.show()\n# Darker Colors = Higher SUM\n\n\n\n\n\n\n\nCode\n\n#Filtering Data to just show United States and China\nselected_countries = [\"United States\", \"China\"]\nfiltered_df = data1a[data1a[\"Location\"].isin(selected_countries)]\n\n#Boxplot of United States and China Values \nplt.figure(figsize=(8, 6))\nsns.boxplot(x=\"Location\", y=\"Value\", data=filtered_df, palette=\"Set3\")\nplt.xlabel(\"Country\")\nplt.ylabel(\"Tonnes\")\nplt.title(\"Boxplot United States and China\")\nplt.show()"
+    "text": "Data Visualization\n\n\nCode\nimport matplotlib.pyplot as plt\n\n#average Tones by Year\naverage_tonnes = data1a.groupby(\"Time\")[\"Value\"].mean()\n\n# Bar Chart - Average Tonnes Each Year\nplt.figure(figsize=(8, 6))\nplt.bar(average_tonnes.index, average_tonnes.values, color='#ADD8E6')\nplt.xlabel(\"Year\")\nplt.ylabel(\"Average Tonnes\")\nplt.title(\"Average Tonnes Each Year (2019 - 2060)\")\nplt.show()\n\n\n\n\n\n\n\nCode\ncountry_sum = data1a.groupby(\"Location\")[\"Value\"].sum()\n\n# Bar Chart - Sum of Values for Each Location \ncountry_sum = country_sum.sort_values(ascending=False)\nprint(country_sum)\nplt.figure(figsize=(8, 6))\nplt.bar(country_sum.index, country_sum.values, color='#ADD8E6')\nplt.xlabel(\"Country\")\nplt.ylabel(\"Sum of Value\")\nplt.title(\"Estimated Total Leakage by Country Over 40 Years\")\nplt.xticks(rotation=45)\nplt.show()\n\n\nLocation\nOther non-OECD Asia           5219.555210\nChina                         3171.411114\nOther Africa                  2683.444158\nLatin America                 2184.368092\nOECD EU                       1630.250955\nUnited States                 1517.991740\nIndia                         1431.290918\nMiddle East & North Africa    1388.940608\nOECD Non-EU                    712.730233\nOther OECD America             628.464360\nOECD Asia                      578.911133\nOther Eurasia                  332.924609\nCanada                         222.498466\nOther EU                        32.281595\nOECD Oceania                    23.406731\nName: Value, dtype: float64\n\n\n\n\n\n\n\nCode\n#HeatMap\nimport seaborn as sns\nheatmap_data = data1a.pivot_table(index=\"Location\", values=\"Value\", aggfunc=\"sum\")\nplt.figure(figsize=(10, 6))\nsns.heatmap(heatmap_data, cmap=\"YlGnBu\", annot=True, fmt='g', cbar=True, linewidths=0.5)\nplt.title(\"Heatmap of Values by Location\")\nplt.show()\n# Darker Colors = Higher SUM\n\n\n\n\n\n\n\nCode\n\n#Filtering Data to just show United States and China\nselected_countries = [\"United States\", \"China\"]\nfiltered_df = data1a[data1a[\"Location\"].isin(selected_countries)]\n\n#Boxplot of United States and China Values \nplt.figure(figsize=(8, 6))\nsns.boxplot(x=\"Location\", y=\"Value\", data=filtered_df, palette=\"Set3\")\nplt.xlabel(\"Country\")\nplt.ylabel(\"Tonnes\")\nplt.title(\"Boxplot United States and China\")\nplt.show()\n\nimport matplotlib.pyplot as plt\nplt.figure(figsize=(12, 6))\nsns.lineplot(x=\"Year\", y=\"Value\", hue=\"Location\", data=filtered_df, palette=\"Set3\")\nplt.xlabel(\"Year\")\nplt.ylabel(\"Tonnes\")\nplt.title(\"United States and China Values Over the Years\")\nplt.legend(title=\"Country\", loc=\"upper left\")\nplt.show()\n\n\n\n\n\nValueError: Could not interpret value `Year` for parameter `x`\n\n\n&lt;Figure size 1200x600 with 0 Axes&gt;"
   },
   {
     "objectID": "codes/03-data-exploration/eda_1a.html#correlation-analysis",
@@ -410,21 +410,21 @@
     "href": "exploration.html#negative-impacts-on-ocean-sustainability-human-impact",
     "title": "Data Exploration",
     "section": "Negative Impacts on Ocean Sustainability / Human Impact",
-    "text": "Negative Impacts on Ocean Sustainability / Human Impact\n3a. Plastic Pollution\nExploratory Data Analysis: Python Code and Analysis\n3b. Mismanaged Plastic Waste\nExploratory Data Analysis: Python Code and Analysis"
+    "text": "Negative Impacts on Ocean Sustainability / Human Impact\n3a. Plastic Pollution\n3b. Mismanaged Plastic Waste\nExploratory Data Analysis: Python Code and Analysis"
   },
   {
     "objectID": "exploration.html#benefits-of-investing-in-sustainability",
     "href": "exploration.html#benefits-of-investing-in-sustainability",
     "title": "Data Exploration",
     "section": "Benefits of Investing in Sustainability",
-    "text": "Benefits of Investing in Sustainability\n4a. Aquaculture Production\nExploratory Data Analysis: Python Code and Analysis\n4b. Aquaculture Production - CatFish\nExploratory Data Analysis: Python Code and Analysis"
+    "text": "Benefits of Investing in Sustainability\n4a. Aquaculture Production\n4b. Marine Landings\nExploratory Data Analysis: Python Code and Analysis"
   },
   {
     "objectID": "exploration.html#what-is-currently-being-done",
     "href": "exploration.html#what-is-currently-being-done",
     "title": "Data Exploration",
     "section": "What is Currently Being Done",
-    "text": "What is Currently Being Done\n5a. Marine Pollution Act\nExploratory Data Analysis: Python Code and Analysis\n5b. Marine Pollution Act Numbers\nExploratory Data Analysis: Python Code and Analysis"
+    "text": "What is Currently Being Done\n5a. Marine Pollution Act\n5b. Marine Pollution Act Numbers\n5c.Money Going into Ocean Energy Research\nExploratory Data Analysis: Python Code and Analysis"
   },
   {
     "objectID": "codes/03-data-exploration/outline_da.html#descriptive-statistics",
@@ -544,5 +544,19 @@
     "title": "cleaning_data5b",
     "section": "",
     "text": "Code\ndata5b &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/5b.csv\", header=FALSE, comment.char=\"#\")\ndata5b &lt;- data5b[-1,]\nhead(data5b)\n\n\n          V1        V2       V3       V4       V5       V6        V7       V8\n2  Australia 376896.50 377198.5 399905.8   399923 402051.8 406363.80 412437.8\n3    Belgium     55.25    55.25    55.25    58.25    58.25    350.25   350.25\n4     Canada  24661.75 24718.75  24918.5    28145  30039.5  32196.50    32534\n5      Chile   8849.75  8849.75  8849.75  8868.75  10068.5  10177.00  10218.5\n6   Colombia  29421.75 29421.75 29421.75 29421.75 29421.75  60890.50  60906.5\n7 Costa Rica  58358.75    58371    58371    58371    58371  58371.00 58570.75\n        V9      V10      V11       V12       V13       V14       V15       V16\n2 417115.8 417560.3 442165.3 442910.50 448550.00 829988.80 830412.00 830600.80\n3   350.25   350.25   350.25    350.25    350.25   1248.25   1248.25   1249.75\n4 32740.75 41618.75    42122  50992.00  51081.50  51087.75  52431.00  52434.50\n5 10219.75 10219.75 10219.75 160674.30 160674.30 160674.30 160674.50 160675.30\n6  60906.5  60910.5 60959.75  61416.50  61425.50  61426.50  63135.50  63829.00\n7 58570.75 58570.75 58570.75  58570.75  58570.75  58570.75  58570.75  58570.75\n        V17       V18       V19        V20        V21        V22      V23\n2 830606.00 847506.80 855714.80 3030763.00 3036163.00 3036163.00  3036163\n3   1249.75   1249.75   1249.75    1249.75    1249.75    1312.50   1312.5\n4  53968.75  56240.50 168553.00  179983.50  508196.30  520922.00   520923\n5 160896.30 461388.80 486509.30 1340514.00 1509188.00 1509192.00  1509216\n6  63829.00  63832.75  94753.50   95429.75   95429.75   95429.75 95429.75\n7  58570.75  58570.75  58570.75   58577.25   58577.25   59238.75 59238.75\n       V24\n2  3036163\n3   1312.5\n4   520923\n5  1510300\n6 95429.75\n7 166920.3\n\n\nCode\ndata5b &lt;- setNames(data5b, c(\"Country\",\"2000\",\"2001\",\"2003\",\"2004\",\"2005\",\"2006\",\"2007\",\"2008\",\"2009\", \"2010\", \"2011\",\"2012\",\"2013\",\"2014\",\"2015\",\"2016\",\"2017\", \"2018\", \"2019\", \"2020\", \"2021\",\"2022\", \"2023\"))\ndata5b[data5b == \"..\"] &lt;- NA\nwrite.csv(data5b, file = \"cleandata5b.csv\", row.names = TRUE)"
+  },
+  {
+    "objectID": "exploration.html#text-analysis",
+    "href": "exploration.html#text-analysis",
+    "title": "Data Exploration",
+    "section": "Text Analysis",
+    "text": "Text Analysis"
+  },
+  {
+    "objectID": "gathering.html#data-sources",
+    "href": "gathering.html#data-sources",
+    "title": "Data Gathering",
+    "section": "Data Sources",
+    "text": "Data Sources\n\nPlastic Leakage by Region\nSource\n\nThis data set provides estimates of plastics leakage for the 15 different global regions.\nExtraction Method: Exporting as CSV\nLink to Cleaned Data: Here\n\n\n\n\nMarine Pollution Act Numbers\nSource\n\nGives the numbers for the total MPA in a country\nExtraction Method: Export as XLS\n\n\n\n\nAquaculture Production\nSource\n\nThis data set provides the Aquaculture Production by Country from 2000 to 2021.\nExtraction Method: Exporting as XLS\n\n\n\n\nOcean Related ENVTECH Inventions\nSource\n\nThis data set provides the number of ocean related inventions by Country from 2000 to 2021.\nExtraction Method: Exporting as XLS\n\n\n\n\nNEED PIC\n\n\n\n\nPolicy Instruments\nSource\n\nThis data set provides the number of policy instruments in each Country from 2000 to 2021.\n\n\n\n\nFishing Exports\nSource\n\nThe amount of fishing exports (in millions) by Country from 2000 to 2021\nExtraction Method: Export as XLS"
   }
 ]
