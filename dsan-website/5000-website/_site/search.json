@@ -256,7 +256,7 @@
     "href": "gathering.html#python-api",
     "title": "Data Gathering",
     "section": "Python API",
-    "text": "Python API\nI used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do a text analysis with this data.\nLink to Code: Here\nText Files:"
+    "text": "Python API\nI used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do text analysis with this data.\nLink to Code: Here"
   },
   {
     "objectID": "gathering.html#r-api",
@@ -523,5 +523,26 @@
     "title": "cleaning_data4b",
     "section": "",
     "text": "Importing and Cleaning Data\n\n\nCode\ndata4b &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/4b.csv\", header=FALSE, comment.char=\"#\")\ndata4b &lt;- setNames(data4b, c(\"Country\",\"2000\",\"2001\",\"2003\",\"2004\",\"2005\",\"2006\",\"2007\",\"2008\",\"2009\", \"2010\", \"2011\",\"2012\",\"2013\",\"2014\",\"2015\",\"2016\",\"2017\", \"2018\", \"2019\", \"2020\", \"2021\"))\ndata4b[data4b == \"..\"] &lt;- NA\n\n\nExporting Data\n\n\nCode\nwrite.csv(data4b, file = \"cleandata4b.csv\", row.names = TRUE)"
+  },
+  {
+    "objectID": "codes/01-data-gathering/R_API_Data.html",
+    "href": "codes/01-data-gathering/R_API_Data.html",
+    "title": "r_api",
+    "section": "",
+    "text": "Code\n# Load the httr package if not already installed\nif (!require(httr)) {\n  install.packages(\"httr\")\n  library(httr)\n}\n\n\nLoading required package: httr\n\n\nCode\n# Define the URL\nurl &lt;- \"https://www.data.qld.gov.au/api/3/action/datastore_search?resource_id=6d5865f0-b7fc-4770-a303-a0b1f85f661f&limit=5&q=title:jones\"\n\n# Make the HTTP GET request\nresponse &lt;- GET(url)\n\n# Check if the request was successful\nif (http_type(response) == \"application/json\") {\n  # Print the content of the response\n  cat(content(response, \"text\"))\n} else {\n  cat(\"Failed to retrieve data\\n\")\n}\n\n\n{\"help\": \"https://www.data.qld.gov.au/api/3/action/help_show?name=datastore_search\", \"success\": true, \"result\": {\"include_total\": true, \"limit\": 5, \"q\": \"title:jones\", \"records_format\": \"objects\", \"resource_id\": \"6d5865f0-b7fc-4770-a303-a0b1f85f661f\", \"total_estimation_threshold\": null, \"records\": [], \"fields\": [{\"id\": \"_id\", \"type\": \"int\"}, {\"id\": \"Date\", \"type\": \"timestamp\"}, {\"id\": \"Region\", \"type\": \"text\"}, {\"id\": \"Source\", \"type\": \"text\"}, {\"id\": \"Ship Type\", \"type\": \"text\"}, {\"id\": \"Area\", \"type\": \"text\"}, {\"id\": \"Location\", \"type\": \"text\"}, {\"id\": \"Pollutant\", \"type\": \"text\"}, {\"id\": \"Estimated Litres\", \"type\": \"text\"}, {\"id\": \"rank\", \"type\": \"float\"}], \"_links\": {\"start\": \"/api/3/action/datastore_search?limit=5&q=title%3Ajones&resource_id=6d5865f0-b7fc-4770-a303-a0b1f85f661f\", \"next\": \"/api/3/action/datastore_search?limit=5&q=title%3Ajones&resource_id=6d5865f0-b7fc-4770-a303-a0b1f85f661f&offset=5\"}, \"total\": 0, \"total_was_estimated\": false}}"
+  },
+  {
+    "objectID": "codes/02-data-cleaning/cleaning_data5c.html",
+    "href": "codes/02-data-cleaning/cleaning_data5c.html",
+    "title": "cleaning_data5b",
+    "section": "",
+    "text": "Importing Data / Formatting Headers / NA Numbers\n\n\nCode\ndata5c &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/5c.csv\", header=FALSE, comment.char=\"#\")\ndata5c &lt;- data5c[-1,]\ndata5c &lt;- setNames(data5c, c(\"Country\",\"2000\",\"2001\",\"2003\",\"2004\",\"2005\",\"2006\",\"2007\",\"2008\",\"2009\", \"2010\", \"2011\",\"2012\",\"2013\",\"2014\",\"2015\",\"2016\",\"2017\", \"2018\", \"2019\", \"2020\", \"2021\",\"2022\"))\ndata5c[data5c == \"..\"] &lt;- NA\nwrite.csv(data5c, file = \"cleandata5c.csv\", row.names = TRUE)"
+  },
+  {
+    "objectID": "codes/02-data-cleaning/cleaning_data5b.html",
+    "href": "codes/02-data-cleaning/cleaning_data5b.html",
+    "title": "cleaning_data5b",
+    "section": "",
+    "text": "Code\ndata5b &lt;- read.csv(\"~/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/5b.csv\", header=FALSE, comment.char=\"#\")\ndata5b &lt;- data5b[-1,]\nhead(data5b)\n\n\n          V1        V2       V3       V4       V5       V6        V7       V8\n2  Australia 376896.50 377198.5 399905.8   399923 402051.8 406363.80 412437.8\n3    Belgium     55.25    55.25    55.25    58.25    58.25    350.25   350.25\n4     Canada  24661.75 24718.75  24918.5    28145  30039.5  32196.50    32534\n5      Chile   8849.75  8849.75  8849.75  8868.75  10068.5  10177.00  10218.5\n6   Colombia  29421.75 29421.75 29421.75 29421.75 29421.75  60890.50  60906.5\n7 Costa Rica  58358.75    58371    58371    58371    58371  58371.00 58570.75\n        V9      V10      V11       V12       V13       V14       V15       V16\n2 417115.8 417560.3 442165.3 442910.50 448550.00 829988.80 830412.00 830600.80\n3   350.25   350.25   350.25    350.25    350.25   1248.25   1248.25   1249.75\n4 32740.75 41618.75    42122  50992.00  51081.50  51087.75  52431.00  52434.50\n5 10219.75 10219.75 10219.75 160674.30 160674.30 160674.30 160674.50 160675.30\n6  60906.5  60910.5 60959.75  61416.50  61425.50  61426.50  63135.50  63829.00\n7 58570.75 58570.75 58570.75  58570.75  58570.75  58570.75  58570.75  58570.75\n        V17       V18       V19        V20        V21        V22      V23\n2 830606.00 847506.80 855714.80 3030763.00 3036163.00 3036163.00  3036163\n3   1249.75   1249.75   1249.75    1249.75    1249.75    1312.50   1312.5\n4  53968.75  56240.50 168553.00  179983.50  508196.30  520922.00   520923\n5 160896.30 461388.80 486509.30 1340514.00 1509188.00 1509192.00  1509216\n6  63829.00  63832.75  94753.50   95429.75   95429.75   95429.75 95429.75\n7  58570.75  58570.75  58570.75   58577.25   58577.25   59238.75 59238.75\n       V24\n2  3036163\n3   1312.5\n4   520923\n5  1510300\n6 95429.75\n7 166920.3\n\n\nCode\ndata5b &lt;- setNames(data5b, c(\"Country\",\"2000\",\"2001\",\"2003\",\"2004\",\"2005\",\"2006\",\"2007\",\"2008\",\"2009\", \"2010\", \"2011\",\"2012\",\"2013\",\"2014\",\"2015\",\"2016\",\"2017\", \"2018\", \"2019\", \"2020\", \"2021\",\"2022\", \"2023\"))\ndata5b[data5b == \"..\"] &lt;- NA\nwrite.csv(data5b, file = \"cleandata5b.csv\", row.names = TRUE)"
   }
 ]
