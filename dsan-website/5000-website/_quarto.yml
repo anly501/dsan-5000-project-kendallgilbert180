@@ -19,12 +19,13 @@ website:
           text: Data
         - gathering.ipynb
         - cleaning.ipynb
-        - exploration.ipynb
-        - clustering.ipynb
+      - href: exploration.ipynb
+        text: EDA
       - text: ML
         menu:
         - FS.ipynb
         - NB.ipynb
+        - clustering.ipynb
       - href: dimensionality.ipynb
         text: Dimensionality Reduction
       - href: trees.ipynb
@@ -33,10 +34,13 @@ website:
         text: ARM
       - href: conclusions.ipynb
         text: Conclusions
+    background: "#B7E0EE"
+    foreground: black
+
 
 format:
   html:
-    theme: simplex 
-    background-color: beige;
+    theme: flatly
     toc: true
-    code-fold: true
+    linkcolor: "#9CD7E3"
+    #code-fold: true
