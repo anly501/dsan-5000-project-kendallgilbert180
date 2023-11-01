@@ -113,16 +113,12 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./cleaning.html" rel="" target="">
  <span class="dropdown-text">Data Cleaning</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./exploration.html" rel="" target="">
- <span class="dropdown-text">Data Exploration</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./clustering.html" rel="" target="">
- <span class="dropdown-text">Clustering</span></a>
-  </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./exploration.html" rel="" target="">
+ <span class="menu-text">EDA</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">ML</span>
@@ -135,6 +131,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./NB.html" rel="" target="">
  <span class="dropdown-text">Naive Bayes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./clustering.html" rel="" target="">
+ <span class="dropdown-text">Clustering</span></a>
   </li>  
     </ul>
   </li>
@@ -166,7 +166,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-ocean-sustainability-is-necessary" id="toc-why-ocean-sustainability-is-necessary" class="nav-link active" data-scroll-target="#why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</a></li>
+  <li><a href="#how-the-ocean-helps-us" id="toc-how-the-ocean-helps-us" class="nav-link" data-scroll-target="#how-the-ocean-helps-us">How the Ocean Helps Us</a></li>
+  <li><a href="#negative-impacts-on-ocean-sustainability-human-impact" id="toc-negative-impacts-on-ocean-sustainability-human-impact" class="nav-link" data-scroll-target="#negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</a></li>
+  <li><a href="#benefits-of-investing-in-sustainability" id="toc-benefits-of-investing-in-sustainability" class="nav-link" data-scroll-target="#benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</a></li>
+  <li><a href="#what-is-currently-being-done" id="toc-what-is-currently-being-done" class="nav-link" data-scroll-target="#what-is-currently-being-done">What is Currently Being Done</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -220,8 +230,209 @@ ul.task-list li input[type="checkbox"] {
 <li>Extraction Method: Exporting as XLS</li>
 </ul>
 <p><img src="images/data4b.png" class="img-fluid" style="width:40.0%"></p>
+<section id="why-ocean-sustainability-is-necessary" class="level2">
+<h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
+<p><strong>1a. Plastic Leakage by Region</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/1a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data1a.rmd">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Viewing Column Names to see duplicates
+<ul>
+<li>Noticed duplicate names for location, water source and time</li>
+<li>Looked into if the duplicates had the same values and if not what was the difference between them</li>
+</ul></li>
+<li>Getting rid of rows that had numbers for freshwater since my project is only addressing ocean sustainability.</li>
+<li>Removing Unnecessary columns that won’t help me address my question</li>
+<li>Exporting as a CSV dataset to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata1a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 4</li>
+<li>Number of Rows: 630</li>
+<li>Column Names: Location, Water Source, Time, Values (Tonnes of Plastic)</li>
+<li>Time Frame: 2019 - 2060</li>
+</ul>
+</section>
+<section id="how-the-ocean-helps-us" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-ocean-helps-us">How the Ocean Helps Us</h2>
+<p><strong>2a. Beach Attendance</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2a.R">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Adding a month and year column to make analysis easier in the future</li>
+<li>Exporting as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 5</li>
+<li>Number of Rows: 5052</li>
+<li>Column Names: Date, Beach, Attendance, Month, Year</li>
+<li>Time Frame: 2017 - 2022</li>
+</ul>
+<p><strong>2b. Employment in Ocean Sectors</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2b.R">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Made column headers shorter for ALL columns</li>
+<li>Added a total employees column that calculates the total ocean sector employees for each county</li>
+<li>Exporting as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 8</li>
+<li>Number of Rows: 34</li>
+<li>Column Names: Employment Construction, Employment Living Resources, Employment Minerals, Employment Ship/Boat Building, Employment Tourism Recreation, Employment Transportation</li>
+<li>Time Frame: 2013</li>
+</ul>
+<p><strong>2c. Fishing Vessels</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2c.xls">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2c.r">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Chaning Header Names and making NA values for missing data</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2c.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 22</li>
+<li>Number of Rows: 45</li>
+<li>Column Names: Country, 2000 - 2021</li>
+<li>Time Frame: 2000 - 2021</li>
+</ul>
+</section>
+<section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
+<h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
+<p><strong>3a. Plastic Pollution</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/3a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data3a.py">Python Code</a></p>
+<ol type="1">
+<li>Importing Data into a Python Environment</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Counting number of NaN values in columns</li>
+<li>Only five in the country code column.</li>
+<li>Determined it is okay to keep these nan values as the country is also listed</li>
+<li>Renaming columns - ‘Entity’ to ‘Country’ and ‘Mismanaged plastic waste to ocean per capita (kg per year)’ to ‘Mismanaged Plastic’</li>
+<li>Exporting data as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata3a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 4</li>
+<li>Number of Rows: 165</li>
+<li>Column Names: Country, Code, Year, Mismanaged Plastic</li>
+<li>Time Frame: 2019</li>
+</ul>
+<p><strong>3b. Mismanaged Plastic Waste</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/3b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data3b.py">Python Code</a></p>
+<ol type="1">
+<li>Importing Data into a Python Environment</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Counting number of NaN values in columns</li>
+<li>Renaming columns to make headers shorter</li>
+<li>Exporting data as a CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata3b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 5</li>
+<li>Number of Rows: 194</li>
+<li>Column Names: Country, 2010_Mismanaged_Waste, 2019_Mismanaged_Waste, Mismanaged_PlasticWaste_PerCapita_2010 (kg per year),Mismanaged_PlasticWaste_PerCapita_2019 (kg per year)</li>
+<li>Time Frame: 2010 and 2019</li>
+</ul>
+</section>
+<section id="benefits-of-investing-in-sustainability" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
+<p><strong>4a. Aquaculture Production</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/4a.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data4a.r">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Getting Rid of Indicator, Subject and Frequency Columns because all rows have the same value</li>
+<li>Editing Column names to be more clear and concise</li>
+<li>Finding out time frame</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata4a.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 5</li>
+<li>Number of Rows: 2862</li>
+<li>Column Names: Location, Measure (Tonnes), Year, Value, Flag.codes</li>
+<li>Time Frame: 1995 - 2021</li>
+</ul>
+<p><strong>4b. Marine Landings</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/4b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data4b.Rmd">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Formatting Headers to correct years</li>
+<li>Adding NA to unknown values</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata4b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 22</li>
+<li>Number of Rows: 38</li>
+<li>Column Names: Country, 2000 - 2021</li>
+<li>Time Frame: 2000 - 2021</li>
+</ul>
+</section>
+<section id="what-is-currently-being-done" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
+<p><strong>5b. Marine Pollution Act Numbers</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5b.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data5b.Rmd">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Formatting Headers to correct years</li>
+<li>Adding NA to unknown values</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5b.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 24</li>
+<li>Number of Rows: 129</li>
+<li>Column Names: Country, 2000 - 2023</li>
+<li>Time Frame: 2000 - 2023</li>
+</ul>
+<p><strong>5c.Money Going into Ocean Energy Research</strong></p>
+<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5c.csv">Here</a></p>
+<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data5c.Rmd">R Code</a></p>
+<ol type="1">
+<li>Reading in Dataset as CSV to R Studio</li>
+<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
+<li>Formatting Headers to correct years</li>
+<li>Adding NA to unknown values</li>
+<li>Exporting as CSV to clean data folder</li>
+</ol>
+<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5c.csv">Here</a></p>
+<p><strong>Overview:</strong></p>
+<ul>
+<li>Number of Columns: 23</li>
+<li>Number of Rows: 35</li>
+<li>Column Names: Country, 2000 - 2022</li>
+<li>Time Frame: 2000 - 2022</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

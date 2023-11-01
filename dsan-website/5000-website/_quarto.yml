@@ -19,13 +19,16 @@ website:
           text: Data
         - gathering.ipynb
         - cleaning.ipynb
-      - href: exploration.ipynb
-        text: EDA
-      - text: ML
+      - text: EDA
         menu:
-        - FS.ipynb
+        - eda/univariate.ipynb
+        - eda/multivariate.ipynb
+      - text: Naive Bayes
+        menu:
         - NB.ipynb
-        - clustering.ipynb
+        - FS.ipynb
+        - nb_record.ipynb
+        - nb_text.ipynb
       - href: dimensionality.ipynb
         text: Dimensionality Reduction
       - href: trees.ipynb

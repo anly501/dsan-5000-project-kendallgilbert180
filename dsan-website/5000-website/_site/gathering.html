@@ -115,26 +115,41 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./exploration.html" rel="" target="">
- <span class="menu-text">EDA</span></a>
-  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">ML</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">EDA</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ml">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-eda">    
+        <li>
+    <a class="dropdown-item" href="./eda/univariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Univariate</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./eda/multivariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Multivariate</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-naive-bayes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Naive Bayes</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-naive-bayes">    
+        <li>
+    <a class="dropdown-item" href="./NB.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes Overview</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./FS.html" rel="" target="">
  <span class="dropdown-text">Feature Selection</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./NB.html" rel="" target="">
- <span class="dropdown-text">Naive Bayes</span></a>
+    <a class="dropdown-item" href="./nb_attempt.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes - Record Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./clustering.html" rel="" target="">
- <span class="dropdown-text">Clustering</span></a>
+    <a class="dropdown-item" href="./nb_text.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes - Text Data</span></a>
   </li>  
     </ul>
   </li>
@@ -226,58 +241,73 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="marine-pollution-act-numbers" class="level3">
 <h3 class="anchored" data-anchor-id="marine-pollution-act-numbers"><strong>Marine Pollution Act Numbers</strong></h3>
+<p><em>Note - The following five datasets come from this <a href="https://stats.oecd.org/viewhtml.aspx?datasetcode=OCEAN&amp;lang=en">Source</a></em></p>
 <ul>
 <li>Gives the numbers for the total MPA in a country</li>
 <li>Extraction Method: Export as XLS</li>
+<li>Link to Cleaned Data: <a href="data/01-modified-data/mpa_.csv">Here</a></li>
 </ul>
-<p><img src="images/mpa.png" class="img-fluid" style="width:40.0%"></p>
+<center>
+<img src="images/mpa.png" class="img-fluid" style="width:50.0%">
+</center>
 </section>
 <section id="aquaculture-production" class="level3">
 <h3 class="anchored" data-anchor-id="aquaculture-production"><strong>Aquaculture Production</strong></h3>
 <ul>
 <li>This data set provides the Aquaculture Production by Country from 2000 to 2021.</li>
 <li>Extraction Method: Exporting as XLS</li>
+<li>Link to Cleaned Data: <a href="data/01-modified-data/a_p_clean">Here</a></li>
 </ul>
-<p><img src="images/a_p.png" class="img-fluid" style="width:43.0%"></p>
+<center>
+<img src="images/a_p_2.png" class="img-fluid" style="width:50.0%">
+</center>
 </section>
 <section id="ocean-related-envtech-inventions" class="level3">
 <h3 class="anchored" data-anchor-id="ocean-related-envtech-inventions"><strong>Ocean Related ENVTECH Inventions</strong></h3>
 <ul>
-<li>This data set provides the number of ocean related inventions by Country from 2000 to 2021.</li>
+<li>This data set provides the number of ocean related inventions by Country from 2000 to 2021. According to OECD, “Innovation is a key driver of productivity and economic growth. It can help achieve environmental objectives at lower costs, and lead to new business opportunities and markets. It is widely acknowledged that far-reaching innovation will be needed to address climate change and other major environmental challenges.”</li>
 <li>Extraction Method: Exporting as XLS</li>
+<li>Link to Cleaned Data: <a href="data/01-modified-data/inventions_clean">Here</a></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">NEED PIC</figcaption>
-</figure>
-</div>
+<center>
+<img src="images/env_tech.png" class="img-fluid" style="width:50.0%">
+</center>
 </section>
 <section id="policy-instruments" class="level3">
 <h3 class="anchored" data-anchor-id="policy-instruments"><strong>Policy Instruments</strong></h3>
 <ul>
-<li>This data set provides the number of policy instruments in each Country from 2000 to 2021.</li>
+<li>This data set provides the number of policy instruments in each Country from 2000 to 2021. According to OECD, “instruments provide important market signals that can influence the behaviour of producers and consumers. They can incorporate environmental costs and benefits into the budgets of businesses and households, by increasing (or decreasing) the price of a product or service. As such, they help internalise the use of natural resources or the emission of pollutants into firms’ or households’ decisions. They can be an effective and cost-efficient way to achieve environmental goals, such as fighting air pollution and climate change, or protecting biodiversity.”</li>
+<li>Extraction Method: Exporting as XLS</li>
+<li>Link to Cleaned Data: <a href="data/01-modified-data/instruments_clean">Here</a></li>
 </ul>
-<p><img src=".png" class="img-fluid" style="width:40.0%"></p>
+<center>
+<img src="images/p_i.png" class="img-fluid" style="width:50.0%">
+</center>
 </section>
 <section id="fishing-exports" class="level3">
 <h3 class="anchored" data-anchor-id="fishing-exports"><strong>Fishing Exports</strong></h3>
 <ul>
 <li>The amount of fishing exports (in millions) by Country from 2000 to 2021</li>
 <li>Extraction Method: Export as XLS</li>
+<li>Link to Cleaned Data: <a href="data/01-modified-data/fishing_clean">Here</a></li>
 </ul>
-<p><img src=".png" class="img-fluid" style="width:40.0%"></p>
+<center>
+<img src="images/fish.png" class="img-fluid" style="width:50.0%">
+</center>
 </section>
 </section>
 <section id="python-api" class="level2">
 <h2 class="anchored" data-anchor-id="python-api">Python API</h2>
 <p>I used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do text analysis with this data.</p>
+<center>
+<img src="images/newsapi.png" class="img-fluid" style="width:30.0%">
+</center>
 <p>Link to Code: <a href="./codes/01-data-gathering/Python API/apinews_gathering.html">Here</a></p>
 <p>This code also cleans the text data.</p>
 </section>
 <section id="r-api" class="level2">
 <h2 class="anchored" data-anchor-id="r-api">R API</h2>
-<p>I used the API on the website <a href="https://www.data.qld.gov.au/dataset/marine-oil-spills-data/resource/6d5865f0-b7fc-4770-a303-a0b1f85f661f"></a>. I used this API in R.</p>
+<p>I used the API on the website <a href="https://www.data.qld.gov.au/dataset/marine-oil-spills-data/resource/6d5865f0-b7fc-4770-a303-a0b1f85f661f">Here</a>. I used this API in R.</p>
 <p>Link to Code: <a href="codes/01-data-gathering/R_API_DATA.Rmd">R Code</a></p>
 
 

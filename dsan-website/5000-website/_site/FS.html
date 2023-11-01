@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability - Feature Selection</title>
+<title>Ocean Sustainability - Feature Selection Overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,12 +89,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180" rel="" target="">
- <span class="menu-text">Code</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./intro.html" rel="" target="">
  <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/codes" rel="" target="">
+ <span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data">    
         <li>
-    <a class="dropdown-item" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/data" rel="" target="">
+    <a class="dropdown-item" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/data" rel="" target="">
  <span class="dropdown-text">Data</span></a>
   </li>  
         <li>
@@ -113,28 +113,43 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./cleaning.html" rel="" target="">
  <span class="dropdown-text">Data Cleaning</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">EDA</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-eda">    
         <li>
-    <a class="dropdown-item" href="./exploration.html" rel="" target="">
- <span class="dropdown-text">Data Exploration</span></a>
+    <a class="dropdown-item" href="./eda/univariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Univariate</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./clustering.html" rel="" target="">
- <span class="dropdown-text">Clustering</span></a>
+    <a class="dropdown-item" href="./eda/multivariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Multivariate</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">ML</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-naive-bayes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Naive Bayes</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ml">    
-        <li>
-    <a class="dropdown-item" href="./FS.html" rel="" target="">
- <span class="dropdown-text">Feature Selection</span></a>
-  </li>  
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-naive-bayes">    
         <li>
     <a class="dropdown-item" href="./NB.html" rel="" target="">
- <span class="dropdown-text">Naive Bayes</span></a>
+ <span class="dropdown-text">Naive Bayes Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./FS.html" rel="" target="">
+ <span class="dropdown-text">Feature Selection Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nb_record.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes Record Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nb_text.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes - Text Data</span></a>
   </li>  
     </ul>
   </li>
@@ -173,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Feature Selection</h1>
+<h1 class="title">Feature Selection Overview</h1>
 </div>
 
 
@@ -188,6 +203,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Feature Selection is a crucial component of data science, especially when dealing with large data sets. The primary objective of feature selection is identifying and choosing the most relevant features from the data set for the given task. I used feature selection to improove the overall accuracy of my Naive Bayes model. Feature selection returns a subset of original features.</p>
+<p>Why do we use feature selection?</p>
+<p>Raw data often contains features that are either redundant or irrelevant. This unhelpful data can be removed without incurring much loss of information.</p>
+<p>Benefits of Feature Selection</p>
+<ul>
+<li>shorter training times, faster model evaluation</li>
+<li>More simple models are easier to interpret</li>
+<li>Reduces effects of the “curse of dimensionality”</li>
+<li>More simple models are typically less prone to overfitting</li>
+<li>Improve data’s compatibility with a learning model</li>
+</ul>
+<p>Main categories of feature selection algorithms:</p>
+<ul>
+<li>Wrapper: Algorithms of this type are “wrapped” around a predictive model to score different feature subsets. As wrapper methods train a new model for each subset, they are very computationally intensive, but usually provide the best performing feature set for that particular type of model or problem. Each new subset is used to train a model, which is tested on a holdout set. Counting the number of mistakes made on that hold-out set (i.e.&nbsp;validation error) gives the score for that subset.</li>
+<li>Embedded: A catch-all group of techniques which perform feature selection as part of the model construction process.</li>
+<li>Filters: An independent step in the feature selection process, conducted before the actual learning algorithm.</li>
+</ul>
 
 
 

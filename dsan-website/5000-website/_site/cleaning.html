@@ -115,23 +115,35 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./exploration.html" rel="" target="">
- <span class="menu-text">EDA</span></a>
-  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">ML</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">EDA</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ml">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-eda">    
         <li>
-    <a class="dropdown-item" href="./FS.html" rel="" target="">
- <span class="dropdown-text">Feature Selection</span></a>
+    <a class="dropdown-item" href="./eda/univariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Univariate</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./eda/multivariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Multivariate</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-naive-bayes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Naive Bayes</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-naive-bayes">    
         <li>
     <a class="dropdown-item" href="./NB.html" rel="" target="">
  <span class="dropdown-text">Naive Bayes</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./FS.html" rel="" target="">
+ <span class="dropdown-text">Feature Selection</span></a>
+  </li>  
+        <li class="dropdown-header">FS_t.ipynb</li>
         <li>
     <a class="dropdown-item" href="./clustering.html" rel="" target="">
  <span class="dropdown-text">Clustering</span></a>
@@ -170,11 +182,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-ocean-sustainability-is-necessary" id="toc-why-ocean-sustainability-is-necessary" class="nav-link active" data-scroll-target="#why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</a></li>
-  <li><a href="#how-the-ocean-helps-us" id="toc-how-the-ocean-helps-us" class="nav-link" data-scroll-target="#how-the-ocean-helps-us">How the Ocean Helps Us</a></li>
-  <li><a href="#negative-impacts-on-ocean-sustainability-human-impact" id="toc-negative-impacts-on-ocean-sustainability-human-impact" class="nav-link" data-scroll-target="#negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</a></li>
-  <li><a href="#benefits-of-investing-in-sustainability" id="toc-benefits-of-investing-in-sustainability" class="nav-link" data-scroll-target="#benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</a></li>
-  <li><a href="#what-is-currently-being-done" id="toc-what-is-currently-being-done" class="nav-link" data-scroll-target="#what-is-currently-being-done">What is Currently Being Done</a></li>
+  <li><a href="#data-cleaning-process" id="toc-data-cleaning-process" class="nav-link active" data-scroll-target="#data-cleaning-process">Data Cleaning Process</a></li>
+  <li><a href="#cleaning-data" id="toc-cleaning-data" class="nav-link" data-scroll-target="#cleaning-data">Cleaning Data</a></li>
+  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data">Joining Data</a></li>
+  <li><a href="#clean-data-summary" id="toc-clean-data-summary" class="nav-link" data-scroll-target="#clean-data-summary">Clean Data Summary</a></li>
+  <li><a href="#links-to-individual-clean-data-sets" id="toc-links-to-individual-clean-data-sets" class="nav-link" data-scroll-target="#links-to-individual-clean-data-sets">Links to Individual Clean Data Sets</a></li>
   </ul>
 </nav>
     </div>
@@ -198,210 +210,47 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><img src="images/cleaning.png" class="img-fluid" style="width:30.0%"></p>
+<center>
+<img src="images/cleaning.png" class="img-fluid" style="width:40.0%">
+</center>
+<section id="data-cleaning-process" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning-process">Data Cleaning Process</h2>
 <p>Data Cleaning is a key step in any project. Within this tab you will have access to all of my data, descriptions about how it was cleaned, and access to the codes used to clean it.</p>
-<p>I will walk through my data cleaning experience as well as provide links to every step.</p>
-<p>Link to code <a href="./codes/02-data-cleaning/newjc.html">here</a></p>
-<section id="why-ocean-sustainability-is-necessary" class="level2">
-<h2 class="anchored" data-anchor-id="why-ocean-sustainability-is-necessary">Why Ocean Sustainability is Necessary</h2>
-<p><strong>1a. Plastic Leakage by Region</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/1a.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data1a.rmd">R Code</a></p>
-<ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Viewing Column Names to see duplicates
-<ul>
-<li>Noticed duplicate names for location, water source and time</li>
-<li>Looked into if the duplicates had the same values and if not what was the difference between them</li>
-</ul></li>
-<li>Getting rid of rows that had numbers for freshwater since my project is only addressing ocean sustainability.</li>
-<li>Removing Unnecessary columns that won’t help me address my question</li>
-<li>Exporting as a CSV dataset to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata1a.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 4</li>
-<li>Number of Rows: 630</li>
-<li>Column Names: Location, Water Source, Time, Values (Tonnes of Plastic)</li>
-<li>Time Frame: 2019 - 2060</li>
-</ul>
+<p>Data cleaning is a non-linear process and takes an exstensive amount of time.</p>
+<p>I will walk through my data cleaning experience as well as provide links to the clean data and code I wrote to clean the data.</p>
+<p>If you are looking for a link to the cleaning code without reading how it was completed in detail click <a href="./codes/02-data-cleaning/newjc.html">here</a>.</p>
 </section>
-<section id="how-the-ocean-helps-us" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-ocean-helps-us">How the Ocean Helps Us</h2>
-<p><strong>2a. Beach Attendance</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2a.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2a.R">R Code</a></p>
+<section id="cleaning-data" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-data">Cleaning Data</h2>
+<p>Within this project I used 6 datasets all from the OECD, therefore the cleaning process was relatively the same for each dataset.</p>
+<p>I typically followed the same structure for cleaning each indiviual data sets.</p>
 <ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Adding a month and year column to make analysis easier in the future</li>
-<li>Exporting as a CSV to clean data folder</li>
+<li><p><strong>Importing</strong>: I imported the data into Python to clean</p></li>
+<li><p><strong>Fixing Headers</strong>: For all five data sources that came from the OECD database, the headers were extremely messed up when importing them into Python. To combat this issue I had to grab the first row - which is where the headers were, and set the first row as the new header.</p></li>
+<li><p><strong>Renaming Columns</strong>: The column headers for all these datsets needed to be labeled Country and Individual years (ex: 2001, 2002). This was not the case, therefore I had to manually edit each column header.</p></li>
+<li><p><strong>Getting rid of Whitespace</strong>: Knowing that I was eventually meging multiple datasets, I wanted all the values to be consistent so there would be no issues.</p></li>
+<li><p><strong>Melting Data</strong>: Country column remains the identifier variable and year is the variable column.</p></li>
+<li><p><strong>New Columns</strong>: Creation of new column that combined Year and Column so merging would be easier.</p></li>
+<li><p><strong>Exporting as csv</strong>:</p></li>
 </ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2a.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 5</li>
-<li>Number of Rows: 5052</li>
-<li>Column Names: Date, Beach, Attendance, Month, Year</li>
-<li>Time Frame: 2017 - 2022</li>
-</ul>
-<p><strong>2b. Employment in Ocean Sectors</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2b.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2b.R">R Code</a></p>
-<ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Made column headers shorter for ALL columns</li>
-<li>Added a total employees column that calculates the total ocean sector employees for each county</li>
-<li>Exporting as a CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2b.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 8</li>
-<li>Number of Rows: 34</li>
-<li>Column Names: Employment Construction, Employment Living Resources, Employment Minerals, Employment Ship/Boat Building, Employment Tourism Recreation, Employment Transportation</li>
-<li>Time Frame: 2013</li>
-</ul>
-<p><strong>2c. Fishing Vessels</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/2c.xls">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data2c.r">R Code</a></p>
-<ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Chaning Header Names and making NA values for missing data</li>
-<li>Exporting as CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata2c.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 22</li>
-<li>Number of Rows: 45</li>
-<li>Column Names: Country, 2000 - 2021</li>
-<li>Time Frame: 2000 - 2021</li>
-</ul>
 </section>
-<section id="negative-impacts-on-ocean-sustainability-human-impact" class="level2">
-<h2 class="anchored" data-anchor-id="negative-impacts-on-ocean-sustainability-human-impact">Negative Impacts on Ocean Sustainability / Human Impact</h2>
-<p><strong>3a. Plastic Pollution</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/3a.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data3a.py">Python Code</a></p>
-<ol type="1">
-<li>Importing Data into a Python Environment</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Counting number of NaN values in columns</li>
-<li>Only five in the country code column.</li>
-<li>Determined it is okay to keep these nan values as the country is also listed</li>
-<li>Renaming columns - ‘Entity’ to ‘Country’ and ‘Mismanaged plastic waste to ocean per capita (kg per year)’ to ‘Mismanaged Plastic’</li>
-<li>Exporting data as a CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata3a.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 4</li>
-<li>Number of Rows: 165</li>
-<li>Column Names: Country, Code, Year, Mismanaged Plastic</li>
-<li>Time Frame: 2019</li>
-</ul>
-<p><strong>3b. Mismanaged Plastic Waste</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/3b.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data3b.py">Python Code</a></p>
-<ol type="1">
-<li>Importing Data into a Python Environment</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Counting number of NaN values in columns</li>
-<li>Renaming columns to make headers shorter</li>
-<li>Exporting data as a CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata3b.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 5</li>
-<li>Number of Rows: 194</li>
-<li>Column Names: Country, 2010_Mismanaged_Waste, 2019_Mismanaged_Waste, Mismanaged_PlasticWaste_PerCapita_2010 (kg per year),Mismanaged_PlasticWaste_PerCapita_2019 (kg per year)</li>
-<li>Time Frame: 2010 and 2019</li>
-</ul>
+<section id="joining-data" class="level2">
+<h2 class="anchored" data-anchor-id="joining-data">Joining Data</h2>
+<p>After cleaning the the five independant data sets, I joined them into one large dataset. I completed this join using inner join therefore I would have no missing values within my dataset.</p>
+<p>Inner join is a technique used to combine records from two tables whenever there are matching values in a field common to both tables.</p>
+<p>After merging this data I split the “Country_Year” columns to make data analysis easier in the future.</p>
 </section>
-<section id="benefits-of-investing-in-sustainability" class="level2">
-<h2 class="anchored" data-anchor-id="benefits-of-investing-in-sustainability">Benefits of Investing in Sustainability</h2>
-<p><strong>4a. Aquaculture Production</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/4a.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="codes/02-data-cleaning/cleaning_data4a.r">R Code</a></p>
-<ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Getting Rid of Indicator, Subject and Frequency Columns because all rows have the same value</li>
-<li>Editing Column names to be more clear and concise</li>
-<li>Finding out time frame</li>
-<li>Exporting as CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata4a.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 5</li>
-<li>Number of Rows: 2862</li>
-<li>Column Names: Location, Measure (Tonnes), Year, Value, Flag.codes</li>
-<li>Time Frame: 1995 - 2021</li>
-</ul>
-<p><strong>4b. Marine Landings</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/4b.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="./codes/02-data-cleaning/cleaning_data4b.html">R Code</a></p>
-<ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Formatting Headers to correct years</li>
-<li>Adding NA to unknown values</li>
-<li>Exporting as CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata4b.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 22</li>
-<li>Number of Rows: 38</li>
-<li>Column Names: Country, 2000 - 2021</li>
-<li>Time Frame: 2000 - 2021</li>
-</ul>
+<section id="clean-data-summary" class="level2">
+<h2 class="anchored" data-anchor-id="clean-data-summary">Clean Data Summary</h2>
+<p>Overall, although this data cleaning process was relatively simple, it was extremely time consuming due to the non-linearity of the process.</p>
 </section>
-<section id="what-is-currently-being-done" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-currently-being-done">What is Currently Being Done</h2>
-<p><strong>5b. Marine Pollution Act Numbers</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5b.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="./codes/02-data-cleaning/cleaning_data5b.html">R Code</a></p>
-<ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Formatting Headers to correct years</li>
-<li>Adding NA to unknown values</li>
-<li>Exporting as CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5b.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 24</li>
-<li>Number of Rows: 129</li>
-<li>Column Names: Country, 2000 - 2023</li>
-<li>Time Frame: 2000 - 2023</li>
-</ul>
-<p><strong>5c.Money Going into Ocean Energy Research</strong></p>
-<p><strong>Raw Data:</strong> <a href="data/00-raw-data/5c.csv">Here</a></p>
-<p><strong>Cleaning Steps:</strong> <a href="./codes/02-data-cleaning/cleaning_data5c.html">R Code</a></p>
-<ol type="1">
-<li>Reading in Dataset as CSV to R Studio</li>
-<li>Viewing Data to see errors / inconsistencies / modifications needed to be made</li>
-<li>Formatting Headers to correct years</li>
-<li>Adding NA to unknown values</li>
-<li>Exporting as CSV to clean data folder</li>
-</ol>
-<p><strong>Clean Data:</strong> <a href="data/01-modified-data/cleandata5c.csv">Here</a></p>
-<p><strong>Overview:</strong></p>
-<ul>
-<li>Number of Columns: 23</li>
-<li>Number of Rows: 35</li>
-<li>Column Names: Country, 2000 - 2022</li>
-<li>Time Frame: 2000 - 2022</li>
-</ul>
+<section id="links-to-individual-clean-data-sets" class="level2">
+<h2 class="anchored" data-anchor-id="links-to-individual-clean-data-sets">Links to Individual Clean Data Sets</h2>
+<p>Aquaculture Production Clean Data <a href="">Here</a></p>
+<p>Marine Pollution Act Clean Data <a href="">Here</a></p>
+<p>Fishing Exports Clean Data <a href="">Here</a></p>
+<p>ENVTECH Inventions Clean Data <a href="">Here</a></p>
+<p>Policy Instruments Clean Data <a href="">Here</a></p>
 
 
 </section>
