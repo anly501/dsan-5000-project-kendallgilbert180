@@ -170,19 +170,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-naive-bayes">    
         <li>
-    <a class="dropdown-item" href="../../nb/NB.html" rel="" target="">
+    <a class="dropdown-item" href="../../NB.html" rel="" target="">
  <span class="dropdown-text">Naive Bayes Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../nb/FS.html" rel="" target="">
+    <a class="dropdown-item" href="../../FS.html" rel="" target="">
  <span class="dropdown-text">Feature Selection Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../nb/nb_record.html" rel="" target="">
+    <a class="dropdown-item" href="../../nb_record.html" rel="" target="">
  <span class="dropdown-text">Naive Bayes Record Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../nb/nb_text.html" rel="" target="">
+    <a class="dropdown-item" href="../../nb_text.html" rel="" target="">
  <span class="dropdown-text">Naive Bayes - Text Data</span></a>
   </li>  
     </ul>
@@ -222,42 +222,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> praw</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Reddit instance</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>reddit <span class="op">=</span> praw.Reddit(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    client_id<span class="op">=</span><span class="st">'Apa_fh30Q_VgnSv1ndq89w'</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    client_secret<span class="op">=</span><span class="st">'U-IKq5PtGR28T7ye_2kq33tvsliI8Q'</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">'text api by kendallgilbert18'</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    username<span class="op">=</span><span class="st">'kendallgilbert18'</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    password<span class="op">=</span><span class="st">'Hunterdog2001!'</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the subreddits and search queries</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>subreddits <span class="op">=</span> [<span class="st">'news'</span>, <span class="st">'technology'</span>, <span class="st">'science'</span>, <span class="st">'worldnews'</span>, <span class="st">'travel'</span>]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>search_query <span class="op">=</span> <span class="st">'ocean plastic'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>reddit <span class="op">=</span> praw.Reddit(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    client_id<span class="op">=</span><span class="st">'Apa_fh30Q_VgnSv1ndq89w'</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    client_secret<span class="op">=</span><span class="st">'U-IKq5PtGR28T7ye_2kq33tvsliI8Q'</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">'text api by kendallgilbert18'</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    username<span class="op">=</span><span class="st">'kendallgilbert18'</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    password<span class="op">=</span><span class="st">'Hunterdog2001!'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>subreddits <span class="op">=</span> [<span class="st">'news'</span>, <span class="st">'technology'</span>, <span class="st">'science'</span>, <span class="st">'worldnews'</span>, <span class="st">'travel'</span>]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>search_query <span class="op">=</span> <span class="st">'ocean plastic'</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'reddit_data_final.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> csvfile:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    csv_writer <span class="op">=</span> csv.writer(csvfile)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    csv_writer.writerow([<span class="st">'Subreddit'</span>, <span class="st">'Title'</span>])  <span class="co"># Write header row</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and open a CSV file for writing</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'reddit_data_final.csv'</span>, <span class="st">'w'</span>, newline<span class="op">=</span><span class="st">''</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> csvfile:</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    csv_writer <span class="op">=</span> csv.writer(csvfile)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    csv_writer.writerow([<span class="st">'Subreddit'</span>, <span class="st">'Title'</span>])  <span class="co"># Write header row</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> subreddit_name <span class="kw">in</span> subreddits:</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Search for posts in the subreddit related to the search query</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        subreddit <span class="op">=</span> reddit.subreddit(subreddit_name)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        posts <span class="op">=</span> subreddit.search(search_query, limit<span class="op">=</span><span class="dv">500</span>)  <span class="co"># Limit the number of posts to retrieve</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Extract and write post titles to the CSV</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> post <span class="kw">in</span> posts:</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            title <span class="op">=</span> post.title</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>            csv_writer.writerow([subreddit_name, title])</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Data has been exported to reddit_data_final.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Data has been exported to reddit_data_final.csv</code></pre>
-</div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> subreddit_name <span class="kw">in</span> subreddits:</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        subreddit <span class="op">=</span> reddit.subreddit(subreddit_name)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        posts <span class="op">=</span> subreddit.search(search_query, limit<span class="op">=</span><span class="dv">500</span>)  <span class="co"># Limit the number of posts to retrieve</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> post <span class="kw">in</span> posts:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            title <span class="op">=</span> post.title</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            csv_writer.writerow([subreddit_name, title])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

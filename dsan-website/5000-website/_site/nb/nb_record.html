@@ -506,9 +506,7 @@ Validation F1 Score: 0.8058261232337525</code></pre>
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Actual'</span>)</span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Count'</span>)</span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Confusion Matrix'</span>)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].legend(title<span class="op">=</span><span class="st">'Predicted'</span>, labels<span class="op">=</span>bin_edges[<span class="dv">1</span>:])</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].legend(title<span class="op">=</span><span class="st">'Predicted'</span>, labels<span class="op">=</span>bin_edges[<span class="dv">1</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="nb_record_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
@@ -520,26 +518,24 @@ Validation F1 Score: 0.8058261232337525</code></pre>
 <section id="bar-plots-for-accuracy-and-f1-scores" class="level3">
 <h3 class="anchored" data-anchor-id="bar-plots-for-accuracy-and-f1-scores">Bar Plots for Accuracy and F1 Scores</h3>
 <p>I created bar charts to show the accuracy and f1 scores for the training, testing and validation sets. This can be utilized to easily see the differences in these scores.</p>
-<div class="cell" data-execution_count="47">
+<div class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>datasets <span class="op">=</span> [<span class="st">'Training'</span>, <span class="st">'Testing'</span>, <span class="st">'Validation'</span>]</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>accuracies <span class="op">=</span> [accuracy_train, accuracy_test_fs, accuracy_val_fs]</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>f1_scores <span class="op">=</span> [f1_train, f1_test, f1_val]</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="bu">len</span>(datasets))</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>ax.bar(x, accuracies, width, label<span class="op">=</span><span class="st">'Accuracy'</span>, align<span class="op">=</span><span class="st">'center'</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>ax.bar([i <span class="op">+</span> width <span class="cf">for</span> i <span class="kw">in</span> x], f1_scores, width, label<span class="op">=</span><span class="st">'F1 Score'</span>, align<span class="op">=</span><span class="st">'center'</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Datasets'</span>)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Scores'</span>)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Model Performance Metrics'</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([i <span class="op">+</span> width <span class="op">/</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> x])</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(datasets)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="47">
-<pre><code>&lt;matplotlib.legend.Legend at 0x17623fa10&gt;</code></pre>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>datasets <span class="op">=</span> [<span class="st">'Training'</span>, <span class="st">'Testing'</span>, <span class="st">'Validation'</span>]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>accuracies <span class="op">=</span> [accuracy_train, accuracy_test_fs, accuracy_val_fs]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>f1_scores <span class="op">=</span> [f1_train, f1_test, f1_val]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="bu">len</span>(datasets))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>ax.bar(x, accuracies, width, label<span class="op">=</span><span class="st">'Accuracy'</span>, align<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>ax.bar([i <span class="op">+</span> width <span class="cf">for</span> i <span class="kw">in</span> x], f1_scores, width, label<span class="op">=</span><span class="st">'F1 Score'</span>, align<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Datasets'</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Scores'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Model Performance Metrics'</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([i <span class="op">+</span> width <span class="op">/</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> x])</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(datasets)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>&lt;matplotlib.legend.Legend at 0x176203dd0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="nb_record_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
@@ -565,7 +561,7 @@ Validation F1 Score: 0.8058261232337525</code></pre>
 <li><p><strong>Pattern Extrapolation</strong> This model can learn patterns from the provided features related to ocean sustainability policy. We can use the model to make predictions or classifications for other countries, even if we have limited feature data. For instance, if we wanted to we could estimate or understand the likelihood of ocean sustainability policy adoption in countries for which we don’t have extensive data.</p></li>
 <li><p><strong>Feature Impact</strong> This model can help researchers understand what features have had an impact on ocean policy in the past. By analyzing feature importance, researchers can focus on what other countries have done in these areas to promote more effective ocean policy. This can inform strategies and recommendations for improving sustainability.</p></li>
 <li><p><strong>Policy Decisions</strong> This model can provide insights into which features have influenced policy decisions in different countries. This information can be used to make data-driven decisions regarding the implementation of policies related to ocean sustainability.</p></li>
-<li><p><strong>Commitment</strong> This model shows which countries are committed to policy and the features that have impacted this commitment. This information can be valuable for international cooperation and sharing best practices.</p></li>
+<li><p><strong>Committment</strong> This model shows which countries are committed to policy and the features that have impacted this commitment. This information can be valuable for international cooperation and sharing best practices.</p></li>
 </ul>
 
 
