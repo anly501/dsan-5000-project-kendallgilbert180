@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability – cleaning_policy</title>
+<title>Ocean Sustainability - Cleaning 7th Variable for Naive Bayes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -178,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../FS.html" rel="" target="">
- <span class="dropdown-text">Feature Selection</span></a>
+ <span class="dropdown-text">Feature Selection Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../nb_record.html" rel="" target="">
@@ -223,327 +223,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cleaning 7th Variable for Naive Bayes</h1>
+</div>
 
 
-<div class="cell" data-execution_count="39">
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading Merged Data and New data</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/merged.csv"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>pi_nb <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/naive_bayes_policy.csv"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pi_nb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">#NAME?</th>
-<th data-quarto-table-cell-role="th">Unnamed: 1</th>
-<th data-quarto-table-cell-role="th">Unnamed: 2</th>
-<th data-quarto-table-cell-role="th">Unnamed: 3</th>
-<th data-quarto-table-cell-role="th">Unnamed: 4</th>
-<th data-quarto-table-cell-role="th">Unnamed: 5</th>
-<th data-quarto-table-cell-role="th">Unnamed: 6</th>
-<th data-quarto-table-cell-role="th">Unnamed: 7</th>
-<th data-quarto-table-cell-role="th">Unnamed: 8</th>
-<th data-quarto-table-cell-role="th">Unnamed: 9</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">Unnamed: 14</th>
-<th data-quarto-table-cell-role="th">Unnamed: 15</th>
-<th data-quarto-table-cell-role="th">Unnamed: 16</th>
-<th data-quarto-table-cell-role="th">Unnamed: 17</th>
-<th data-quarto-table-cell-role="th">Unnamed: 18</th>
-<th data-quarto-table-cell-role="th">Unnamed: 19</th>
-<th data-quarto-table-cell-role="th">Unnamed: 20</th>
-<th data-quarto-table-cell-role="th">Unnamed: 21</th>
-<th data-quarto-table-cell-role="th">Unnamed: 22</th>
-<th data-quarto-table-cell-role="th">Unnamed: 23</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Year</td>
-<td>2000</td>
-<td>2001</td>
-<td>2002</td>
-<td>2003</td>
-<td>2004</td>
-<td>2005</td>
-<td>2006</td>
-<td>2007</td>
-<td>2008</td>
-<td>...</td>
-<td>2013</td>
-<td>2014</td>
-<td>2015</td>
-<td>2016</td>
-<td>2017</td>
-<td>2018</td>
-<td>2019</td>
-<td>2020</td>
-<td>2021</td>
-<td>2022</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Australia</td>
-<td>10.64</td>
-<td>9.62</td>
-<td>9.09</td>
-<td>9.26</td>
-<td>8.93</td>
-<td>8.62</td>
-<td>8.33</td>
-<td>7.94</td>
-<td>8</td>
-<td>...</td>
-<td>6.82</td>
-<td>6.59</td>
-<td>6.74</td>
-<td>6.82</td>
-<td>6.82</td>
-<td>6.59</td>
-<td>6.52</td>
-<td>6.52</td>
-<td>6.52</td>
-<td>6.52</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Austria</td>
-<td>3.85</td>
-<td>3.85</td>
-<td>3.85</td>
-<td>3.85</td>
-<td>3.85</td>
-<td>3.7</td>
-<td>3.7</td>
-<td>3.57</td>
-<td>3.57</td>
-<td>...</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.45</td>
-<td>3.33</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Belgium</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>...</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Canada</td>
-<td>5.23</td>
-<td>4.94</td>
-<td>4.6</td>
-<td>4.49</td>
-<td>4.42</td>
-<td>4.04</td>
-<td>4.31</td>
-<td>4.35</td>
-<td>4.35</td>
-<td>...</td>
-<td>4.37</td>
-<td>4.37</td>
-<td>4.37</td>
-<td>4.37</td>
-<td>4.37</td>
-<td>4.37</td>
-<td>4.35</td>
-<td>4.35</td>
-<td>4.35</td>
-<td>4.35</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">130</td>
-<td>Uganda</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>...</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">131</td>
-<td>Ukraine</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>...</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">132</td>
-<td>Uruguay</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>...</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">133</td>
-<td>Venezuela</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>...</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>..</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>..</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">134</td>
-<td>Viet Nam</td>
-<td>66.67</td>
-<td>66.67</td>
-<td>66.67</td>
-<td>66.67</td>
-<td>66.67</td>
-<td>75</td>
-<td>75</td>
-<td>75</td>
-<td>75</td>
-<td>...</td>
-<td>80</td>
-<td>80</td>
-<td>80</td>
-<td>80</td>
-<td>80</td>
-<td>80</td>
-<td>80</td>
-<td>80</td>
-<td>83.33</td>
-<td>87.5</td>
-</tr>
-</tbody>
-</table>
-
-<p>135 rows × 24 columns</p>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>pi_nb <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/00-raw-data/naive_bayes_policy.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<div class="cell" data-execution_count="40">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>new_header <span class="op">=</span> pi_nb.iloc[<span class="dv">0</span>] <span class="co">#Grabbing the first row for the header</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pi_nb <span class="op">=</span> pi_nb[<span class="dv">1</span>:] <span class="co">#Taking the data less the header row</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pi_nb.columns <span class="op">=</span> new_header <span class="co">#Setting the header row as the df header</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pi_nb <span class="op">=</span> pi_nb.rename(columns<span class="op">=</span>{<span class="st">'Year'</span>: <span class="st">'Country'</span>})</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>pi_nb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -846,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Melting Data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>melted_policy <span class="op">=</span> pd.melt(pi_nb, id_vars<span class="op">=</span>[<span class="st">'Country'</span>], var_name<span class="op">=</span><span class="st">'Year'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -856,25 +568,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original "Country" and "Year" columns</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>melted_policy <span class="op">=</span> melted_policy.drop(columns<span class="op">=</span>[<span class="st">'Country'</span>, <span class="st">'Year'</span>])</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Naive Bayes Record </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the "Year" column to a string and then combine "Country" and "Year" into "Country_Year"</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>merged[<span class="st">'Country_Year'</span>] <span class="op">=</span> merged[<span class="st">'Country'</span>] <span class="op">+</span> <span class="st">'_'</span> <span class="op">+</span> merged[<span class="st">'Year'</span>].astype(<span class="bu">str</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original "Country" and "Year" columns</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> merged.drop(columns<span class="op">=</span>[<span class="st">'Country'</span>, <span class="st">'Year'</span>])</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>nb_record <span class="op">=</span> pd.merge(merged, melted_policy, on<span class="op">=</span><span class="st">'Country_Year'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the "Year" column to a string and then combine "Country" and "Year" into "Country_Year"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>merged[<span class="st">'Country_Year'</span>] <span class="op">=</span> merged[<span class="st">'Country'</span>] <span class="op">+</span> <span class="st">'_'</span> <span class="op">+</span> merged[<span class="st">'Year'</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original "Country" and "Year" columns</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> merged.drop(columns<span class="op">=</span>[<span class="st">'Country'</span>, <span class="st">'Year'</span>])</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>nb_record <span class="op">=</span> pd.merge(merged, melted_policy, on<span class="op">=</span><span class="st">'Country_Year'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Split 'Country_Year' into 'Country' and 'Year'</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>nb_record[[<span class="st">'Country'</span>, <span class="st">'Year'</span>]] <span class="op">=</span> nb_record[<span class="st">'Country_Year'</span>].<span class="bu">str</span>.split(<span class="st">'_'</span>, expand<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the original 'Country_Year' column</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>nb_record <span class="op">=</span> nb_record.drop(<span class="st">'Country_Year'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nb_record.to_csv(<span class="st">"nb_record.csv"</span>, header<span class="op">=</span><span class="va">True</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting as CSV</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nb_record.to_csv(<span class="st">"nb_record.csv"</span>, header<span class="op">=</span><span class="va">True</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

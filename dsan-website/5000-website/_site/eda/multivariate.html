@@ -173,19 +173,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-naive-bayes">    
         <li>
-    <a class="dropdown-item" href="../NB.html" rel="" target="">
+    <a class="dropdown-item" href="../nb/NB.html" rel="" target="">
  <span class="dropdown-text">Naive Bayes Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../FS.html" rel="" target="">
- <span class="dropdown-text">Feature Selection</span></a>
+    <a class="dropdown-item" href="../nb/FS.html" rel="" target="">
+ <span class="dropdown-text">Feature Selection Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../nb_attempt.html" rel="" target="">
- <span class="dropdown-text">Naive Bayes - Record Data</span></a>
+    <a class="dropdown-item" href="../nb/nb_record.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes Record Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../nb_text.html" rel="" target="">
+    <a class="dropdown-item" href="../nb/nb_text.html" rel="" target="">
  <span class="dropdown-text">Naive Bayes - Text Data</span></a>
   </li>  
     </ul>
@@ -222,12 +222,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link active" data-scroll-target="#data-understanding">Data Understanding</a></li>
+  <li><a href="#data-understanding-and-descriptive-statistics" id="toc-data-understanding-and-descriptive-statistics" class="nav-link active" data-scroll-target="#data-understanding-and-descriptive-statistics">Data Understanding and Descriptive Statistics</a></li>
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
   <li><a href="#correlation-analysis" id="toc-correlation-analysis" class="nav-link" data-scroll-target="#correlation-analysis">Correlation Analysis</a></li>
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
   <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
-  <li><a href="#methods-findings" id="toc-methods-findings" class="nav-link" data-scroll-target="#methods-findings">Methods / Findings</a></li>
+  <li><a href="#methods-and-findings" id="toc-methods-and-findings" class="nav-link" data-scroll-target="#methods-and-findings">Methods and Findings</a></li>
   </ul>
 </nav>
     </div>
@@ -251,29 +250,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Within this section I was complete the EDA specifically relating to multivariate analysis. Multivariate analysis is analysis involving two or more variables.</p>
-<section id="data-understanding" class="level2">
-<h2 class="anchored" data-anchor-id="data-understanding">Data Understanding</h2>
-<p>To see code analysis created for data understanding follow this link <a href="../eda/univariate.html">here</a></p>
+<p>Within this section I will complete the EDA specifically relating to multivariate analysis. Multivariate analysis is analysis involving two or more variables. It is important to note that the a few of the EDA steps I completed under the univariate tab. I will always link when mentioned.</p>
+<section id="data-understanding-and-descriptive-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="data-understanding-and-descriptive-statistics">Data Understanding and Descriptive Statistics</h2>
+<p>To see the analysis created for data understanding and descriptive statistics follow this link <a href="../eda/univariate.html">here</a>. This analysis was created under the univariate tab.</p>
 </section>
 <section id="data-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
 <p><strong>Scatter Plot for Inventions and Marine Protected Area</strong></p>
-<div class="cell" data-execution_count="8">
+<p>This scatterplot shows the correlation between inventions and marine protected area. As you can see, there seems to be little to no correlation between these two variables.</p>
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/merged.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sns.lmplot(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>merged, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Inventions (number)"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Marine Protected Area (sqkm)"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing Data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/merged.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Seaborn Scatter Plot</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>sns.lmplot(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>merged, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Inventions (number)"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Marine Protected Area (sqkm)"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
@@ -284,7 +286,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>Scatterplot for Marine Protected Area and Fishing Exports</strong></p>
-<div class="cell" data-execution_count="4">
+<p>Different than the scatterplot shown above, there seems to be a slight correlation for marine protected area. As marine protected area increases, so does fishing exports. This makes sense as cleaner oceans results in an abundance of marine life.</p>
+<div class="cell" data-execution_count="12">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(</span>
@@ -303,13 +306,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>Scatterplot for Instruments and Aquaculture Production</strong></p>
-<div class="cell" data-execution_count="5">
+<p>This scatterplot shows that their is no correlation between policy instruments and aquaculture production.</p>
+<div class="cell" data-execution_count="13">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>merged, </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Instruments (number)"</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Aqua Production (Millions)"</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
   self._figure.tight_layout(*args, **kwargs)</code></pre>
@@ -321,14 +328,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="correlation-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h2>
+<p>Correlation analysis is completed in order to understand if there is a relationship between variables. Below, I have used the pearson correlation to shows the correlations between variables. The pearson correlation is the most common way of measuring linear relationships between variables within a dataset.</p>
 <p><strong>Pearson Correlations</strong></p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="14">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> (merged.corr(method<span class="op">=</span><span class="st">'pearson'</span>, numeric_only<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pearson_correlation <span class="op">=</span> (merged.corr(method<span class="op">=</span><span class="st">'pearson'</span>, numeric_only<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pearson_correlation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -348,55 +356,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Aqua Production (Millions)</td>
 <td>1.000000</td>
-<td>-0.026171</td>
-<td>0.192028</td>
-<td>0.238861</td>
-<td>0.040992</td>
-<td>0.189655</td>
+<td>-0.030435</td>
+<td>0.150861</td>
+<td>0.227669</td>
+<td>0.027313</td>
+<td>0.162511</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Marine Protected Area (sqkm)</td>
-<td>-0.026171</td>
+<td>-0.030435</td>
 <td>1.000000</td>
-<td>0.130921</td>
-<td>-0.107188</td>
-<td>0.808872</td>
-<td>0.076183</td>
+<td>0.074908</td>
+<td>-0.108633</td>
+<td>0.827048</td>
+<td>0.065446</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Inventions (number)</td>
-<td>0.192028</td>
-<td>0.130921</td>
+<td>0.150861</td>
+<td>0.074908</td>
 <td>1.000000</td>
-<td>0.095070</td>
-<td>0.170275</td>
-<td>0.083193</td>
+<td>0.081545</td>
+<td>0.113523</td>
+<td>0.041807</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Instruments (number)</td>
-<td>0.238861</td>
-<td>-0.107188</td>
-<td>0.095070</td>
+<td>0.227669</td>
+<td>-0.108633</td>
+<td>0.081545</td>
 <td>1.000000</td>
-<td>0.084211</td>
-<td>0.128323</td>
+<td>0.061151</td>
+<td>0.110750</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Fishing Exports (Millions)</td>
-<td>0.040992</td>
-<td>0.808872</td>
-<td>0.170275</td>
-<td>0.084211</td>
+<td>0.027313</td>
+<td>0.827048</td>
+<td>0.113523</td>
+<td>0.061151</td>
 <td>1.000000</td>
-<td>0.124330</td>
+<td>0.110683</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Year</td>
-<td>0.189655</td>
-<td>0.076183</td>
-<td>0.083193</td>
-<td>0.128323</td>
-<td>0.124330</td>
+<td>0.162511</td>
+<td>0.065446</td>
+<td>0.041807</td>
+<td>0.110750</td>
+<td>0.110683</td>
 <td>1.000000</td>
 </tr>
 </tbody>
@@ -405,7 +413,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="35">
+<p>Immediately, we can see that there a very small correlation within this dataset. A majority of the correlations are extremely close to 0 meaning NO correlation and some are negative meaning they have a negative correlation. Although, there is one correlations that seem to stand out. This is the correlation between Fishing Exports and Marine Protected Area (0.8). To see the scatter plot between these two variables scroll up!</p>
+<p>Correlations are important to pay attention to as they can guide variable selection in machine learning. For example, I may not want to use variables with high correlations because they could lead to overfitting.</p>
+<p><strong>Pairplots</strong></p>
+<p>This pairplot is another way to create scatterplot between all the variables as well as univariate histograms. It helps us explore all the relationships and make sure we have not missed any crucial relationships.</p>
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(merged)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -413,39 +425,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   self._figure.tight_layout(*args, **kwargs)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="multivariate_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+<p><img src="multivariate_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> merged[[<span class="st">"Instruments (number)"</span>, <span class="st">"Inventions (number)"</span>]].corr()</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))  <span class="co"># Adjust the figure size as needed</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr_matrix, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, linewidths<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="multivariate_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="descriptive-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h2>
 </section>
 <section id="outliers" class="level2">
 <h2 class="anchored" data-anchor-id="outliers">Outliers</h2>
-</section>
-<section id="methods-findings" class="level2">
-<h2 class="anchored" data-anchor-id="methods-findings">Methods / Findings</h2>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> merged.corr(method<span class="op">=</span><span class="st">'pearson'</span>, numeric_only<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>scaled_correlation_matrix <span class="op">=</span> scaler.fit_transform(correlation_matrix)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>scaled_correlation_df <span class="op">=</span> pd.DataFrame(scaled_correlation_matrix, columns<span class="op">=</span>correlation_matrix.columns, index<span class="op">=</span>correlation_matrix.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There seem to be outliers and they can easily be seen in the scatterplots created above. The first outlier I want to look into is the high value in aqua-culture production.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aquaculture Scatterplot to find outlier. </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sns.lmplot(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>merged, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Instruments (number)"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Aqua Production (Millions)"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>highest_x <span class="op">=</span> merged[<span class="st">"Instruments (number)"</span>].<span class="bu">max</span>()</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>highest_y <span class="op">=</span> merged[<span class="st">"Aqua Production (Millions)"</span>].<span class="bu">max</span>()</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Highest value: (</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">)"</span>.<span class="bu">format</span>(highest_x, highest_y))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Highest value: (15.0, 3036163.0)</code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
+  self._figure.tight_layout(*args, **kwargs)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="multivariate_files/figure-html/cell-7-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding Out what is causing this outlier</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>desired_y <span class="op">=</span> <span class="fl">3036163.0</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>desired_rows <span class="op">=</span> merged[merged[<span class="st">"Aqua Production (Millions)"</span>] <span class="op">==</span> desired_y]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(desired_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Aqua Production (Millions)  Marine Protected Area (sqkm)  \
+473                   3036163.0                        889.75   
+
+     Inventions (number)  Instruments (number)  Fishing Exports (Millions)  \
+473                10.08                   6.0                     1059.83   
+
+       Country  Year  
+473  Australia  2019  </code></pre>
+</div>
+</div>
+<p>This outlier comes from Australias aquaculture production in 2019! After doing a little research I learned that the market size of the Aquaculture industry in Australia is measured at $2.7bn. You can find more about Australia’s aquaculture industry <a href="https://www.agriculture.gov.au/agriculture-land/fisheries/aquaculture/aquaculture-industry-in-australia">here!</a></p>
+</section>
+<section id="methods-and-findings" class="level2">
+<h2 class="anchored" data-anchor-id="methods-and-findings">Methods and Findings</h2>
+<p>Overall this multivariate analysis helped me understand relationships between variables within this dataset. It can be understood that there aren’t many strong correlations. Although, it is interesting to pay attention to the relationships that do exist like marine protected area and fishing exports. This relationship makes sense as cleaner water would result in an abundance of fish leading to higher fishing exports.</p>
+<p>Overall, this univariate and multivariate data analysis helped me understand that this data set has the potential to display the need for ocean sustainability in addition to what is being done and how it has helped so far.</p>
+<p>By the end of the project, I believe the variables within this dataset will act a tool for organizations, local governments and developers to refence in regards to understanding ocean sustainability and taking action towards more ocean sustainability.</p>
+<p>For example, a local official could see trends within a country with an increase in MPA and see what variables have helped this result as well as what has come from this increase in MPA.</p>
 
 
 </section>

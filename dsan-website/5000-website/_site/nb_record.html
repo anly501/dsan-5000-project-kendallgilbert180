@@ -178,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./FS.html" rel="" target="">
- <span class="dropdown-text">Feature Selection</span></a>
+ <span class="dropdown-text">Feature Selection Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./nb_record.html" rel="" target="">
@@ -222,12 +222,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prepping-data-for-model" id="toc-prepping-data-for-model" class="nav-link active" data-scroll-target="#prepping-data-for-model">Prepping Data for Model</a></li>
+  <li><a href="#initial-gaussian-naive-bayes" id="toc-initial-gaussian-naive-bayes" class="nav-link active" data-scroll-target="#initial-gaussian-naive-bayes">Initial Gaussian Naive Bayes</a>
+  <ul class="collapse">
+  <li><a href="#prepping-data-for-model" id="toc-prepping-data-for-model" class="nav-link" data-scroll-target="#prepping-data-for-model">Prepping Data for Model</a></li>
   <li><a href="#splitting-data-into-feature-and-target-variables" id="toc-splitting-data-into-feature-and-target-variables" class="nav-link" data-scroll-target="#splitting-data-into-feature-and-target-variables">Splitting Data into Feature and Target Variables</a></li>
   <li><a href="#creating-a-gaussian-naive-bayes-classifier" id="toc-creating-a-gaussian-naive-bayes-classifier" class="nav-link" data-scroll-target="#creating-a-gaussian-naive-bayes-classifier">Creating a Gaussian Naive Bayes Classifier</a></li>
   <li><a href="#making-predictions-and-evaluating-performance" id="toc-making-predictions-and-evaluating-performance" class="nav-link" data-scroll-target="#making-predictions-and-evaluating-performance">Making Predictions and Evaluating Performance</a></li>
-  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
+  </ul></li>
   <li><a href="#feature-selection" id="toc-feature-selection" class="nav-link" data-scroll-target="#feature-selection">Feature Selection</a></li>
+  <li><a href="#gaussian-naive-bayes-classifier-feature-selected-data" id="toc-gaussian-naive-bayes-classifier-feature-selected-data" class="nav-link" data-scroll-target="#gaussian-naive-bayes-classifier-feature-selected-data">Gaussian Naive Bayes Classifier (Feature Selected Data)</a></li>
+  <li><a href="#further-analysis-on-naive-bayes" id="toc-further-analysis-on-naive-bayes" class="nav-link" data-scroll-target="#further-analysis-on-naive-bayes">further Analysis on Naive Bayes</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
 </nav>
     </div>
@@ -251,241 +256,302 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Within this tab I will provide my code, explanation and analysis for my naive bayes gaussian machine learning model. I ultimately decided to add a seventh variable to my dataset. This variable is the percentage of policy in a country in a specific year specifically relating to ocean sustainability. I had to clean and tidy this data. You can find this <a href="//Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/codes/02-data-cleaning/cleaning_policy.ipynb">here</a>.</p>
+<p>Within this tab I will provide my code, explanation and analysis for my naive bayes gaussian machine learning model. I ultimately decided to add a seventh variable to my dataset. This variable is the percentage of policy in a country in a specific year specifically relating to ocean sustainability. I had to clean and tidy this data. You can find this <a href="./Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/codes/02-data-cleaning/cleaning_policy.ipynb">here</a>.</p>
 <p>This model aims to explore whether specific variables are good indicators of the extent to which policies relate to the ocean. It can help identify which aspects or attributes of policies are more strongly correlated with ocean-related policies and which are not. If the model performs well, the findings could have the ability inform data-driven decision-making in policy development specifically with regard to ocean sustainability and conservation efforts.</p>
-<p>I split the values into five bins to make analysis easier to understand. The first bin is percentages (0,17), the second is (18, 35), the third is (36,53), the fourth is (54, 71) and the fifth is (72, 89). These bins are targets. The features are the variables mpa, inventions, instruments, fishing exports and aquaculture production.</p>
-<p>The analysis has the ability to uncover trends or patterns in policy data that can be used for policy assessment, trend analysis, and making informed recommendations</p>
-<section id="prepping-data-for-model" class="level2">
-<h2 class="anchored" data-anchor-id="prepping-data-for-model">Prepping Data for Model</h2>
+<p>The analysis has the ability to uncover trends or patterns in policy data that can be used for policy assessment, trend analysis, and making informed recommendations.</p>
+<section id="initial-gaussian-naive-bayes" class="level2">
+<h2 class="anchored" data-anchor-id="initial-gaussian-naive-bayes">Initial Gaussian Naive Bayes</h2>
+<section id="prepping-data-for-model" class="level3">
+<h3 class="anchored" data-anchor-id="prepping-data-for-model">Prepping Data for Model</h3>
 <p>Within this code chunk, the necessary libraris are installed, the data is imported, all columns are set to integers and the country columns is encoded in order for the model to run correctly.</p>
-<div class="cell" data-execution_count="47">
+<div class="cell" data-execution_count="20">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing Libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading Merged Data</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>nb_record <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/nb_record.csv"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode the "Country" column using LabelEncoder</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>label_encoder <span class="op">=</span> LabelEncoder()</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>nb_record[<span class="st">'Country'</span>] <span class="op">=</span> label_encoder.fit_transform(nb_record[<span class="st">'Country'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, classification_report</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading Merged Data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>nb_record <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/nb_record.csv"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode the "Country" column using LabelEncoder</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>label_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>nb_record[<span class="st">'Country'</span>] <span class="op">=</span> label_encoder.fit_transform(nb_record[<span class="st">'Country'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="splitting-data-into-feature-and-target-variables" class="level2">
-<h2 class="anchored" data-anchor-id="splitting-data-into-feature-and-target-variables">Splitting Data into Feature and Target Variables</h2>
-<div class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating bins for target</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bin_edges <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">36</span>, <span class="dv">54</span>, <span class="dv">72</span>, <span class="dv">87</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y_binned <span class="op">=</span> pd.cut(y, bins<span class="op">=</span>bin_edges, labels<span class="op">=</span><span class="va">False</span>, include_lowest<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set X to include all features except Value</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> nb_record.drop([<span class="st">'Value'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and the remaining data</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>X_train, X_remaining, y_train, y_remaining <span class="op">=</span> train_test_split(X, y_binned, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the remaining data into testing and validation sets</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>X_test, X_val, y_test, y_val <span class="op">=</span> train_test_split(X_remaining, y_remaining, test_size<span class="op">=</span><span class="fl">0.5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="creating-a-gaussian-naive-bayes-classifier" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-gaussian-naive-bayes-classifier">Creating a Gaussian Naive Bayes Classifier</h2>
-<div class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, classification_report</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Gaussian Naive Bayes classifier</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>gnb <span class="op">=</span> GaussianNB()</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>gnb.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
-<style>#sk-container-id-4 {color: black;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked=""><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">GaussianNB</label><div class="sk-toggleable__content"><pre>GaussianNB()</pre></div></div></div></div></div>
-</div>
-</div>
-</section>
-<section id="making-predictions-and-evaluating-performance" class="level2">
-<h2 class="anchored" data-anchor-id="making-predictions-and-evaluating-performance">Making Predictions and Evaluating Performance</h2>
-<div class="cell" data-execution_count="50">
+<section id="splitting-data-into-feature-and-target-variables" class="level3">
+<h3 class="anchored" data-anchor-id="splitting-data-into-feature-and-target-variables">Splitting Data into Feature and Target Variables</h3>
+<p><strong>Features</strong> - Marine Protected Area, Inventions, Instruments, Aquaculture Production and Fishing Exports</p>
+<p><strong>Target</strong> - Percentage of Policy out of all policy in a year relating to ocean sustainability. I binned these values into five bins. These bins are 0-17, 18-36, 37-54, 55 - 72, 73 - 87.</p>
+<p>I did this to help simplify and interpret my model. For example, if a country in a specific year has only 5% of all their policy relating to ocean sustainability then the value will be put in bin 0.</p>
+<p>The code below splits the data into feature and target variables as well as splits the data into training, testing and validation sets. I have commented on the code to display what each line does as well.</p>
+<div class="cell" data-execution_count="22">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the testing set</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y_test_pred <span class="op">=</span> gnb.predict(X_test)</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating bins for target - 5 different bins</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> nb_record[<span class="st">'Value'</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>bin_edges <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">36</span>, <span class="dv">54</span>, <span class="dv">72</span>, <span class="dv">87</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>y_binned <span class="op">=</span> pd.cut(y, bins<span class="op">=</span>bin_edges, labels<span class="op">=</span><span class="va">False</span>, include_lowest<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># X is all features besides Value</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> nb_record.drop([<span class="st">'Value'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and the remaining data</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>X_train, X_remaining, y_train, y_remaining <span class="op">=</span> train_test_split(X, y_binned, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the remaining data into testing and validation sets</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>X_test, X_val, y_test, y_val <span class="op">=</span> train_test_split(X_remaining, y_remaining, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>361</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-gaussian-naive-bayes-classifier" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-gaussian-naive-bayes-classifier">Creating a Gaussian Naive Bayes Classifier</h3>
+<p>As stated earlier I am using a gaussian naive bayes classifer to complete this model. I have access to this from the library sklearn.naive_bayes.</p>
+<div class="cell" data-execution_count="17">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Gaussian Naive Bayes classifier</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gnb <span class="op">=</span> GaussianNB()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the validation set</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>y_val_pred <span class="op">=</span> gnb.predict(X_val)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model's performance on the testing set</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>accuracy_test <span class="op">=</span> accuracy_score(y_test, y_test_pred)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Accuracy:"</span>, accuracy_test)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a classification report for more detailed performance metrics on the testing set</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>classification_report_test <span class="op">=</span> classification_report(y_test, y_test_pred)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Training classifier using training data </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>gnb.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<style>#sk-container-id-2 {color: black;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GaussianNB()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">GaussianNB</label><div class="sk-toggleable__content"><pre>GaussianNB()</pre></div></div></div></div></div>
+</div>
+</div>
+</section>
+<section id="making-predictions-and-evaluating-performance" class="level3">
+<h3 class="anchored" data-anchor-id="making-predictions-and-evaluating-performance">Making Predictions and Evaluating Performance</h3>
+<p>Some helpful definitions to know when viewing this part of the modeling process are:</p>
+<p><strong>Accuracy:</strong> A performance metric used to evaluate the accuracy of a machine learning model on a test dataset</p>
+<p><strong>Precision:</strong> Precision = True Positives (TP) / (False Positives (FP) + True Positives (TP))</p>
+<p><strong>Recall:</strong> Recall = True Positives (TP) / (False Negatives (FN) + True Positives (TP))</p>
+<p><strong>F1:</strong> Combines precision and recall. F1 = 2 × (Precision+Recall) / (Precision×Recall)</p>
+<div class="cell" data-execution_count="23">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions on the training set / Model's performance on the training set / Classification Report</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y_train_pred <span class="op">=</span> gnb.predict(X_train)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>accuracy_train <span class="op">=</span> accuracy_score(y_train, y_train_pred)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Training Accuracy:"</span>, accuracy_train)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>classification_report_train <span class="op">=</span> classification_report(y_train, y_train_pred)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Training Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report_train)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions on the testing set / Models performance on testing set / Classification Report</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>y_test_pred <span class="op">=</span> gnb.predict(X_test)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>accuracy_test <span class="op">=</span> accuracy_score(y_test, y_test_pred)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Accuracy:"</span>, accuracy_test)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>classification_report_test <span class="op">=</span> classification_report(y_test, y_test_pred)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report_test)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>gnb.predict_proba(X_test[:<span class="dv">10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Testing Accuracy: 0.4108527131782946
+<pre><code>Training Accuracy: 0.5207756232686981
+Training Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.97      0.43      0.60       290
+           1       0.21      0.79      0.33        24
+           2       0.11      0.83      0.20        12
+           3       0.50      0.86      0.63         7
+           4       0.72      1.00      0.84        28
+
+    accuracy                           0.52       361
+   macro avg       0.50      0.78      0.52       361
+weighted avg       0.86      0.52      0.58       361
+
+Testing Accuracy: 0.4351851851851852
 Testing Classification Report:
                precision    recall  f1-score   support
 
-           0       0.97      0.33      0.50        99
-           1       0.22      0.69      0.33        13
-           2       0.13      1.00      0.23         5
-           3       0.11      0.25      0.15         4
-           4       0.71      0.62      0.67         8
+           0       0.94      0.37      0.53        84
+           1       0.27      0.54      0.36        13
+           2       0.03      1.00      0.07         1
+           3       0.44      0.67      0.53         6
+           4       0.36      1.00      0.53         4
 
-    accuracy                           0.41       129
-   macro avg       0.43      0.58      0.38       129
-weighted avg       0.82      0.41      0.47       129
+    accuracy                           0.44       108
+   macro avg       0.41      0.71      0.40       108
+weighted avg       0.80      0.44      0.51       108
 </code></pre>
 </div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>array([[1.40059015e-01, 6.20769036e-01, 2.32054725e-01, 2.38616613e-03,
+        4.73105801e-03],
+       [9.11330611e-04, 1.23658396e-02, 9.86058060e-01, 5.10862715e-04,
+        1.53907191e-04],
+       [5.51560706e-02, 8.33551884e-01, 2.02445791e-07, 3.65430935e-02,
+        7.47487491e-02],
+       [4.19889840e-02, 5.27452829e-01, 2.69748514e-13, 3.19635760e-01,
+        1.10922427e-01],
+       [1.57071654e-01, 4.45159543e-01, 3.94093016e-01, 2.77159035e-03,
+        9.04197025e-04],
+       [9.99986400e-01, 1.35373052e-05, 5.90092813e-29, 1.16032598e-17,
+        6.22498014e-08],
+       [4.83046820e-02, 8.83794490e-02, 8.62787419e-01, 2.69749400e-04,
+        2.58700541e-04],
+       [9.79079856e-02, 1.34444554e-01, 1.52569334e-06, 7.64435654e-01,
+        3.21028027e-03],
+       [5.90704393e-04, 2.02827078e-03, 9.96193986e-01, 1.16545350e-03,
+        2.15853155e-05],
+       [1.31887557e-02, 8.06003299e-02, 9.04201100e-01, 1.56237719e-03,
+        4.47437424e-04]])</code></pre>
 </div>
-<div class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model's performance on the validation set</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>accuracy_val <span class="op">=</span> accuracy_score(y_val, y_val_pred)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Validation Accuracy:"</span>, accuracy_val)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a classification report for more detailed performance metrics on the validation set</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>classification_report_val <span class="op">=</span> classification_report(y_val, y_val_pred)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Validation Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions on the validation set /  Model's performance on the validation set / Classificiation Report</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>y_val_pred <span class="op">=</span> gnb.predict(X_val)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>accuracy_val <span class="op">=</span> accuracy_score(y_val, y_val_pred)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Validation Accuracy:"</span>, accuracy_val)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>classification_report_val <span class="op">=</span> classification_report(y_val, y_val_pred)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Validation Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Validation Accuracy: 0.5116279069767442
+<pre><code>Validation Accuracy: 0.6170212765957447
 Validation Classification Report:
                precision    recall  f1-score   support
 
-           0       0.98      0.46      0.62       105
-           1       0.14      0.67      0.24         6
-           2       0.11      1.00      0.20         4
-           3       0.45      0.83      0.59         6
-           4       1.00      0.62      0.77         8
+           0       1.00      0.59      0.75        37
+           1       0.40      0.57      0.47         7
+           2       0.11      1.00      0.20         1
+           3       0.00      0.00      0.00         0
+           4       0.40      1.00      0.57         2
 
-    accuracy                           0.51       129
-   macro avg       0.54      0.72      0.48       129
-weighted avg       0.89      0.51      0.60       129
-</code></pre>
-</div>
-</div>
-</section>
-<section id="confusion-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h2>
-<div class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the confusion matrix</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test_pred, y_val_pred)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the confusion matrix as a heatmap</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'d'</span>, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Predicted'</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Actual'</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="nb_record_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="feature-selection" class="level2">
-<h2 class="anchored" data-anchor-id="feature-selection">Feature Selection</h2>
-<div class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> SelectKBest</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> chi2</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a SelectKBest object to select the top 'k' features based on a score function (e.g., chi-squared)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>k_best <span class="op">=</span> SelectKBest(score_func<span class="op">=</span>chi2, k<span class="op">=</span><span class="dv">2</span>)  <span class="co"># You can adjust 'k' as needed</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the feature selector on the training data</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>k_best.fit(X_train, y_train)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the training, testing, and validation data to include only the selected features</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>X_train_selected <span class="op">=</span> k_best.transform(X_train)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>X_test_selected <span class="op">=</span> k_best.transform(X_test)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>X_val_selected <span class="op">=</span> k_best.transform(X_val)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the selected features mask</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>selected_features_mask <span class="op">=</span> k_best.get_support()</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the names of the selected features</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>selected_feature_names <span class="op">=</span> X_train.columns[selected_features_mask]</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the selected feature names</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Selected Features:"</span>)</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(selected_feature_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Selected Features:
-Index(['Aqua Production (Millions)', 'Fishing Exports (Millions)'], dtype='object')</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now you can train your Gaussian Naive Bayes classifier and evaluate its performance using the selected features</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>gnb.fit(X_train_selected, y_train)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>y_test_pred <span class="op">=</span> gnb.predict(X_test_selected)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y_val_pred <span class="op">=</span> gnb.predict(X_val_selected)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the accuracy for the test set</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>accuracy_test_fs <span class="op">=</span> accuracy_score(y_test, y_test_pred)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Accuracy:"</span>, accuracy_test_fs)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a classification report for more detailed performance metrics on the test set</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>classification_report_string_fs <span class="op">=</span> classification_report(y_test, y_test_pred)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report_string_fs)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>accuracy_val_fs <span class="op">=</span> accuracy_score(y_val, y_val_pred)</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Validation Accuracy:"</span>, accuracy_val_fs)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>classification_report_valid <span class="op">=</span> classification_report(y_val, y_val_pred)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report_valid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Testing Accuracy: 0.627906976744186
-Testing Classification Report:
-               precision    recall  f1-score   support
-
-           0       0.81      0.72      0.76        99
-           1       0.00      0.00      0.00        13
-           2       0.12      0.80      0.22         5
-           3       0.00      0.00      0.00         4
-           4       0.67      0.75      0.71         8
-
-    accuracy                           0.63       129
-   macro avg       0.32      0.45      0.34       129
-weighted avg       0.67      0.63      0.63       129
-
-Validation Accuracy: 0.689922480620155
-Testing Classification Report:
-               precision    recall  f1-score   support
-
-           0       0.89      0.77      0.83       105
-           1       0.00      0.00      0.00         6
-           2       0.12      1.00      0.22         4
-           3       0.00      0.00      0.00         6
-           4       0.67      0.50      0.57         8
-
-    accuracy                           0.69       129
-   macro avg       0.34      0.45      0.32       129
-weighted avg       0.77      0.69      0.72       129
+    accuracy                           0.62        47
+   macro avg       0.38      0.63      0.40        47
+weighted avg       0.87      0.62      0.69        47
 </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+<pre><code>/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
-/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
-/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1469: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What do these numbers mean?</p>
+<p>The training accuracy is 52%, the testing accuracy is 43% and the validation accuracy is 61%. This means that there is room for improvement that can be done through feature selection.</p>
+<p>Another number to pay attention to is the F1 score which combines precision and recall. The F1 weighted average for the training set is 58, 51 for the testing set and 69 for the validation set.</p>
+</section>
+</section>
+<section id="feature-selection" class="level2">
+<h2 class="anchored" data-anchor-id="feature-selection">Feature Selection</h2>
+<p>Knowing that our accuracy is not as high as we would prefer, we can resort to feature selection!</p>
+<p>The primary objective of feature selection is identifying and choosing the most relevant features from the data set for the given task. I used feature selection to improove the overall accuracy of my Naive Bayes model. Feature selection returns a subset of original features. You can learn more about feature selection under the feature selection menu or <a href="./FS.html">here</a>.</p>
+</section>
+<section id="gaussian-naive-bayes-classifier-feature-selected-data" class="level2">
+<h2 class="anchored" data-anchor-id="gaussian-naive-bayes-classifier-feature-selected-data">Gaussian Naive Bayes Classifier (Feature Selected Data)</h2>
+<p>In an attempt to figure out what features improove accuracy, I manually tested the combinations of a features as X. I ended up figuring out that dropping Aquaculture Production and Fishing Exports improove the accuracy of this model.</p>
+<p>Within the code below, you will notice that I have done the exact same process as above but dropped two features. You will see that the accuracy increases!</p>
+<p>Note* I did not include in depth comments on this process again as you can see them above.</p>
+<div class="cell" data-execution_count="26">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> f1_score</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> nb_record[<span class="st">'Value'</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>bin_edges <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">36</span>, <span class="dv">54</span>, <span class="dv">72</span>, <span class="dv">87</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y_binned <span class="op">=</span> pd.cut(y, bins<span class="op">=</span>bin_edges, labels<span class="op">=</span><span class="va">False</span>, include_lowest<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> nb_record.drop([<span class="st">'Value'</span>, <span class="st">'Aqua Production (Millions)'</span>, <span class="st">'Fishing Exports (Millions)'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>X_train, X_remaining, y_train, y_remaining <span class="op">=</span> train_test_split(X, y_binned, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>) <span class="co">#train_test_split function from the scikit-learn library to split your data into training and remaining sets for classification</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>X_test, X_val, y_test, y_val <span class="op">=</span> train_test_split(X_remaining, y_remaining, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>gnb <span class="op">=</span> GaussianNB()</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>gnb.fit(X_train, y_train)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model's performance on the training set</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>y_train_pred <span class="op">=</span> gnb.predict(X_train)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>accuracy_train <span class="op">=</span> accuracy_score(y_train, y_train_pred)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Training Accuracy:"</span>, accuracy_train)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions on the testing set / Calculate the accuracy for the test set</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>y_test_pred <span class="op">=</span> gnb.predict(X_test)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>accuracy_test_fs <span class="op">=</span> accuracy_score(y_test, y_test_pred)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing Accuracy:"</span>, accuracy_test_fs)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions on the validation set</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>y_val_pred <span class="op">=</span> gnb.predict(X_val)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the accuracy for the validation set</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>accuracy_val_fs <span class="op">=</span> accuracy_score(y_val, y_val_pred)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Validation Accuracy:"</span>, accuracy_val_fs)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>f1_train <span class="op">=</span> f1_score(y_train, y_train_pred, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>f1_test <span class="op">=</span> f1_score(y_test, y_test_pred, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>f1_val <span class="op">=</span> f1_score(y_val, y_val_pred, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Training F1 Score:"</span>, f1_train)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Testing F1 Score:"</span>, f1_test)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Validation F1 Score:"</span>, f1_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Training Accuracy: 0.7811634349030471
+Testing Accuracy: 0.7037037037037037
+Validation Accuracy: 0.7872340425531915
+Training F1 Score: 0.8307245987070051
+Testing F1 Score: 0.750756989719462
+Validation F1 Score: 0.8058261232337525</code></pre>
 </div>
+</div>
+<p>As displayed, the accuracy and F1 score for training, testing and validation ALL increased. This is a direct result of getting rid of two features.</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the confusion matrix</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_val_pred)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the confusion matrix as a heatmap</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'d'</span>, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Predicted'</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Actual'</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: Found input variables with inconsistent numbers of samples: [108, 47]</code></pre>
+</div>
+</div>
+</section>
+<section id="further-analysis-on-naive-bayes" class="level2">
+<h2 class="anchored" data-anchor-id="further-analysis-on-naive-bayes">further Analysis on Naive Bayes</h2>
+<p><strong>Describe how the trained model is tested on the testing dataset.</strong></p>
+<p>Within this tab it can be understood that the trained model is tested on the testing set. This is the basis of machine learning. We want to train the model first before it is actually implemented onto the testing dataset.</p>
+<p><strong>What is overfitting and underfitting</strong></p>
+<p>Underfitting is when the model does not fit the data well.</p>
+<p>Overitting is when the model fits the data too well.</p>
+<p>Within the first round of the gaussian naive bayes model, the</p>
+<p>e.g.&nbsp;what is the output that you generate. What does the output mean? What does it tell you about your data?</p>
+<p><strong>Does the model do a good job of predicting test data?</strong></p>
+<p>As shown by the testing accuracy of 70%, we can infer that the model does an alright job predicting test data. It could be better.</p>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<p>Overall, this tab walks readers through a naive bayes classification example. This example works specifically with the features Marine Protected Area, Inventions, Instruments, Aquaculture Production and Fishing Exports. The target is the percentage of policy out of all policy in a year relating to ocean sustainability. This model has 70% accuracy.</p>
+<p>So how can this model helps us?</p>
+<ul>
+<li>This model learns a pattern that we could extrapolate to other countries that we only have specific features for.</li>
+<li>This model can help researchers understand what features have had an impact on ocean policy in the past therefore they could focus on what other countries completed in the past in an attempt to lead to more ocean policy.</li>
+<li>Could inform policy makers with what features have impacted policy in other states in an attempt to implement to share specific findings data-driven decision-making.</li>
+<li>This model shows which countries are committed to policy and the features that have impacted this commitment.</li>
+</ul>
+<p>Given this naive Bayes model, we have the ability to make predictions for new data using Bayes theorem. When given a data point X, what is the probability of X belonging to some class C?</p>
+<p>If we wanted to see the probability of Country X being in bin 1 with features _____ . We implement the code -</p>
 
 
 </section>
