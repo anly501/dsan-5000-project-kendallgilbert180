@@ -190,10 +190,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./dimensionality.ipynb" rel="" target="">
- <span class="menu-text">Dimensionality Reduction</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dimensionality-reduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Dimensionality Reduction</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dimensionality-reduction">    
+        <li>
+    <a class="dropdown-item" href="./dimensionality.html" rel="" target="">
+ <span class="dropdown-text">Dimensionality Reduction</span></a>
   </li>  
+        <li class="dropdown-header">pca.ipynb</li>
+        <li class="dropdown-header">tsne.ipynb</li>
+        <li class="dropdown-header">comparison.ipynb</li>
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./trees.ipynb" rel="" target="">
  <span class="menu-text">Decision Trees</span></a>
@@ -259,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="prepping-data" class="level3">
 <h3 class="anchored" data-anchor-id="prepping-data">Prepping Data</h3>
 <p>Within the code chunk below I imported the text data gathered from the reddit api and cleaned it. I specifically removed punctuation, numbers and converted it all to lowercase.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -275,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>Next, I encoded the subreddit column in order to prep the data for accurate modeling. The far right column is the encoded column. For example, the news class is encoded as 0.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
@@ -286,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>text_data[<span class="st">'Subreddit_encoded'</span>] <span class="op">=</span> label_encoder.fit_transform(text_data[<span class="st">'Subreddit'</span>])</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>text_data.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -337,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>Class Encoded Values</strong></p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>class_labels <span class="op">=</span> label_encoder.classes_</span>
@@ -357,7 +367,7 @@ Class: worldnews, Encoded Value: 4</code></pre>
 <section id="vectorization" class="level2">
 <h2 class="anchored" data-anchor-id="vectorization">Vectorization</h2>
 <p>Next, I applied the TF-IDF vectorization to the text data in the ‘Title’ column. This converted the text data into a numerical format based on the TF-IDF values for each word or term. I used this resource <a href="https://towardsdatascience.com/text-vectorization-term-frequency-inverse-document-frequency-tfidf-5a3f9604da6d">here</a> to help me better understand this concept.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
@@ -374,7 +384,7 @@ Class: worldnews, Encoded Value: 4</code></pre>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>result_df <span class="op">=</span> pd.concat([text_data, tfidf_df], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>result_df.tail(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -536,7 +546,7 @@ Class: worldnews, Encoded Value: 4</code></pre>
 <section id="splitting-data-into-feature-and-target-variables" class="level3">
 <h3 class="anchored" data-anchor-id="splitting-data-into-feature-and-target-variables">Splitting Data into Feature and Target Variables</h3>
 <p>This process is the same as what I completed with the record data. I split the dataset into feature and target variables. The target variable is the subreddits (technology, news, worldnews, science, travel).</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="5">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
@@ -558,7 +568,7 @@ Class: worldnews, Encoded Value: 4</code></pre>
 <p>Now I will train and evaulate the model. I will evaluate the model by looking at the training and testing accuracy and f1 scores.</p>
 <p><strong>Accuracy:</strong> A performance metric used to evaluate the accuracy of a machine learning model on a test dataset</p>
 <p><strong>F1:</strong> Combines precision and recall. F1 = 2 × (Precision+Recall) / (Precision×Recall)</p>
-<div class="cell" data-execution_count="23">
+<div class="cell" data-execution_count="6">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, f1_score</span>
@@ -602,8 +612,8 @@ Training F1 Score: 0.68
 Testing Accuracy: 0.46
 Testing F1 Score: 0.33</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>&lt;matplotlib.legend.Legend at 0x174f7f010&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>&lt;matplotlib.legend.Legend at 0x16e7dec50&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="nb_text_files/figure-html/cell-7-output-3.png" class="img-fluid"></p>
@@ -613,8 +623,8 @@ Testing F1 Score: 0.33</code></pre>
 </section>
 <section id="feature-selection" class="level2">
 <h2 class="anchored" data-anchor-id="feature-selection">Feature Selection</h2>
-<p>I tried many feature selection techniques and none were improoving the accuracy score. Rather than aimlessly continuing to try different feature selection methods I took a deep dive into what the current model was doing well. I did this through a confusion matrix.</p>
-<div class="cell" data-execution_count="20">
+<p>I tried many feature selection techniques and none were improoving the accuracy score. Below you can see my attempt at using a chi squared test to analyze the independence between variables to find the “best” features. Rather than aimlessly continuing to try different feature selection methods I took a deep dive into what the current model was doing well. I did this through a confusion matrix.</p>
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_selection <span class="im">import</span> SelectKBest, chi2</span>
@@ -648,44 +658,44 @@ Testing F1 Score with Feature Selection: 0.31</code></pre>
 </section>
 <section id="confusion-matrices" class="level2">
 <h2 class="anchored" data-anchor-id="confusion-matrices">Confusion Matrices</h2>
-<div class="cell" data-execution_count="25">
+<p>Below I have created two different confusion matrices.</p>
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the accuracy, F1 score, and confusion matrix</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>test_accuracy <span class="op">=</span> accuracy_score(y_test, y_test_pred)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>test_f1 <span class="op">=</span> f1_score(y_test, y_test_pred, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>y_test_pred <span class="op">=</span> nb_classifier.predict(X_test_selected)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> confusion_matrix(y_test, y_test_pred)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Testing Accuracy with Feature Selection: </span><span class="sc">{</span>test_accuracy<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Testing F1 Score with Feature Selection: </span><span class="sc">{</span>test_f1<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Confusion Matrix:'</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(conf_matrix)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the confusion matrix as a heatmap</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>sns.heatmap(conf_matrix, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">"d"</span>, cmap<span class="op">=</span><span class="st">"Blues"</span>)</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Predicted Labels'</span>)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'True Labels'</span>)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>class_labels <span class="op">=</span> [<span class="st">"Class 1"</span>, <span class="st">"Class 2"</span>, <span class="st">"Class 3"</span>, <span class="st">"Class 4"</span>, <span class="st">"Class 5"</span>]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>sns.heatmap(conf_matrix, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'d'</span>, cmap<span class="op">=</span><span class="st">'Blues'</span>, xticklabels<span class="op">=</span>class_labels, yticklabels<span class="op">=</span>class_labels)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Predicted'</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Actual'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Confusion Matrix'</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> confusion_matrix(y_test, y_test_pred)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>class_labels <span class="op">=</span> [<span class="st">"Class 1"</span>, <span class="st">"Class 2"</span>, <span class="st">"Class 3"</span>, <span class="st">"Class 4"</span>, <span class="st">"Class 5"</span>]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>confusion_df <span class="op">=</span> pd.DataFrame(conf_matrix, index<span class="op">=</span>class_labels, columns<span class="op">=</span>class_labels)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>confusion_df.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'Blues'</span>, ax<span class="op">=</span>plt.gca())</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Actual'</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Stacked Bar Chart Confusion Matrix'</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Predicted'</span>, labels<span class="op">=</span>class_labels)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Testing Accuracy with Feature Selection: 0.46
-Testing F1 Score with Feature Selection: 0.33
-Confusion Matrix:
-[[  0   1   0   0  36]
- [  0   8   0   0  65]
- [  0   1   0   0  20]
- [  0   0   0   0   8]
- [  0   5   0   0 106]]</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>&lt;matplotlib.legend.Legend at 0x1712a9d50&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="nb_text_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
 </div>
+<div class="cell-output cell-output-display">
+<p><img src="nb_text_files/figure-html/cell-9-output-3.png" class="img-fluid"></p>
 </div>
-<p>This confusion matrix tells us that this model really only does a good job predicting the subreddits 1 and 4. These categories are science and worldnews. This model does a great job predicting world news. This may be a result of the original dataset inclusing the most posts coming from the world news subreddit section.</p>
+</div>
+<p>This first confusion matrix tells us that this model really only does a good job predicting class 2 and class 5. These subreddits are technology and worldnews. This model does a great job predicting world news. This may be a result of the original dataset inclusing the most posts coming from the world news subreddit section. The second confusion matrix is another way of displaying the count of accurate predictions. Once again, you can see that class 2 and class 5 were accurately predicted the most.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>

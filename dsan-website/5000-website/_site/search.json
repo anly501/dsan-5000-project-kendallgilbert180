@@ -1194,7 +1194,7 @@
     "href": "nb_text.html#training-and-evaluating-model",
     "title": "Naive Bayes - Text Data",
     "section": "Training and Evaluating Model",
-    "text": "Training and Evaluating Model\nNow I will train and evaulate the model. I will evaluate the model by looking at the training and testing accuracy and f1 scores.\nAccuracy: A performance metric used to evaluate the accuracy of a machine learning model on a test dataset\nF1: Combines precision and recall. F1 = 2 × (Precision+Recall) / (Precision×Recall)\n\n\nCode\nfrom sklearn.metrics import accuracy_score, f1_score\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Initialize and train a Multinomial Naive Bayes classifier on the training data\nnb_classifier = MultinomialNB()\nnb_classifier.fit(X_train, y_train)\n\n# Make predictions on the training data\ny_train_pred = nb_classifier.predict(X_train)\ntrain_accuracy = accuracy_score(y_train, y_train_pred)\ntrain_f1 = f1_score(y_train, y_train_pred, average='weighted')\n\n# Make predictions on the testing data\ny_test_pred = nb_classifier.predict(X_test)\ntest_accuracy = accuracy_score(y_test, y_test_pred)\ntest_f1 = f1_score(y_test, y_test_pred, average='weighted')\n\nprint(f'Training Accuracy: {train_accuracy:.2f}')\nprint(f'Training F1 Score: {train_f1:.2f}')\nprint(f'Testing Accuracy: {test_accuracy:.2f}')\nprint(f'Testing F1 Score: {test_f1:.2f}')\n\n# Creating bar graph\nlabels = ['Training', 'Testing']\naccuracies = [train_accuracy, test_accuracy]\nwidth = 0.35\nx = np.arange(len(labels))\nplt.bar(x, accuracies, width, label='Accuracy')\nplt.xlabel('Data')\nplt.ylabel('Accuracy')\nplt.title('Training and Testing Accuracies')\nplt.xticks(x, labels)\nplt.legend()\n\n\nTraining Accuracy: 0.75\nTraining F1 Score: 0.68\nTesting Accuracy: 0.46\nTesting F1 Score: 0.33\n\n\n&lt;matplotlib.legend.Legend at 0x174f7f010&gt;\n\n\n\n\n\nImmediately, it is understood that the training accuracy is way higher than the testing accuracy. In an attempt to fix this feature selection must be completed."
+    "text": "Training and Evaluating Model\nNow I will train and evaulate the model. I will evaluate the model by looking at the training and testing accuracy and f1 scores.\nAccuracy: A performance metric used to evaluate the accuracy of a machine learning model on a test dataset\nF1: Combines precision and recall. F1 = 2 × (Precision+Recall) / (Precision×Recall)\n\n\nCode\nfrom sklearn.metrics import accuracy_score, f1_score\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Initialize and train a Multinomial Naive Bayes classifier on the training data\nnb_classifier = MultinomialNB()\nnb_classifier.fit(X_train, y_train)\n\n# Make predictions on the training data\ny_train_pred = nb_classifier.predict(X_train)\ntrain_accuracy = accuracy_score(y_train, y_train_pred)\ntrain_f1 = f1_score(y_train, y_train_pred, average='weighted')\n\n# Make predictions on the testing data\ny_test_pred = nb_classifier.predict(X_test)\ntest_accuracy = accuracy_score(y_test, y_test_pred)\ntest_f1 = f1_score(y_test, y_test_pred, average='weighted')\n\nprint(f'Training Accuracy: {train_accuracy:.2f}')\nprint(f'Training F1 Score: {train_f1:.2f}')\nprint(f'Testing Accuracy: {test_accuracy:.2f}')\nprint(f'Testing F1 Score: {test_f1:.2f}')\n\n# Creating bar graph\nlabels = ['Training', 'Testing']\naccuracies = [train_accuracy, test_accuracy]\nwidth = 0.35\nx = np.arange(len(labels))\nplt.bar(x, accuracies, width, label='Accuracy')\nplt.xlabel('Data')\nplt.ylabel('Accuracy')\nplt.title('Training and Testing Accuracies')\nplt.xticks(x, labels)\nplt.legend()\n\n\nTraining Accuracy: 0.75\nTraining F1 Score: 0.68\nTesting Accuracy: 0.46\nTesting F1 Score: 0.33\n\n\n&lt;matplotlib.legend.Legend at 0x16e7dec50&gt;\n\n\n\n\n\nImmediately, it is understood that the training accuracy is way higher than the testing accuracy. In an attempt to fix this feature selection must be completed."
   },
   {
     "objectID": "nb_record.html#confusion-matrices",
@@ -1222,13 +1222,76 @@
     "href": "nb_text.html#feature-selection",
     "title": "Naive Bayes - Text Data",
     "section": "Feature Selection",
-    "text": "Feature Selection\nI tried many feature selection techniques and none were improoving the accuracy score. Rather than aimlessly continuing to try different feature selection methods I took a deep dive into what the current model was doing well. I did this through a confusion matrix.\n\n\nCode\nfrom sklearn.feature_selection import SelectKBest, chi2\nk = 690\nfeature_selector = SelectKBest(score_func=chi2, k=k)\n\n# Fit the feature selector on the training data and transform the data\nX_train_selected = feature_selector.fit_transform(X_train, y_train)\nX_test_selected = feature_selector.transform(X_test)\nnb_classifier = MultinomialNB()\nnb_classifier.fit(X_train_selected, y_train)\ny_train_pred = nb_classifier.predict(X_train_selected)\ntrain_accuracy = accuracy_score(y_train, y_train_pred)\ntrain_f1 = f1_score(y_train, y_train_pred, average='weighted')\ny_test_pred = nb_classifier.predict(X_test_selected)\ntest_accuracy = accuracy_score(y_test, y_test_pred)\ntest_f1 = f1_score(y_test, y_test_pred, average='weighted')\n\nprint(f'Training Accuracy with Feature Selection: {train_accuracy:.2f}')\nprint(f'Training F1 Score with Feature Selection: {train_f1:.2f}')\nprint(f'Testing Accuracy with Feature Selection: {test_accuracy:.2f}')\nprint(f'Testing F1 Score with Feature Selection: {test_f1:.2f}')\n\n\nTraining Accuracy with Feature Selection: 0.73\nTraining F1 Score with Feature Selection: 0.67\nTesting Accuracy with Feature Selection: 0.44\nTesting F1 Score with Feature Selection: 0.31"
+    "text": "Feature Selection\nI tried many feature selection techniques and none were improoving the accuracy score. Below you can see my attempt at using a chi squared test to analyze the independence between variables to find the “best” features. Rather than aimlessly continuing to try different feature selection methods I took a deep dive into what the current model was doing well. I did this through a confusion matrix.\n\n\nCode\nfrom sklearn.feature_selection import SelectKBest, chi2\nk = 690\nfeature_selector = SelectKBest(score_func=chi2, k=k)\n\n# Fit the feature selector on the training data and transform the data\nX_train_selected = feature_selector.fit_transform(X_train, y_train)\nX_test_selected = feature_selector.transform(X_test)\nnb_classifier = MultinomialNB()\nnb_classifier.fit(X_train_selected, y_train)\ny_train_pred = nb_classifier.predict(X_train_selected)\ntrain_accuracy = accuracy_score(y_train, y_train_pred)\ntrain_f1 = f1_score(y_train, y_train_pred, average='weighted')\ny_test_pred = nb_classifier.predict(X_test_selected)\ntest_accuracy = accuracy_score(y_test, y_test_pred)\ntest_f1 = f1_score(y_test, y_test_pred, average='weighted')\n\nprint(f'Training Accuracy with Feature Selection: {train_accuracy:.2f}')\nprint(f'Training F1 Score with Feature Selection: {train_f1:.2f}')\nprint(f'Testing Accuracy with Feature Selection: {test_accuracy:.2f}')\nprint(f'Testing F1 Score with Feature Selection: {test_f1:.2f}')\n\n\nTraining Accuracy with Feature Selection: 0.73\nTraining F1 Score with Feature Selection: 0.67\nTesting Accuracy with Feature Selection: 0.44\nTesting F1 Score with Feature Selection: 0.31"
   },
   {
     "objectID": "nb_text.html#confusion-matrices",
     "href": "nb_text.html#confusion-matrices",
     "title": "Naive Bayes - Text Data",
     "section": "Confusion Matrices",
-    "text": "Confusion Matrices\n\n\nCode\nfrom sklearn.metrics import confusion_matrix\nimport seaborn as sns\n# Calculate the accuracy, F1 score, and confusion matrix\ntest_accuracy = accuracy_score(y_test, y_test_pred)\ntest_f1 = f1_score(y_test, y_test_pred, average='weighted')\nconf_matrix = confusion_matrix(y_test, y_test_pred)\n\nprint(f'Testing Accuracy with Feature Selection: {test_accuracy:.2f}')\nprint(f'Testing F1 Score with Feature Selection: {test_f1:.2f}')\nprint('Confusion Matrix:')\nprint(conf_matrix)\n\n# Display the confusion matrix as a heatmap\nplt.figure(figsize=(8, 6))\nsns.heatmap(conf_matrix, annot=True, fmt=\"d\", cmap=\"Blues\")\nplt.xlabel('Predicted Labels')\nplt.ylabel('True Labels')\nplt.title('Confusion Matrix')\nplt.show()\n\n\nTesting Accuracy with Feature Selection: 0.46\nTesting F1 Score with Feature Selection: 0.33\nConfusion Matrix:\n[[  0   1   0   0  36]\n [  0   8   0   0  65]\n [  0   1   0   0  20]\n [  0   0   0   0   8]\n [  0   5   0   0 106]]\n\n\n\n\n\nThis confusion matrix tells us that this model really only does a good job predicting the subreddits 1 and 4. These categories are science and worldnews. This model does a great job predicting world news. This may be a result of the original dataset inclusing the most posts coming from the world news subreddit section."
+    "text": "Confusion Matrices\nBelow I have created two different confusion matrices.\n\n\nCode\nfrom sklearn.metrics import confusion_matrix\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport pandas as pd\ny_test_pred = nb_classifier.predict(X_test_selected)\nconf_matrix = confusion_matrix(y_test, y_test_pred)\nclass_labels = [\"Class 1\", \"Class 2\", \"Class 3\", \"Class 4\", \"Class 5\"]\nplt.figure(figsize=(8, 6))\nsns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=class_labels, yticklabels=class_labels)\nplt.xlabel('Predicted')\nplt.ylabel('Actual')\nplt.title('Confusion Matrix')\nconf_matrix = confusion_matrix(y_test, y_test_pred)\nclass_labels = [\"Class 1\", \"Class 2\", \"Class 3\", \"Class 4\", \"Class 5\"]\nconfusion_df = pd.DataFrame(conf_matrix, index=class_labels, columns=class_labels)\nplt.figure(figsize=(8, 6))\nconfusion_df.plot(kind='bar', stacked=True, cmap='Blues', ax=plt.gca())\nplt.xlabel('Actual')\nplt.ylabel('Count')\nplt.title('Stacked Bar Chart Confusion Matrix')\nplt.legend(title='Predicted', labels=class_labels)\n\n\n\n&lt;matplotlib.legend.Legend at 0x1712a9d50&gt;\n\n\n\n\n\n\n\n\nThis first confusion matrix tells us that this model really only does a good job predicting class 2 and class 5. These subreddits are technology and worldnews. This model does a great job predicting world news. This may be a result of the original dataset inclusing the most posts coming from the world news subreddit section. The second confusion matrix is another way of displaying the count of accurate predictions. Once again, you can see that class 2 and class 5 were accurately predicted the most."
+  },
+  {
+    "objectID": "eda/univariate.html#hypthesis-generation",
+    "href": "eda/univariate.html#hypthesis-generation",
+    "title": "Data Exploration - Univariate",
+    "section": "Hypthesis Generation",
+    "text": "Hypthesis Generation\nI am keeping the hypothesis I have created in the introduction. I believe this data holds the power to clearly and concisely display the need for ocean sustainability in addition to what is being done and how it has helped so far. This data has the ability to help researchers, policy makers, etc understand what countries are doing well in regard to ocean sustainability. I will touch upon (also have touched upon) reaching my goals for this project when explaining visualization and models in this project."
+  },
+  {
+    "objectID": "dimensionality.html",
+    "href": "dimensionality.html",
+    "title": "Ocean Sustainability",
+    "section": "",
+    "text": "Within this dimensionality reduction I will build out three different sections. These sections will include dimensionality reduction with PCA, dimensionality reduction with t-SNE and a tab that compares these two techniques.\n\n\nDimensionality reduction is the process of reducing the number of features or dimensions in a dataset while retaining as much information as possible. This can be done for a variety of reasons. This can be done to reduce the complexity of a model, to improve the performance of a learning algorithm, or to make it easier to visualize the data (“Introduction to Dimensionality Reduction” 2017).\nThere are many dimensionality reduction techniques and the two I will be using are PCA and T-SNE. PCA stands for principal component analysis and T-SNE stands for t-distributed Stochastic Neighbor Embedding. To view these dimensionality processes, use the nav bar to navigate to the section you desire."
+  },
+  {
+    "objectID": "pca.html#determining-optimal-of-principal-components",
+    "href": "pca.html#determining-optimal-of-principal-components",
+    "title": "Ocean Sustainability",
+    "section": "Determining Optimal # of Principal Components",
+    "text": "Determining Optimal # of Principal Components"
+  },
+  {
+    "objectID": "pca.html#visualization-using-pca.",
+    "href": "pca.html#visualization-using-pca.",
+    "title": "Ocean Sustainability",
+    "section": "Visualization using PCA.",
+    "text": "Visualization using PCA."
+  },
+  {
+    "objectID": "pca.html#analyzing-interpreting-results",
+    "href": "pca.html#analyzing-interpreting-results",
+    "title": "Introduction",
+    "section": "Analyzing / Interpreting Results",
+    "text": "Analyzing / Interpreting Results"
+  },
+  {
+    "objectID": "pca.html",
+    "href": "pca.html",
+    "title": "PCA",
+    "section": "",
+    "text": "PCA stands for principal component analysis. It is a machine learning technique that is used to reduce the dimensionality of large datasets. The goal of PCA is to reduce the number of variables while preserving as much information as possible.\nPCA can be broken down into five steps:\n\nStandization\nCovariance Matrix Computation\nComputing the eigenvectors and eigenvalues to identify principal comonents\nFeature Vectors\nRecasting data among principal component axis\n\nTo learn more about PCA in depth this is a good resource here."
+  },
+  {
+    "objectID": "pca.html#what-is-pca",
+    "href": "pca.html#what-is-pca",
+    "title": "Ocean Sustainability",
+    "section": "What is PCA?",
+    "text": "What is PCA?\nPCA stands for principal component analysis. It is a machine learning technique that is used to reduce the dimensionality of large datasets. The goal of PCA is to reduce the number of variables while preserving as much information as possible. (“Principal Component Analysis (PCA) Explained  Built In” n.d.)\nPCA can be broken down into five steps:\n\nStandization\nCovariance Matrix Computation\nComputing the eigenvectors and eigenvalues to identify principal comonents\nFeature Vectors\nRecasting data among principal component axis\n\nTo learn more about PCA in depth this is a good resource here."
+  },
+  {
+    "objectID": "pca.html#applying-pca-to-data",
+    "href": "pca.html#applying-pca-to-data",
+    "title": "Ocean Sustainability",
+    "section": "Applying PCA to Data",
+    "text": "Applying PCA to Data"
+  },
+  {
+    "objectID": "dimensionality.html#dimensionality-reduction",
+    "href": "dimensionality.html#dimensionality-reduction",
+    "title": "Ocean Sustainability",
+    "section": "",
+    "text": "Within this dimensionality reduction I will build out three different sections. These sections will include dimensionality reduction with PCA, dimensionality reduction with t-SNE and a tab that compares these two techniques.\n\n\nDimensionality reduction is the process of reducing the number of features or dimensions in a dataset while retaining as much information as possible. This can be done for a variety of reasons. This can be done to reduce the complexity of a model, to improve the performance of a learning algorithm, or to make it easier to visualize the data (“Introduction to Dimensionality Reduction” 2017).\nThere are many dimensionality reduction techniques and the two I will be using are PCA and T-SNE. PCA stands for principal component analysis and T-SNE stands for t-distributed Stochastic Neighbor Embedding. To view these dimensionality processes, use the nav bar to navigate to the section you desire."
   }
 ]
