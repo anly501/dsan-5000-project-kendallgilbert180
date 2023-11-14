@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../intro.html" rel="" target="">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Intro</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/codes" rel="" target="">
@@ -150,35 +150,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../cleaning.html" rel="" target="">
  <span class="dropdown-text">Data Cleaning</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">EDA</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-eda">    
         <li>
-    <a class="dropdown-item" href="../../exploration.html" rel="" target="">
- <span class="dropdown-text">Data Exploration</span></a>
+    <a class="dropdown-item" href="../../eda/univariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Univariate</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../clustering.html" rel="" target="">
- <span class="dropdown-text">Clustering</span></a>
+    <a class="dropdown-item" href="../../eda/multivariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Multivariate</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">ML</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-naive-bayes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Naive Bayes</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ml">    
-        <li>
-    <a class="dropdown-item" href="../../FS.html" rel="" target="">
- <span class="dropdown-text">Feature Selection</span></a>
-  </li>  
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-naive-bayes">    
         <li>
     <a class="dropdown-item" href="../../NB.html" rel="" target="">
- <span class="dropdown-text">Naive Bayes</span></a>
+ <span class="dropdown-text">Naive Bayes Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../FS.html" rel="" target="">
+ <span class="dropdown-text">Feature Selection Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../nb_record.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes Record Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../nb_text.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes - Text Data</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../dimensionality.ipynb" rel="" target="">
- <span class="menu-text">Dimensionality Reduction</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dim-reduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Dim Reduction</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dim-reduction">    
+        <li>
+    <a class="dropdown-item" href="../../dimensionality.html" rel="" target="">
+ <span class="dropdown-text">Dimensionality Reduction</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../pca.html" rel="" target="">
+ <span class="dropdown-text">PCA Dimensionality Reduction</span></a>
+  </li>  
+        <li class="dropdown-header">tsne.ipynb</li>
+        <li class="dropdown-header">comparison.ipynb</li>
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../trees.ipynb" rel="" target="">
  <span class="menu-text">Decision Trees</span></a>
@@ -263,8 +291,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="descriptive-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h2>
 <div class="cell" data-execution_count="2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing Data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data1a <span class="op">=</span> pd.read_csv(</span>
@@ -272,7 +298,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary Statistics</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data1a[[<span class="st">"Value"</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -328,8 +353,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
 <div class="cell" data-execution_count="10">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#average Tones by Year</span></span>
@@ -342,14 +365,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Tonnes"</span>)</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Tonnes Each Year (2019 - 2060)"</span>)</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="eda_1a_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="11">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>country_sum <span class="op">=</span> data1a.groupby(<span class="st">"Location"</span>)[<span class="st">"Value"</span>].<span class="bu">sum</span>()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Chart - Sum of Values for Each Location </span></span>
@@ -362,7 +382,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Estimated Total Leakage by Country Over 40 Years"</span>)</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Location
 Other non-OECD Asia           5219.555210
@@ -387,8 +406,6 @@ Name: Value, dtype: float64</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="12">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#HeatMap</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>heatmap_data <span class="op">=</span> data1a.pivot_table(index<span class="op">=</span><span class="st">"Location"</span>, values<span class="op">=</span><span class="st">"Value"</span>, aggfunc<span class="op">=</span><span class="st">"sum"</span>)</span>
@@ -397,14 +414,11 @@ Name: Value, dtype: float64</code></pre>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Heatmap of Values by Location"</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Darker Colors = Higher SUM</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="eda_1a_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="14">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtering Data to just show United States and China</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>selected_countries <span class="op">=</span> [<span class="st">"United States"</span>, <span class="st">"China"</span>]</span>
@@ -426,7 +440,6 @@ Name: Value, dtype: float64</code></pre>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"United States and China Values Over the Years"</span>)</span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">"Country"</span>, loc<span class="op">=</span><span class="st">"upper left"</span>)</span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="eda_1a_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
@@ -441,12 +454,9 @@ Name: Value, dtype: float64</code></pre>
 <section id="correlation-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h2>
 <div class="cell" data-execution_count="24">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Correlation Matrix</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> data1a[[<span class="st">"Time"</span>, <span class="st">"Value"</span>]].corr()</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(correlation_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Time     Value
 Time   1.000000  0.341206
@@ -460,8 +470,6 @@ Value  0.341206  1.000000</code></pre>
 <section id="identifying-outliers" class="level2">
 <h2 class="anchored" data-anchor-id="identifying-outliers">Identifying Outliers</h2>
 <div class="cell" data-execution_count="25">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Possible Outliers in 2060</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data_2060 <span class="op">=</span> data1a[data1a[<span class="st">"Time"</span>] <span class="op">==</span> <span class="dv">2060</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -471,7 +479,6 @@ Value  0.341206  1.000000</code></pre>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Estimated Leakage for the Year 2060 by Location"</span>)</span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <p><img src="eda_1a_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>

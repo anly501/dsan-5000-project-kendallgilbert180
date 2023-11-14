@@ -29,11 +29,11 @@ website:
         - FS.ipynb
         - nb_record.ipynb
         - nb_text.ipynb
-      - text: Dimensionality Reduction
+      - text: Dim Reduction
         menu:
         - dimensionality.ipynb
         - pca.ipynb 
-        - tsne.ipynb
+        - t_sne.ipynb
         - comparison.ipynb
       - href: trees.ipynb
         text: Decision Trees

@@ -126,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../intro.html" rel="" target="">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Intro</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/codes" rel="" target="">
@@ -149,35 +149,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../cleaning.html" rel="" target="">
  <span class="dropdown-text">Data Cleaning</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">EDA</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-eda">    
         <li>
-    <a class="dropdown-item" href="../../exploration.html" rel="" target="">
- <span class="dropdown-text">Data Exploration</span></a>
+    <a class="dropdown-item" href="../../eda/univariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Univariate</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../clustering.html" rel="" target="">
- <span class="dropdown-text">Clustering</span></a>
+    <a class="dropdown-item" href="../../eda/multivariate.html" rel="" target="">
+ <span class="dropdown-text">Data Exploration - Multivariate</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">ML</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-naive-bayes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Naive Bayes</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-ml">    
-        <li>
-    <a class="dropdown-item" href="../../FS.html" rel="" target="">
- <span class="dropdown-text">Feature Selection</span></a>
-  </li>  
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-naive-bayes">    
         <li>
     <a class="dropdown-item" href="../../NB.html" rel="" target="">
- <span class="dropdown-text">Naive Bayes</span></a>
+ <span class="dropdown-text">Naive Bayes Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../FS.html" rel="" target="">
+ <span class="dropdown-text">Feature Selection Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../nb_record.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes Record Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../nb_text.html" rel="" target="">
+ <span class="dropdown-text">Naive Bayes - Text Data</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../dimensionality.ipynb" rel="" target="">
- <span class="menu-text">Dimensionality Reduction</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dim-reduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Dim Reduction</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dim-reduction">    
+        <li>
+    <a class="dropdown-item" href="../../dimensionality.html" rel="" target="">
+ <span class="dropdown-text">Dimensionality Reduction</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../pca.html" rel="" target="">
+ <span class="dropdown-text">PCA Dimensionality Reduction</span></a>
+  </li>  
+        <li class="dropdown-header">tsne.ipynb</li>
+        <li class="dropdown-header">comparison.ipynb</li>
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../trees.ipynb" rel="" target="">
  <span class="menu-text">Decision Trees</span></a>
@@ -237,19 +265,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the httr package if not already installed</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(httr)) {</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"httr"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(httr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: httr</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the URL</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://www.data.qld.gov.au/api/3/action/datastore_search?resource_id=6d5865f0-b7fc-4770-a303-a0b1f85f661f&amp;limit=5&amp;q=title:jones"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -263,7 +286,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Failed to retrieve data</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>{"help": "https://www.data.qld.gov.au/api/3/action/help_show?name=datastore_search", "success": true, "result": {"include_total": true, "limit": 5, "q": "title:jones", "records_format": "objects", "resource_id": "6d5865f0-b7fc-4770-a303-a0b1f85f661f", "total_estimation_threshold": null, "records": [], "fields": [{"id": "_id", "type": "int"}, {"id": "Date", "type": "timestamp"}, {"id": "Region", "type": "text"}, {"id": "Source", "type": "text"}, {"id": "Ship Type", "type": "text"}, {"id": "Area", "type": "text"}, {"id": "Location", "type": "text"}, {"id": "Pollutant", "type": "text"}, {"id": "Estimated Litres", "type": "text"}, {"id": "rank", "type": "float"}], "_links": {"start": "/api/3/action/datastore_search?limit=5&amp;q=title%3Ajones&amp;resource_id=6d5865f0-b7fc-4770-a303-a0b1f85f661f", "next": "/api/3/action/datastore_search?limit=5&amp;q=title%3Ajones&amp;resource_id=6d5865f0-b7fc-4770-a303-a0b1f85f661f&amp;offset=5"}, "total": 0, "total_was_estimated": false}}</code></pre>
 </div>

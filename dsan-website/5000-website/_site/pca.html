@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability – pca</title>
+<title>Ocean Sustainability - PCA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -78,6 +112,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -173,20 +210,26 @@ div.csl-indent {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dimensionality-reduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Dimensionality Reduction</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dim-reduction" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Dim Reduction</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dimensionality-reduction">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dim-reduction">    
         <li>
     <a class="dropdown-item" href="./dimensionality.html" rel="" target="">
- <span class="dropdown-text">Dimensionality Reduction</span></a>
+ <span class="dropdown-text">Dimensionality Reduction Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./pca.html" rel="" target="">
- <span class="dropdown-text">PCA Dimensionality Reduction</span></a>
+ <span class="dropdown-text">PCA</span></a>
   </li>  
-        <li class="dropdown-header">tsne.ipynb</li>
-        <li class="dropdown-header">comparison.ipynb</li>
+        <li>
+    <a class="dropdown-item" href="./t_sne.html" rel="" target="">
+ <span class="dropdown-text">What is TSNE?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./comparison.html" rel="" target="">
+ <span class="dropdown-text">comparison.html</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -217,53 +260,342 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pca-dimensionality-reduction" id="toc-pca-dimensionality-reduction" class="nav-link active" data-scroll-target="#pca-dimensionality-reduction">PCA Dimensionality Reduction</a></li>
-  <li><a href="#what-is-pca" id="toc-what-is-pca" class="nav-link" data-scroll-target="#what-is-pca">What is PCA?</a></li>
-  <li><a href="#applying-pca-to-data" id="toc-applying-pca-to-data" class="nav-link" data-scroll-target="#applying-pca-to-data">Applying PCA to Data</a></li>
-  <li><a href="#determining-optimal-of-principal-components" id="toc-determining-optimal-of-principal-components" class="nav-link" data-scroll-target="#determining-optimal-of-principal-components">Determining Optimal # of Principal Components</a></li>
-  <li><a href="#visualization-using-pca." id="toc-visualization-using-pca." class="nav-link" data-scroll-target="#visualization-using-pca.">Visualization using PCA.</a></li>
-  <li><a href="#analyzing-interpreting-results" id="toc-analyzing-interpreting-results" class="nav-link" data-scroll-target="#analyzing-interpreting-results">Analyzing / Interpreting Results</a></li>
+  <li><a href="#what-is-pca" id="toc-what-is-pca" class="nav-link active" data-scroll-target="#what-is-pca">What is PCA?</a></li>
+  <li><a href="#applying-pca-to-data" id="toc-applying-pca-to-data" class="nav-link" data-scroll-target="#applying-pca-to-data">Applying PCA to Data</a>
+  <ul class="collapse">
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#data-set-selection" id="toc-data-set-selection" class="nav-link" data-scroll-target="#data-set-selection">Data Set Selection</a></li>
+  <li><a href="#tools-i-will-be-using" id="toc-tools-i-will-be-using" class="nav-link" data-scroll-target="#tools-i-will-be-using">Tools I will be using</a></li>
+  </ul></li>
+  <li><a href="#pca-code-walkthrough" id="toc-pca-code-walkthrough" class="nav-link" data-scroll-target="#pca-code-walkthrough">PCA Code Walkthrough</a>
+  <ul class="collapse">
+  <li><a href="#importing-necessary-libraries" id="toc-importing-necessary-libraries" class="nav-link" data-scroll-target="#importing-necessary-libraries">Importing Necessary Libraries</a></li>
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing Data</a></li>
+  <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization">Standardization</a></li>
+  <li><a href="#co-variance-matrix" id="toc-co-variance-matrix" class="nav-link" data-scroll-target="#co-variance-matrix">Co-Variance Matrix</a></li>
+  <li><a href="#computing-eigen-values-and-eigen-vectors" id="toc-computing-eigen-values-and-eigen-vectors" class="nav-link" data-scroll-target="#computing-eigen-values-and-eigen-vectors">Computing Eigen Values and Eigen Vectors</a></li>
+  <li><a href="#choosing-principal-components" id="toc-choosing-principal-components" class="nav-link" data-scroll-target="#choosing-principal-components">Choosing Principal Components</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PCA</h1>
+</div>
 
 
-<section id="pca-dimensionality-reduction" class="level2">
-<h2 class="anchored" data-anchor-id="pca-dimensionality-reduction">PCA Dimensionality Reduction</h2>
-</section>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
 <section id="what-is-pca" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-pca">What is PCA?</h2>
 <p>PCA stands for principal component analysis. It is a machine learning technique that is used to reduce the dimensionality of large datasets. The goal of PCA is to reduce the number of variables while preserving as much information as possible. <span class="citation" data-cites="noauthor_principal_nodate">(<a href="#ref-noauthor_principal_nodate" role="doc-biblioref"><span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>”</span> n.d.</a>)</span></p>
 <p>PCA can be broken down into five steps:</p>
 <ol type="1">
-<li>Standization</li>
+<li>Standardization</li>
 <li>Covariance Matrix Computation</li>
-<li>Computing the eigenvectors and eigenvalues to identify principal comonents</li>
+<li>Computing the eigenvectors and eigenvalues to identify principal components</li>
 <li>Feature Vectors</li>
 <li>Recasting data among principal component axis</li>
 </ol>
+<p>I will walk through these steps and code within this tab.</p>
 <p>To learn more about PCA in depth this is a good resource <a href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis">here</a>.</p>
 </section>
 <section id="applying-pca-to-data" class="level2">
 <h2 class="anchored" data-anchor-id="applying-pca-to-data">Applying PCA to Data</h2>
+<section id="objectives" class="level3">
+<h3 class="anchored" data-anchor-id="objectives">Objectives</h3>
+<p>The objective of PCA on my data is to reduce the dimensionality.</p>
 </section>
-<section id="determining-optimal-of-principal-components" class="level2">
-<h2 class="anchored" data-anchor-id="determining-optimal-of-principal-components">Determining Optimal # of Principal Components</h2>
+<section id="data-set-selection" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-selection">Data Set Selection</h3>
+<p>I will be applying PCA to my merged dataset that includes the variables, Aqua Production, Marine Protected Areas, Inventions, Instruments, Fishing Exports and % of policy instruments related to ocean policy.</p>
 </section>
-<section id="visualization-using-pca." class="level2">
-<h2 class="anchored" data-anchor-id="visualization-using-pca.">Visualization using PCA.</h2>
+<section id="tools-i-will-be-using" class="level3">
+<h3 class="anchored" data-anchor-id="tools-i-will-be-using">Tools I will be using</h3>
+<p>I will complete PCA in Python.</p>
 </section>
-<section id="analyzing-interpreting-results" class="level2">
+</section>
+<section id="pca-code-walkthrough" class="level2">
+<h2 class="anchored" data-anchor-id="pca-code-walkthrough">PCA Code Walkthrough</h2>
+<section id="importing-necessary-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="importing-necessary-libraries">Importing Necessary Libraries</h3>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="importing-data" class="level3">
+<h3 class="anchored" data-anchor-id="importing-data">Importing Data</h3>
+<div class="cell" data-execution_count="93">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/nb_record.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>label_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pca[<span class="st">'Country'</span>] <span class="op">=</span> label_encoder.fit_transform(pca[<span class="st">'Country'</span>])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pca.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="93">
+<div>
 
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Aqua Production (Millions)</th>
+<th data-quarto-table-cell-role="th">Marine Protected Area (sqkm)</th>
+<th data-quarto-table-cell-role="th">Inventions (number)</th>
+<th data-quarto-table-cell-role="th">Instruments (number)</th>
+<th data-quarto-table-cell-role="th">Fishing Exports (Millions)</th>
+<th data-quarto-table-cell-role="th">Value</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>376896.50</td>
+<td>485.10</td>
+<td>12.00</td>
+<td>5.0</td>
+<td>1963.38</td>
+<td>10.64</td>
+<td>11</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>55.25</td>
+<td>5.65</td>
+<td>0.33</td>
+<td>0.0</td>
+<td>739.13</td>
+<td>0.00</td>
+<td>12</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>24661.75</td>
+<td>605.08</td>
+<td>23.33</td>
+<td>8.0</td>
+<td>4431.00</td>
+<td>5.23</td>
+<td>13</td>
+<td>2000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>8849.75</td>
+<td>2124.58</td>
+<td>1.00</td>
+<td>4.0</td>
+<td>3118.12</td>
+<td>19.05</td>
+<td>14</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>29421.75</td>
+<td>235.18</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>321.71</td>
+<td>0.00</td>
+<td>15</td>
+<td>2000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="standardization" class="level3">
+<h3 class="anchored" data-anchor-id="standardization">Standardization</h3>
+<div class="cell" data-execution_count="94">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pca.drop(columns<span class="op">=</span>[<span class="st">'Value'</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>X_standardized <span class="op">=</span> scaler.fit_transform(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="co-variance-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="co-variance-matrix">Co-Variance Matrix</h3>
+<p>Covariance measures how two features vary with each other. A <strong>positive</strong> covariance indicates that features increase and decrease together. Whereas, a <strong>negative</strong> covariance indicates that the two features vary in the opposite directions <span class="citation" data-cites="noauthor_principal_nodate">(<a href="#ref-noauthor_principal_nodate" role="doc-biblioref"><span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>”</span> n.d.</a>)</span>. This matrix includes all covariances associated with all possible pairs of the initial variables.</p>
+<div class="cell" data-execution_count="101">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="op">=</span> np.cov(X_standardized, rowvar<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[ 1.00194175e+00 -3.04942139e-02  1.51154291e-01  2.28111425e-01
+   2.73660218e-02  1.38684735e-01  1.62827020e-01]
+ [-3.04942139e-02  1.00194175e+00  7.50535697e-02 -1.08844021e-01
+   8.28653563e-01 -2.56626522e-01  6.55735651e-02]
+ [ 1.51154291e-01  7.50535697e-02  1.00194175e+00  8.17036100e-02
+   1.13743345e-01  1.80950218e-01  4.18881528e-02]
+ [ 2.28111425e-01 -1.08844021e-01  8.17036100e-02  1.00194175e+00
+   6.12700946e-02 -3.21702201e-02  1.10964957e-01]
+ [ 2.73660218e-02  8.28653563e-01  1.13743345e-01  6.12700946e-02
+   1.00194175e+00 -2.00780688e-01  1.10897521e-01]
+ [ 1.38684735e-01 -2.56626522e-01  1.80950218e-01 -3.21702201e-02
+  -2.00780688e-01  1.00194175e+00  3.23365930e-18]
+ [ 1.62827020e-01  6.55735651e-02  4.18881528e-02  1.10964957e-01
+   1.10897521e-01  3.23365930e-18  1.00194175e+00]]</code></pre>
+</div>
+</div>
+</section>
+<section id="computing-eigen-values-and-eigen-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="computing-eigen-values-and-eigen-vectors">Computing Eigen Values and Eigen Vectors</h3>
+<p>Eigen values and eigen vectors are a linear algebra concept. These values are computed from the covariance matrix and help with determining the principal components.</p>
+<p>Principal components are new variables that are constructed as linear combinations or mixtures of the initial variables. These combinations result in new variables (i.e., principal components) that are uncorrelated and most of the information within the initial variables is squeezed or compressed into the first components.<span class="citation" data-cites="noauthor_principal_nodate">(<a href="#ref-noauthor_principal_nodate" role="doc-biblioref"><span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>”</span> n.d.</a>)</span>.</p>
+<div class="cell" data-execution_count="102">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>eigenvalues, eigenvectors <span class="op">=</span> np.linalg.eig(cov_matrix)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Eigenvalues:"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigenvalues)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Eigenvectors:"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigenvectors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Eigenvalues:
+[1.96252593 1.46708555 0.15337595 1.08890623 0.67420997 0.76242139
+ 0.90506723]
+Eigenvectors:
+[[ 0.01526356 -0.59668919 -0.00340433 -0.10513975  0.41711599 -0.67674432
+  -0.02635254]
+ [-0.66857226  0.04306445  0.70717473  0.14755344 -0.09626841 -0.13973334
+   0.02225876]
+ [-0.07566051 -0.44005363  0.00433808  0.56052385  0.38207005  0.54299296
+  -0.21355002]
+ [ 0.00635882 -0.45852099  0.14085705 -0.49377113 -0.43377731  0.23379086
+  -0.53220908]
+ [-0.66268819 -0.083262   -0.69039466  0.08934662 -0.23939662 -0.09756661
+  -0.04954   ]
+ [ 0.3048664  -0.30520205  0.05548236  0.53958993 -0.65208579 -0.21847102
+   0.21616463]
+ [-0.12212308 -0.3716691   0.01759851 -0.33171763 -0.00893025  0.34021077
+   0.78789506]]</code></pre>
+</div>
+</div>
+</section>
+<section id="choosing-principal-components" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-principal-components">Choosing Principal Components</h3>
+<p>Computing the eigenvectors and ordering them by their eigenvalues in descending order allow us to find the principal components in order of significance. In this step, we discarded low eigen values and form with the remaining ones a matrix of vectors that we call Feature vector.</p>
+<p>Principal components represent the directions of the data that explain a maximal amount of variance. Within the code below, I am determing the number of components that maximize the variance.</p>
+<p>We can think of principal components as new variables that are constructed as linear combinations or mixtures of the initial variables. They are the new axes that provide the best angle to see and evaluate the data, so that the differences between the observations are better visible.</p>
+<div class="cell" data-execution_count="103">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort eigenvalues in descending order</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sorted_indices <span class="op">=</span> np.argsort(eigenvalues)[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sorted_eigenvalues <span class="op">=</span> eigenvalues[sorted_indices]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the cumulative explained variance</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>cumulative_explained_variance <span class="op">=</span> np.cumsum(sorted_eigenvalues) <span class="op">/</span> np.<span class="bu">sum</span>(sorted_eigenvalues)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(cumulative_explained_variance) <span class="op">+</span> <span class="dv">1</span>), cumulative_explained_variance, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Cumulative Explained Variance'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Principal Components'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cumulative Explained Variance'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>desired_variance <span class="op">=</span> <span class="fl">0.80</span> <span class="co">#I want to find the number of variables it takes to reach a variance of 0.90</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>num_components <span class="op">=</span> np.argmax(cumulative_explained_variance <span class="op">&gt;=</span> desired_variance) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of components to capture </span><span class="sc">{</span>desired_variance <span class="op">*</span> <span class="dv">100</span><span class="sc">}</span><span class="ss">% variance: </span><span class="sc">{</span>num_components<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of components to capture 80.0% variance: 5</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="pca_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="104">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply PCA with the desired number of components</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span>num_components)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X_standardized)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the explained variance ratio for each selected component</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>explained_variance_ratio <span class="op">=</span> pca.explained_variance_ratio_</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Explained Variance Ratio for Each Component:"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(explained_variance_ratio)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(explained_variance_ratio) <span class="op">+</span> <span class="dv">1</span>), explained_variance_ratio, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scree Plot'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Components'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Explained Variance Ratio'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Explained Variance Ratio for Each Component:
+[0.27981751 0.20917748 0.15525656 0.12904475 0.10870626]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="104">
+<pre><code>Text(0, 0.5, 'Explained Variance Ratio')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="pca_files/figure-html/cell-8-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<p>These principal components are linear combinations of the original features and provide a new coordinate system capturing the most important patterns in the data. Below I have replotted the scatterplots to show the difference in this dimensionality reduced data.</p>
+<div class="cell" data-execution_count="99">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>columns_pca <span class="op">=</span> [<span class="ss">f'PC</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, num_components <span class="op">+</span> <span class="dv">1</span>)]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df_pca <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>X_pca, columns<span class="op">=</span>columns_pca)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Export the DataFrame to a CSV file</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>df_pca.to_csv(<span class="st">'pca_transformed_data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>new <span class="op">=</span> pd.read_csv(<span class="st">'/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/pca_transformed_data.csv'</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>sns.pairplot(new, hue<span class="op">=</span><span class="st">'PC4'</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/kendallgilbert/anaconda3/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
+  self._figure.tight_layout(*args, **kwargs)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="pca_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 
 
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Analyzing / Interpreting Results</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-noauthor_principal_nodate" class="csl-entry" role="listitem">
 <span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>.”</span> n.d. Accessed November 10, 2023. <a href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis">https://builtin.com/data-science/step-step-explanation-principal-component-analysis</a>.
 </div>
