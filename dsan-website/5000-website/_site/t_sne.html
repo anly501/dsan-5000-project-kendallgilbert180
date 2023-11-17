@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability - What is TSNE?</title>
+<title>Ocean Sustainability - T-SNE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -202,17 +202,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./t_sne.html" rel="" target="">
- <span class="dropdown-text">What is TSNE?</span></a>
+ <span class="dropdown-text">T-SNE</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./comparison.html" rel="" target="">
- <span class="dropdown-text">comparison.html</span></a>
+ <span class="dropdown-text">PCA vs.&nbsp;T-SNE</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="./clustering.html" rel="" target="">
+ <span class="menu-text">Clustering</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./trees.ipynb" rel="" target="">
- <span class="menu-text">Decision Trees</span></a>
+ <span class="menu-text">Trees</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./arm.ipynb" rel="" target="">
@@ -238,13 +242,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#applying-tsne-to-data" id="toc-applying-tsne-to-data" class="nav-link active" data-scroll-target="#applying-tsne-to-data">Applying TSNE to data</a>
+  <li><a href="#what-is-tsne" id="toc-what-is-tsne" class="nav-link active" data-scroll-target="#what-is-tsne">What is TSNE?</a></li>
+  <li><a href="#applying-tsne-to-data" id="toc-applying-tsne-to-data" class="nav-link" data-scroll-target="#applying-tsne-to-data">Applying TSNE to data</a>
   <ul class="collapse">
   <li><a href="#importing-libraries" id="toc-importing-libraries" class="nav-link" data-scroll-target="#importing-libraries">Importing Libraries</a></li>
   <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing Data</a></li>
   <li><a href="#implementing-tsne" id="toc-implementing-tsne" class="nav-link" data-scroll-target="#implementing-tsne">Implementing TSNE</a></li>
-  </ul></li>
   <li><a href="#tsne-with-three-different-perplexities-5-30-40" id="toc-tsne-with-three-different-perplexities-5-30-40" class="nav-link" data-scroll-target="#tsne-with-three-different-perplexities-5-30-40">TSNE with three different perplexities: 5, 30, 40</a></li>
+  </ul></li>
+  <li><a href="#fidings-conclusion" id="toc-fidings-conclusion" class="nav-link" data-scroll-target="#fidings-conclusion">Fidings / Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#compare-with-pca" id="toc-compare-with-pca" class="nav-link" data-scroll-target="#compare-with-pca">Compare with PCA</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -253,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">What is TSNE?</h1>
+<h1 class="title">T-SNE</h1>
 </div>
 
 
@@ -268,8 +277,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="what-is-tsne" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-tsne">What is TSNE?</h2>
 <p>t-distributed Stochastic Neighbor Embedding is an unsupervised non-linear dimensionality reduction technique for data exploration and visualizing high-dimensional data. The objective of t-sne is to visualize compex datasets in high dimensional space.</p>
 <p>T-sne finds the similarity measures between pairs of instances in higher and lower dimensional space. Then, it tries to optimize two similarity measures. t-sne can be divided into three simple steps.</p>
+</section>
 <section id="applying-tsne-to-data" class="level2">
 <h2 class="anchored" data-anchor-id="applying-tsne-to-data">Applying TSNE to data</h2>
 <section id="importing-libraries" class="level3">
@@ -287,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="importing-data" class="level3">
 <h3 class="anchored" data-anchor-id="importing-data">Importing Data</h3>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="37">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/nb_record.csv"</span>)</span>
@@ -298,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="implementing-tsne" class="level3">
 <h3 class="anchored" data-anchor-id="implementing-tsne">Implementing TSNE</h3>
-<div class="cell" data-execution_count="29">
+<div class="cell" data-execution_count="38">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> tsne.drop(<span class="st">'Country'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
@@ -313,10 +325,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 </section>
-</section>
-<section id="tsne-with-three-different-perplexities-5-30-40" class="level2">
-<h2 class="anchored" data-anchor-id="tsne-with-three-different-perplexities-5-30-40">TSNE with three different perplexities: 5, 30, 40</h2>
-<div class="cell" data-execution_count="36">
+<section id="tsne-with-three-different-perplexities-5-30-40" class="level3">
+<h3 class="anchored" data-anchor-id="tsne-with-three-different-perplexities-5-30-40">TSNE with three different perplexities: 5, 30, 40</h3>
+<p><strong>Perplexity: 5</strong></p>
+<p>Using t-sne, the scatter plots below shows points that are closer together in the high dimensional space (7 variables) by showing how they are close together in a two dimensional space. Perplexity is essentially states how much the model should balance attention between global and local structures. The perplexity is at 5. These means that local variations dominate.</p>
+<div class="cell" data-execution_count="39">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 5</span></span>
@@ -327,44 +340,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'t-SNE Component 2'</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLORE RESULTS</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Results</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RESULTS"</span>) </span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"shape : "</span>,tsne_result_5.shape)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few points : </span><span class="ch">\n</span><span class="st">"</span>,tsne_result_5[<span class="dv">0</span>:<span class="dv">2</span>,:])</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 30</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>tsne_result_30 <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">1000</span>, perplexity<span class="op">=</span><span class="dv">30</span>, n_iter<span class="op">=</span><span class="dv">1000</span>).fit_transform(X_scaled)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne_result_30[:, <span class="dv">0</span>], tsne_result_30[:, <span class="dv">1</span>], c<span class="op">=</span>tsne[<span class="st">'Country'</span>], cmap<span class="op">=</span><span class="st">'Blues'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'t-SNE Visualization (Perplexity = 30)'</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t-SNE Component 1'</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'t-SNE Component 2'</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLORE RESULTS</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RESULTS"</span>) </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"shape : "</span>,tsne_result_30.shape)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few points : </span><span class="ch">\n</span><span class="st">"</span>,tsne_result_30[<span class="dv">0</span>:<span class="dv">2</span>,:])</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 40</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>tsne_result_40 <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">1000</span>, perplexity<span class="op">=</span><span class="dv">40</span>, n_iter<span class="op">=</span><span class="dv">1000</span>).fit_transform(X_scaled)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne_result_40[:, <span class="dv">0</span>], tsne_result_40[:, <span class="dv">1</span>], c<span class="op">=</span>tsne[<span class="st">'Country'</span>], cmap<span class="op">=</span><span class="st">'Blues'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'t-SNE Visualization (Perplexity = 40)'</span>)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t-SNE Component 1'</span>)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'t-SNE Component 2'</span>)</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLORE RESULTS</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RESULTS"</span>) </span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"shape : "</span>,tsne_result_40.shape)</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few points : </span><span class="ch">\n</span><span class="st">"</span>,tsne_result_40[<span class="dv">0</span>:<span class="dv">2</span>,:])</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PCA results</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few points : </span><span class="ch">\n</span><span class="st">"</span>,tsne_result_5[<span class="dv">0</span>:<span class="dv">2</span>,:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="t_sne_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
@@ -374,33 +353,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 shape :  (516, 2)
 First few points : 
  [[50.199814 -5.543903]
- [63.88931  -8.412262]]
-RESULTS
+ [63.88931  -8.412262]]</code></pre>
+</div>
+</div>
+<p><strong>Perplexity: 30</strong></p>
+<p>Within the scatter plot below, the perplexity is 30.</p>
+<div class="cell" data-execution_count="44">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 30</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tsne_result_30 <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">1000</span>, perplexity<span class="op">=</span><span class="dv">30</span>, n_iter<span class="op">=</span><span class="dv">1000</span>).fit_transform(X_scaled)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne_result_30[:, <span class="dv">0</span>], tsne_result_30[:, <span class="dv">1</span>], c<span class="op">=</span>tsne[<span class="st">'Country'</span>], cmap<span class="op">=</span><span class="st">'Blues'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'t-SNE Visualization (Perplexity = 30)'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t-SNE Component 1'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'t-SNE Component 2'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Results</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RESULTS"</span>) </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"shape : "</span>,tsne_result_30.shape)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few points : </span><span class="ch">\n</span><span class="st">"</span>,tsne_result_30[<span class="dv">0</span>:<span class="dv">2</span>,:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="t_sne_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>RESULTS
 shape :  (516, 2)
 First few points : 
  [[-11.677515  21.619915]
- [-16.819391  24.590347]]
-RESULTS
-shape :  (516, 2)
-First few points : 
- [[ -7.744476  18.761927]
- [-12.337536  20.984404]]</code></pre>
+ [-16.819391  24.590347]]</code></pre>
 </div>
-<div class="cell-output cell-output-display">
-<p><img src="t_sne_files/figure-html/cell-5-output-3.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display">
-<p><img src="t_sne_files/figure-html/cell-5-output-4.png" class="img-fluid"></p>
+<p><strong>Perplexity: 40</strong> Within the scatter plot below the perplexity is 40.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 40</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tsne_result_40 <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">1000</span>, perplexity<span class="op">=</span><span class="dv">40</span>, n_iter<span class="op">=</span><span class="dv">1000</span>).fit_transform(X_scaled)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne_result_40[:, <span class="dv">0</span>], tsne_result_40[:, <span class="dv">1</span>], c<span class="op">=</span>tsne[<span class="st">'Country'</span>], cmap<span class="op">=</span><span class="st">'Blues'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'t-SNE Visualization (Perplexity = 40)'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'t-SNE Component 1'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'t-SNE Component 2'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Results</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RESULTS"</span>) </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"shape : "</span>,tsne_result_40.shape)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few points : </span><span class="ch">\n</span><span class="st">"</span>,tsne_result_40[<span class="dv">0</span>:<span class="dv">2</span>,:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+</section>
+</section>
+<section id="fidings-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="fidings-conclusion">Fidings / Conclusion</h2>
+<p>Dots that are closer together represent countries that are close together in a high dimensional space. Because points form clusters / groups it can be inferred that there are patterns in the high dimensional data.</p>
+<p>It’s important to note that the interpretation of a t-SNE plot is <strong>qualitative</strong> not quantitative. The distances between points within the t-sne plots above do not have a meaningful scale, the goal is to visualize the inherent structures and relationships in the data since that is unavailable in the 7 dimensional space.</p>
+<section id="compare-with-pca" class="level3">
+<h3 class="anchored" data-anchor-id="compare-with-pca">Compare with PCA</h3>
+<div class="cell" data-execution_count="43">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PCA results</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>Text(0.5, 1.0, 'PCA')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="t_sne_files/figure-html/cell-5-output-6.png" class="img-fluid"></p>
+<p><img src="t_sne_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

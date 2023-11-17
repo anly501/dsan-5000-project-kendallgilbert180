@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability – comparison</title>
+<title>Ocean Sustainability - PCA vs.&nbsp;T-SNE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,25 +160,29 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dim-reduction">    
         <li>
     <a class="dropdown-item" href="./dimensionality.html" rel="" target="">
- <span class="dropdown-text">Dimensionality Reduction</span></a>
+ <span class="dropdown-text">Dimensionality Reduction Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./pca.html" rel="" target="">
  <span class="dropdown-text">PCA</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./TSNE.ipynb" rel="" target="">
- <span class="dropdown-text"></span></a>
+    <a class="dropdown-item" href="./t_sne.html" rel="" target="">
+ <span class="dropdown-text">T-SNE</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./comparison.html" rel="" target="">
- <span class="dropdown-text">comparison.html</span></a>
+ <span class="dropdown-text">PCA vs.&nbsp;T-SNE</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="./clustering.html" rel="" target="">
+ <span class="menu-text">Clustering</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./trees.ipynb" rel="" target="">
- <span class="menu-text">Decision Trees</span></a>
+ <span class="menu-text">Trees</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./arm.ipynb" rel="" target="">
@@ -205,11 +209,42 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PCA vs.&nbsp;T-SNE</h1>
+</div>
 
 
-<p>Summarize PCA (Principal Component Analysis) is a linear technique that works best with data that has a linear structure. It seeks to identify the underlying principal components in the data by projecting onto lower dimensions, minimizing variance, and preserving large pairwise distances. Read our Principal Component Analysis (PCA) tutorial to understand the inner working of the algorithms with R examples.</p>
-<p>But, t-SNE is a nonlinear technique that focuses on preserving the pairwise similarities between data points in a lower-dimensional space. t-SNE is concerned with preserving small pairwise distances whereas, PCA focuses on maintaining large pairwise distances to maximize variance.</p>
-<p>In summary, PCA preserves the variance in the data, whereas t-SNE preserves the relationships between data points in a lower-dimensional space, making it quite a good algorithm for visualizing complex high-dimensional data.</p>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>PCA and T-SNE are two widely used dimensionality reduction techniques used within the data science world. I have built out tabs specifically describing what each dimensionality technique is capable of achieving. This tab will <strong>compare</strong> the two.</p>
+<p>PCA is a linear technique that works best with data that has a linear structure. The goal of PCA is to identify the principal components in the data by projecting onto lower dimensions, minimizing variance, and preserving large pairwise distances. PCA may not do the best job with non linear structures.</p>
+<p>T-SNE is a nonlinear technique that focuses on preserving the pairwise similarities between data points in a lower-dimensional space. T-SNE is concerned with preserving small pairwise distances.</p>
+<p>The difference between the two of these techniques is evident when producing plots. Furthermore, t-sne is often used just as a visualization technique.</p>
+<p><strong>When to USE PCA vs T-SNE</strong></p>
+<p>Use PCA when:</p>
+<ul>
+<li>The data has a linear structure</li>
+<li>You want to capture global trends</li>
+</ul>
+<p>Use t-SNE when:</p>
+<ul>
+<li>Data has non-linear structures.</li>
+<li>You want to preserve local relationships and identify clusters</li>
+<li>Dataset is moderate in size</li>
+</ul>
+<p>Soures Used:</p>
+<p>https://www.geeksforgeeks.org/difference-between-pca-vs-t-sne/</p>
+<p>https://medium.com/analytics-vidhya/pca-vs-t-sne-17bcd882bf3d</p>
 
 
 

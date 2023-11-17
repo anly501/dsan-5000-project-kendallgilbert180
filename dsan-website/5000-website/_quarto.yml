@@ -35,8 +35,10 @@ website:
         - pca.ipynb 
         - t_sne.ipynb
         - comparison.ipynb
+      - href: clustering.ipynb
+        text: Clustering
       - href: trees.ipynb
-        text: Decision Trees
+        text: Trees
       - href: arm.ipynb
         text: ARM
       - href: conclusions.ipynb
