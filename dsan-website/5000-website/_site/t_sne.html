@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -279,14 +298,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="what-is-tsne" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-tsne">What is TSNE?</h2>
-<p>t-distributed Stochastic Neighbor Embedding is an unsupervised non-linear dimensionality reduction technique for data exploration and visualizing high-dimensional data. The objective of t-sne is to visualize compex datasets in high dimensional space.</p>
-<p>T-sne finds the similarity measures between pairs of instances in higher and lower dimensional space. Then, it tries to optimize two similarity measures. t-sne can be divided into three simple steps.</p>
+<p>T-distributed Stochastic Neighbor Embedding is an unsupervised non-linear dimensionality reduction technique for data exploration and visualizing high-dimensional data. The objective of t-sne is to visualize compex datasets in high dimensional space.</p>
+<p>T-sne finds the similarity measures between pairs of instances in higher and lower dimensional space. Then, it tries to optimize two similarity measures.<span class="citation" data-cites="noauthor_introduction_nodate">(<a href="#ref-noauthor_introduction_nodate" role="doc-biblioref"><span>“Introduction to t-<span>SNE</span>: <span>Nonlinear</span> <span>Dimensionality</span> <span>Reduction</span> and <span>Data</span> <span>Visualization</span>”</span> n.d.</a>)</span></p>
+<p>T-sne is used for things such as clustering and classification (see clustering tab), anomoly detection, NLP, computer security and cancer research.</p>
+<p>To learn more about T-sne visit this website <a href="https://www.datacamp.com/tutorial/introduction-t-sne">here!</a></p>
 </section>
 <section id="applying-tsne-to-data" class="level2">
 <h2 class="anchored" data-anchor-id="applying-tsne-to-data">Applying TSNE to data</h2>
 <section id="importing-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="importing-libraries">Importing Libraries</h3>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -299,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="importing-data" class="level3">
 <h3 class="anchored" data-anchor-id="importing-data">Importing Data</h3>
-<div class="cell" data-execution_count="37">
+<div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tsne <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/nb_record.csv"</span>)</span>
@@ -310,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="implementing-tsne" class="level3">
 <h3 class="anchored" data-anchor-id="implementing-tsne">Implementing TSNE</h3>
-<div class="cell" data-execution_count="38">
+<div class="cell" data-execution_count="19">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> tsne.drop(<span class="st">'Country'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
@@ -318,18 +339,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA for comparison</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X_scaled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA for comparison</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X_scaled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="tsne-with-three-different-perplexities-5-30-40" class="level3">
 <h3 class="anchored" data-anchor-id="tsne-with-three-different-perplexities-5-30-40">TSNE with three different perplexities: 5, 30, 40</h3>
 <p><strong>Perplexity: 5</strong></p>
-<p>Using t-sne, the scatter plots below shows points that are closer together in the high dimensional space (7 variables) by showing how they are close together in a two dimensional space. Perplexity is essentially states how much the model should balance attention between global and local structures. The perplexity is at 5. These means that local variations dominate.</p>
-<div class="cell" data-execution_count="39">
+<p>Using t-sne, the scatter plots below shows points that are closer together in the high dimensional space (7 variables) by showing how they are close together in a two dimensional space. Perplexity is essentially states how much the model should balance attention between global and local structures. The perplexity is at 5. These means that local variations dominate. Data points that are close to eachother in the high-dimensional space are represented as close neighbors in the 2D space.</p>
+<p>The ideal perplexity for every data set is different.</p>
+<div class="cell" data-execution_count="20">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 5</span></span>
@@ -357,8 +378,8 @@ First few points :
 </div>
 </div>
 <p><strong>Perplexity: 30</strong></p>
-<p>Within the scatter plot below, the perplexity is 30.</p>
-<div class="cell" data-execution_count="44">
+<p>Within the scatter plot below, the perplexity is 30. Having a perplexity of 30 puts more emphasis on the global structure. The algorithm considers a larger number of nearest neighbors for each point.</p>
+<div class="cell" data-execution_count="21">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 30</span></span>
@@ -385,8 +406,8 @@ First few points :
  [-16.819391  24.590347]]</code></pre>
 </div>
 </div>
-<p><strong>Perplexity: 40</strong> Within the scatter plot below the perplexity is 40.</p>
-<div class="cell">
+<p><strong>Perplexity: 40</strong> Within the scatter plot below the perplexity is 40. This means that the algorithm focuses on global structure even more.</p>
+<div class="cell" data-execution_count="22">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perplexity - 40</span></span>
@@ -402,7 +423,18 @@ First few points :
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"shape : "</span>,tsne_result_40.shape)</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First few points : </span><span class="ch">\n</span><span class="st">"</span>,tsne_result_40[<span class="dv">0</span>:<span class="dv">2</span>,:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-display">
+<p><img src="t_sne_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>RESULTS
+shape :  (516, 2)
+First few points : 
+ [[ -7.744476  18.761927]
+ [-12.337536  20.984404]]</code></pre>
+</div>
+</div>
+<p>Perplexity of 40 gives us a good idea of the datas global structure. I think it is more beneficial than the scatter plots created with perplexities of 5 and 30.</p>
 </section>
 </section>
 <section id="fidings-conclusion" class="level2">
@@ -411,16 +443,17 @@ First few points :
 <p>It’s important to note that the interpretation of a t-SNE plot is <strong>qualitative</strong> not quantitative. The distances between points within the t-sne plots above do not have a meaningful scale, the goal is to visualize the inherent structures and relationships in the data since that is unavailable in the 7 dimensional space.</p>
 <section id="compare-with-pca" class="level3">
 <h3 class="anchored" data-anchor-id="compare-with-pca">Compare with PCA</h3>
-<div class="cell" data-execution_count="43">
+<p>I provided the PCA scatter plot below to illustrate the differences between the two plots. I think that both t-sne and pca have beneficial results. T-sne shows that some countries stay close to eachother in a seven dimension space and some do not. PCA tells us that there are some rows within the seven dimensional space that are extreme outliers. This make sense as PCA tends to capture global trends.</p>
+<div class="cell" data-execution_count="23">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PCA results</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PCA results</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>Text(0.5, 1.0, 'PCA')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -429,10 +462,15 @@ First few points :
 </div>
 
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-noauthor_introduction_nodate" class="csl-entry" role="listitem">
+<span>“Introduction to t-<span>SNE</span>: <span>Nonlinear</span> <span>Dimensionality</span> <span>Reduction</span> and <span>Data</span> <span>Visualization</span>.”</span> n.d. Accessed November 17, 2023. <a href="https://www.datacamp.com/tutorial/introduction-t-sne">https://www.datacamp.com/tutorial/introduction-t-sne</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

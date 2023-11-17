@@ -279,6 +279,7 @@ div.csl-indent {
   <li><a href="#co-variance-matrix" id="toc-co-variance-matrix" class="nav-link" data-scroll-target="#co-variance-matrix">Co-Variance Matrix</a></li>
   <li><a href="#computing-eigen-values-and-eigen-vectors" id="toc-computing-eigen-values-and-eigen-vectors" class="nav-link" data-scroll-target="#computing-eigen-values-and-eigen-vectors">Computing Eigen Values and Eigen Vectors</a></li>
   <li><a href="#choosing-principal-components" id="toc-choosing-principal-components" class="nav-link" data-scroll-target="#choosing-principal-components">Choosing Principal Components</a></li>
+  <li><a href="#plotting-pca" id="toc-plotting-pca" class="nav-link" data-scroll-target="#plotting-pca">Plotting PCA</a></li>
   </ul></li>
   <li><a href="#findings-and-conclusions" id="toc-findings-and-conclusions" class="nav-link" data-scroll-target="#findings-and-conclusions">Findings and Conclusions</a></li>
   </ul>
@@ -326,11 +327,11 @@ div.csl-indent {
 </section>
 <section id="data-set-selection" class="level3">
 <h3 class="anchored" data-anchor-id="data-set-selection">Data Set Selection</h3>
-<p>I will be applying PCA to my merged dataset that includes the variables, Aqua Production, Marine Protected Areas, Inventions, Instruments, Fishing Exports and % of policy instruments related to ocean policy.</p>
+<p>I will be applying PCA to my merged dataset that includes the variables, Country, Year, Aqua Production, Marine Protected Areas, Inventions, Instruments, Fishing Exports and % of policy instruments related to ocean policy.</p>
 </section>
 <section id="tools-i-will-be-using" class="level3">
 <h3 class="anchored" data-anchor-id="tools-i-will-be-using">Tools I will be using</h3>
-<p>I will complete PCA in Python.</p>
+<p>I will complete PCA in Python. The library that will help me the most in this tab is sklearn!</p>
 </section>
 </section>
 <section id="pca-code-walkthrough" class="level2">
@@ -481,7 +482,7 @@ div.csl-indent {
 <section id="computing-eigen-values-and-eigen-vectors" class="level3">
 <h3 class="anchored" data-anchor-id="computing-eigen-values-and-eigen-vectors">Computing Eigen Values and Eigen Vectors</h3>
 <p>Eigen values and eigen vectors are a linear algebra concept. These values are computed from the covariance matrix and help with determining the principal components.</p>
-<p>Principal components are new variables that are constructed as linear combinations or mixtures of the initial variables. These combinations result in new variables (i.e., principal components) that are uncorrelated and most of the information within the initial variables is squeezed or compressed into the first components.<span class="citation" data-cites="noauthor_principal_nodate">(<a href="#ref-noauthor_principal_nodate" role="doc-biblioref"><span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>”</span> n.d.</a>)</span>.</p>
+<p>Principal components are new variables that are constructed as linear combinations or mixtures of the initial variables. These combinations result in new variables (principal components) that are uncorrelated and most of the information within the initial variables is squeezed or compressed into the first components.<span class="citation" data-cites="noauthor_principal_nodate">(<a href="#ref-noauthor_principal_nodate" role="doc-biblioref"><span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>”</span> n.d.</a>)</span>.</p>
 <div class="cell" data-execution_count="7">
 <details>
 <summary>Code</summary>
@@ -515,10 +516,10 @@ Eigenvectors:
 </section>
 <section id="choosing-principal-components" class="level3">
 <h3 class="anchored" data-anchor-id="choosing-principal-components">Choosing Principal Components</h3>
-<p>Computing the eigenvectors and ordering them by their eigenvalues in descending order allow us to find the principal components in order of significance. In this step, we discarded low eigen values and form with the remaining ones a matrix of vectors that we call Feature vector.</p>
+<p>Computing the eigenvectors and ordering them by their eigenvalues in descending order allow us to find the principal components in order of significance. In this step, we discarded low eigen values and form with the remaining ones a matrix of vectors that we call a feature vector.</p>
 <p>Principal components represent the directions of the data that explain a maximal amount of variance. Within the code below, I am determing the number of components that maximize the variance.</p>
 <p>We can think of principal components as new variables that are constructed as linear combinations or mixtures of the initial variables. They are the new axes that provide the best angle to see and evaluate the data, so that the differences between the observations are better visible.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="29">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort eigenvalues in descending order</span></span>
@@ -543,14 +544,14 @@ Eigenvectors:
 <p><img src="pca_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="30">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply PCA with the desired number of components</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA with components decided above</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span>num_components)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X_standardized)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the explained variance ratio for each selected component</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Scree Plot</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>explained_variance_ratio <span class="op">=</span> pca.explained_variance_ratio_</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Explained Variance Ratio for Each Component:"</span>)</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(explained_variance_ratio)</span>
@@ -563,26 +564,30 @@ Eigenvectors:
 <pre><code>Explained Variance Ratio for Each Component:
 [0.27981751 0.20917748 0.15525656]</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>Text(0, 0.5, 'Explained Variance Ratio')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="pca_files/figure-html/cell-8-output-3.png" class="img-fluid"></p>
 </div>
 </div>
-<p>These principal components are linear combinations of the original features and provide a new coordinate system capturing the most important patterns in the data.</p>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<p>These principal components are linear combinations of the original features and provide a new coordinate system capturing the most important patterns in the data. As you can see, the first few components capture a majority of the variance.</p>
+</section>
+<section id="plotting-pca" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-pca">Plotting PCA</h3>
+<p>Below I have created a scatter plot that shows the first two principal components. Currently, you can not infer much from the plot but once I apply clustering we will be able to gather more insights.</p>
+<div class="cell" data-execution_count="32">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'#A9DFBF'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Scatter Plot'</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="pca_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
