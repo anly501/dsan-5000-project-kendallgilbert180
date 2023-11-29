@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability - Data Gathering</title>
+<title>Ocean Sustainability - Data Sources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -107,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./gathering.html" rel="" target="">
- <span class="dropdown-text">Data Gathering</span></a>
+ <span class="dropdown-text">Data Sources</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./cleaning.html" rel="" target="">
@@ -177,8 +196,12 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./trees.ipynb" rel="" target="">
- <span class="menu-text">Decision Trees</span></a>
+    <a class="nav-link" href="./clustering.html" rel="" target="">
+ <span class="menu-text">Clustering</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./trees.html" rel="" target="">
+ <span class="menu-text">Trees</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./arm.ipynb" rel="" target="">
@@ -204,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link active" data-scroll-target="#data-sources">Data Sources</a>
+  <li><a href="#data-gathering" id="toc-data-gathering" class="nav-link active" data-scroll-target="#data-gathering">Data Gathering</a>
   <ul class="collapse">
   <li><a href="#plastic-leakage-by-region" id="toc-plastic-leakage-by-region" class="nav-link" data-scroll-target="#plastic-leakage-by-region"><strong>Plastic Leakage by Region</strong></a></li>
   <li><a href="#marine-pollution-act-numbers" id="toc-marine-pollution-act-numbers" class="nav-link" data-scroll-target="#marine-pollution-act-numbers"><strong>Marine Pollution Act Numbers</strong></a></li>
@@ -212,9 +235,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ocean-related-envtech-inventions" id="toc-ocean-related-envtech-inventions" class="nav-link" data-scroll-target="#ocean-related-envtech-inventions"><strong>Ocean Related ENVTECH Inventions</strong></a></li>
   <li><a href="#policy-instruments" id="toc-policy-instruments" class="nav-link" data-scroll-target="#policy-instruments"><strong>Policy Instruments</strong></a></li>
   <li><a href="#fishing-exports" id="toc-fishing-exports" class="nav-link" data-scroll-target="#fishing-exports"><strong>Fishing Exports</strong></a></li>
-  </ul></li>
   <li><a href="#python-api" id="toc-python-api" class="nav-link" data-scroll-target="#python-api">Python API</a></li>
   <li><a href="#r-api" id="toc-r-api" class="nav-link" data-scroll-target="#r-api">R API</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -223,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Gathering</h1>
+<h1 class="title">Data Sources</h1>
 </div>
 
 
@@ -238,14 +261,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="data-gathering" class="level1">
+<h1>Data Gathering</h1>
 <center>
 <img src="images/oecd.png" class="img-fluid" style="width:50.0%">
 </center>
 <p>Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.</p>
-<p>The data that I have chosen to use for this project comes from the OECD. OECD stands for Organization for Economic Co-operation and Development. This organization, founded in 1961 has 38 member countries and was created in attempt to stimulate economic progress and world trade.</p>
+<p>The data that I have chosen to use for this project comes from the OECD. OECD stands for Organization for Economic Co-operation and Development. This organization, founded in 1961 has 38 member countries and was created in attempt to stimulate economic progress and world trade.<span class="citation" data-cites="noauthor_united_nodate">(<a href="#ref-noauthor_united_nodate" role="doc-biblioref"><span>“United <span>States</span> - <span>OECD</span>”</span> n.d.</a>)</span></p>
 <p>Within this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted.</p>
-<section id="data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
 <section id="plastic-leakage-by-region" class="level3">
 <h3 class="anchored" data-anchor-id="plastic-leakage-by-region"><strong>Plastic Leakage by Region</strong></h3>
 <p><a href="https://stats.oecd.org/viewhtml.aspx?datasetcode=PLASTIC_LEAKAGE_V2_2&amp;lang=en">Source</a></p>
@@ -314,7 +337,6 @@ ul.task-list li input[type="checkbox"] {
 <img src="images/fish.png" class="img-fluid" style="width:50.0%">
 </center>
 </section>
-</section>
 <section id="python-api" class="level2">
 <h2 class="anchored" data-anchor-id="python-api">Python API</h2>
 <p>I used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do text analysis with this data.</p>
@@ -331,9 +353,15 @@ ul.task-list li input[type="checkbox"] {
 <p>Link to Code: <a href="codes/01-data-gathering/R_API_DATA.Rmd">R Code</a></p>
 
 
+
+</section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-noauthor_united_nodate" class="csl-entry" role="listitem">
+<span>“United <span>States</span> - <span>OECD</span>.”</span> n.d. Accessed November 29, 2023. <a href="https://www.oecd.org/unitedstates/">https://www.oecd.org/unitedstates/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
