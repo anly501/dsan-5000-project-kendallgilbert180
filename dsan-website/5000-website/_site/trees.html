@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability - Introduction</title>
+<title>Ocean Sustainability - Decision Trees</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -108,7 +123,7 @@ div.csl-indent {
  <span class="menu-text">Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./intro.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./intro.html" rel="" target="">
  <span class="menu-text">Intro</span></a>
   </li>  
   <li class="nav-item">
@@ -200,7 +215,7 @@ div.csl-indent {
  <span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./trees.html" rel="" target="">
+    <a class="nav-link active" href="./trees.html" rel="" target="" aria-current="page">
  <span class="menu-text">Trees</span></a>
   </li>  
   <li class="nav-item">
@@ -227,10 +242,13 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#hypothesis-goals" id="toc-hypothesis-goals" class="nav-link" data-scroll-target="#hypothesis-goals"><strong>Hypothesis / Goals</strong></a></li>
-  <li><a href="#additional-questions-being-addressed" id="toc-additional-questions-being-addressed" class="nav-link" data-scroll-target="#additional-questions-being-addressed"><strong>Additional Questions Being Addressed:</strong></a></li>
-  <li><a href="#relevant-academic-publications" id="toc-relevant-academic-publications" class="nav-link" data-scroll-target="#relevant-academic-publications"><strong>Relevant Academic Publications</strong></a></li>
+  <li><a href="#what-are-decision-trees" id="toc-what-are-decision-trees" class="nav-link active" data-scroll-target="#what-are-decision-trees">What are Decision Trees?</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#implementing-decision-trees" id="toc-implementing-decision-trees" class="nav-link" data-scroll-target="#implementing-decision-trees">Implementing Decision Trees</a>
+  <ul class="collapse">
+  <li><a href="#importing-libraries" id="toc-importing-libraries" class="nav-link" data-scroll-target="#importing-libraries">Importing Libraries</a></li>
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing Data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -239,7 +257,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">Decision Trees</h1>
 </div>
 
 
@@ -254,62 +272,45 @@ div.csl-indent {
 
 </header>
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This project will look at the data behind ocean sustainability. This project will analyze data touching upon the necessity of ocean sustainability, how the ocean benefits us, the negative impacts humans have on ocean sustainability, the benefits of investing in ocean sustainability and what is currently being done to help sustainability.</p>
-<p>The analysis seeks to answer questions such as:</p>
-<ul>
-<li>What is the Importance of Ocean Sustainability?</li>
-<li>What Negative Impacts Do Humans Have on Ocean Sustainability?</li>
-<li>What Is Currently Being Done for Ocean Sustainability?</li>
-</ul>
-<p>Ocean sustainability is the approach required to manage our oceans and the services they provide. Ocean-related industries in many countries have expanded with insufficient consideration for the environment, risking the natural resources and the essential marine ecosystem services on which economies and people’s well-being depend. The ocean is our planet’s largest ecosystem, with over a million species and scientists have yet to explore a majority of this ecosystem<span class="citation" data-cites="martin_oceans_nodate">(<a href="#ref-martin_oceans_nodate" role="doc-biblioref">Martin n.d.</a>)</span>.</p>
-<p>Scientists and policymakers have attempted to improve ocean sustainability development, but often the management needed to achieve these goals are unclear. This is the case for Sustainable Development Goal (SDG) 14 for the world’s oceans <span class="citation" data-cites="reimer_benefits_2021">(<a href="#ref-reimer_benefits_2021" role="doc-biblioref">Reimer, Devillers, and Claudet 2021</a>)</span>. Research has been completed in an effort to attempt to provide guidance to SDG 14. This is a good start towards the worlds effort towards ocean sustainability, although, significant work is needed to be done.</p>
+<center>
+<img src="images/tree.png" class="img-fluid" style="width:25.0%"><img src="images/tree2.png" class="img-fluid" style="width:25.0%">
+</center>
+<section id="what-are-decision-trees" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-decision-trees">What are Decision Trees?</h2>
+<p>Decision trees are a method of supervised machine learning used to categorize or make predictions based on how previous sets of questions had been answered. Decision trees provide data scientists with information to make informed decisions and conclusions based off of their data.</p>
+<p>A few words that I will be referencing throughout this tab are:</p>
+<p><strong>Root:</strong> The base or root of the decision tree. <strong>Splitting:</strong> Dividing nodes into subnodes. <strong>Decision Node:</strong> When a sub-node is further split into additional sub-nodes. <strong>Leaf Node:</strong> When a sub-node does not split any further. <strong>Branch:</strong> A subsection of a decision tree. <strong>Pruning:</strong> Removing sub-nodes.</p>
+<p>The goal of these trees is to have the leaf nodes provided a conclusion about the data. Specifically, I want this tree to classify whether a country is sustainable or not.</p>
 </section>
-<section id="hypothesis-goals" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis-goals"><strong>Hypothesis / Goals</strong></h2>
-<p>Ocean sustainability has an impact on our world and is necessary for the future health of our world’s oceans.</p>
-<p>I want this project to clearly and concisely display the need for ocean sustainability in addition to what is being done and how it has helped so far. By the end of the project, I will be able to support my hypothesis through data exploration and clearly display the impact of ocean sustainability.</p>
-<p>The analysis will also provide a tool for organizations, local governments and developers to use when deciding if and how to invest in ocean sustainability.</p>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
 </section>
-<section id="additional-questions-being-addressed" class="level2">
-<h2 class="anchored" data-anchor-id="additional-questions-being-addressed"><strong>Additional Questions Being Addressed:</strong></h2>
-<ul>
-<li>What is the importance of ocean sustainability?</li>
-<li>Why is ocean sustainability necessary for the future of our world?</li>
-<li>What negative impacts do humans have on ocean sustainability?</li>
-<li>What Is currently being done to help ocean sustainability?</li>
-<li>What are the benefits of investing in ocean sustainability?</li>
-<li>How does the ocean benefit us?</li>
-<li>Why is the ocean important to the economy?</li>
-<li>Why is the ocean important to marine life?</li>
-<li>How does the ocean contribute to the wellness of communities?</li>
-<li>What will happen if we do not invest time in ocean sustainability?</li>
-</ul>
+<section id="implementing-decision-trees" class="level2">
+<h2 class="anchored" data-anchor-id="implementing-decision-trees">Implementing Decision Trees</h2>
+<section id="importing-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="importing-libraries">Importing Libraries</h3>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> metrics </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="relevant-academic-publications" class="level2">
-<h2 class="anchored" data-anchor-id="relevant-academic-publications"><strong>Relevant Academic Publications</strong></h2>
-<p>According to the article, “A sustainable Ocean for All” the ocean and humans are deeply interconnected and this connection must be understood in order to achieve ocean sustainability. This journal touches upon the need for this connection to effectively ensure long-term sustainable ocean use. The ocean is a crucial part of our world covering 71% of the planet’s surface and 95% of the biosphere. It does many things including climate regulation, water supply and other benefits. <span class="citation" data-cites="frazao_santos_sustainable_2022">(<a href="#ref-frazao_santos_sustainable_2022" role="doc-biblioref">Frazão Santos et al. 2022</a>)</span></p>
-<p>The article, “Ocean science research is key for a sustainable future” touches upon the fact that scientists need to work closely with decision-makers and society to get the ocean sustainability back on track. The ocean impacts numerous lives around the world with more than 40% of the global population living in areas within 200km of the ocean. With the drastic increase in the world population throughout the last 50 years - industrial development and humans are negatively impacting the ocean <span class="citation" data-cites="visbeck_ocean_2018">(<a href="#ref-visbeck_ocean_2018" role="doc-biblioref">Visbeck 2018</a>)</span>.</p>
-
+<section id="importing-data" class="level3">
+<h3 class="anchored" data-anchor-id="importing-data">Importing Data</h3>
+<p>I will be performing decision tree modeling on the clean merged data with the columns AquaCulture Production, Inventions, Instruments, Value (% of policy related to ocean sustainability) and Fishing Exports.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>trees <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/nb_record.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>label_encoder <span class="op">=</span> LabelEncoder()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>trees[<span class="st">'Country'</span>] <span class="op">=</span> label_encoder.fit_transform(trees[<span class="st">'Country'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-frazao_santos_sustainable_2022" class="csl-entry" role="listitem">
-Frazão Santos, Catarina, Tundi Agardy, Edward H. Allison, Nathan J. Bennett, Jessica L. Blythe, Helena Calado, Larry B. Crowder, et al. 2022. <span>“A Sustainable Ocean for All.”</span> <em>Npj Ocean Sustainability</em> 1 (1): 1–2. <a href="https://doi.org/10.1038/s44183-022-00004-4">https://doi.org/10.1038/s44183-022-00004-4</a>.
-</div>
-<div id="ref-martin_oceans_nodate" class="csl-entry" role="listitem">
-Martin. n.d. <span>“Oceans.”</span> <em>United Nations Sustainable Development</em>. Accessed October 10, 2023. <a href="https://www.un.org/sustainabledevelopment/oceans/">https://www.un.org/sustainabledevelopment/oceans/</a>.
-</div>
-<div id="ref-reimer_benefits_2021" class="csl-entry" role="listitem">
-Reimer, Julie M., Rodolphe Devillers, and Joachim Claudet. 2021. <span>“Benefits and Gaps in Area-Based Management Tools for the Ocean <span>Sustainable</span> <span>Development</span> <span>Goal</span>.”</span> <em>Nature Sustainability</em> 4 (4): 349–57. <a href="https://doi.org/10.1038/s41893-020-00659-2">https://doi.org/10.1038/s41893-020-00659-2</a>.
-</div>
-<div id="ref-visbeck_ocean_2018" class="csl-entry" role="listitem">
-Visbeck, Martin. 2018. <span>“Ocean Science Research Is Key for a Sustainable Future.”</span> <em>Nature Communications</em> 9 (1): 690. <a href="https://doi.org/10.1038/s41467-018-03158-3">https://doi.org/10.1038/s41467-018-03158-3</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

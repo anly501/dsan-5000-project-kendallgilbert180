@@ -237,7 +237,7 @@ div.csl-indent {
  <span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./trees.ipynb" rel="" target="">
+    <a class="nav-link" href="./trees.html" rel="" target="">
  <span class="menu-text">Trees</span></a>
   </li>  
   <li class="nav-item">
@@ -338,7 +338,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="pca-code-walkthrough">PCA Code Walkthrough</h2>
 <section id="importing-necessary-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="importing-necessary-libraries">Importing Necessary Libraries</h3>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="37">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -352,7 +352,7 @@ div.csl-indent {
 </section>
 <section id="importing-data" class="level3">
 <h3 class="anchored" data-anchor-id="importing-data">Importing Data</h3>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="38">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> pd.read_csv(<span class="st">"/Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/nb_record.csv"</span>)</span>
@@ -360,7 +360,7 @@ div.csl-indent {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pca[<span class="st">'Country'</span>] <span class="op">=</span> label_encoder.fit_transform(pca[<span class="st">'Country'</span>])</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pca.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <div>
 
 
@@ -443,7 +443,7 @@ div.csl-indent {
 </section>
 <section id="standardization" class="level3">
 <h3 class="anchored" data-anchor-id="standardization">Standardization</h3>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="39">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pca.drop(columns<span class="op">=</span>[<span class="st">'Country'</span>])</span>
@@ -455,27 +455,27 @@ div.csl-indent {
 <section id="co-variance-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="co-variance-matrix">Co-Variance Matrix</h3>
 <p>Covariance measures how two features vary with each other. A <strong>positive</strong> covariance indicates that features increase and decrease together. Whereas, a <strong>negative</strong> covariance indicates that the two features vary in the opposite directions <span class="citation" data-cites="noauthor_principal_nodate">(<a href="#ref-noauthor_principal_nodate" role="doc-biblioref"><span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>”</span> n.d.</a>)</span>. This matrix includes all covariances associated with all possible pairs of the initial variables.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="40">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="op">=</span> np.cov(X_standardized, rowvar<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[ 1.00194175e+00 -3.04942139e-02  1.51154291e-01  2.28111425e-01
-   2.73660218e-02  1.38684735e-01  1.62827020e-01]
- [-3.04942139e-02  1.00194175e+00  7.50535697e-02 -1.08844021e-01
-   8.28653563e-01 -2.56626522e-01  6.55735651e-02]
- [ 1.51154291e-01  7.50535697e-02  1.00194175e+00  8.17036100e-02
-   1.13743345e-01  1.80950218e-01  4.18881528e-02]
- [ 2.28111425e-01 -1.08844021e-01  8.17036100e-02  1.00194175e+00
-   6.12700946e-02 -3.21702201e-02  1.10964957e-01]
- [ 2.73660218e-02  8.28653563e-01  1.13743345e-01  6.12700946e-02
-   1.00194175e+00 -2.00780688e-01  1.10897521e-01]
- [ 1.38684735e-01 -2.56626522e-01  1.80950218e-01 -3.21702201e-02
-  -2.00780688e-01  1.00194175e+00  3.23365930e-18]
- [ 1.62827020e-01  6.55735651e-02  4.18881528e-02  1.10964957e-01
-   1.10897521e-01  3.23365930e-18  1.00194175e+00]]</code></pre>
+<pre><code>[[ 1.00194175 -0.03049421  0.15115429  0.22811143  0.02736602 -0.11929489
+   0.16282702]
+ [-0.03049421  1.00194175  0.07505357 -0.10884402  0.82865356 -0.02391984
+   0.06557357]
+ [ 0.15115429  0.07505357  1.00194175  0.08170361  0.11374335 -0.15312207
+   0.04188815]
+ [ 0.22811143 -0.10884402  0.08170361  1.00194175  0.06127009  0.58777159
+   0.11096496]
+ [ 0.02736602  0.82865356  0.11374335  0.06127009  1.00194175  0.12072438
+   0.11089752]
+ [-0.11929489 -0.02391984 -0.15312207  0.58777159  0.12072438  1.00194175
+   0.01934582]
+ [ 0.16282702  0.06557357  0.04188815  0.11096496  0.11089752  0.01934582
+   1.00194175]]</code></pre>
 </div>
 </div>
 </section>
@@ -483,7 +483,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="computing-eigen-values-and-eigen-vectors">Computing Eigen Values and Eigen Vectors</h3>
 <p>Eigen values and eigen vectors are a linear algebra concept. These values are computed from the covariance matrix and help with determining the principal components.</p>
 <p>Principal components are new variables that are constructed as linear combinations or mixtures of the initial variables. These combinations result in new variables (principal components) that are uncorrelated and most of the information within the initial variables is squeezed or compressed into the first components.<span class="citation" data-cites="noauthor_principal_nodate">(<a href="#ref-noauthor_principal_nodate" role="doc-biblioref"><span>“Principal <span>Component</span> <span>Analysis</span> (<span>PCA</span>) <span>Explained</span> <span></span> <span>Built</span> <span>In</span>”</span> n.d.</a>)</span>.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="41">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>eigenvalues, eigenvectors <span class="op">=</span> np.linalg.eig(cov_matrix)</span>
@@ -494,57 +494,57 @@ div.csl-indent {
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Eigenvalues:
-[1.96252593 1.46708555 0.15337595 1.08890623 0.67420997 0.76242139
- 0.90506723]
+[0.15354681 0.30246714 1.87872189 1.63494736 1.30649672 0.787713
+ 0.94969931]
 Eigenvectors:
-[[ 0.01526356 -0.59668919 -0.00340433 -0.10513975  0.41711599 -0.67674432
-  -0.02635254]
- [-0.66857226  0.04306445  0.70717473  0.14755344 -0.09626841 -0.13973334
-   0.02225876]
- [-0.07566051 -0.44005363  0.00433808  0.56052385  0.38207005  0.54299296
-  -0.21355002]
- [ 0.00635882 -0.45852099  0.14085705 -0.49377113 -0.43377731  0.23379086
-  -0.53220908]
- [-0.66268819 -0.083262   -0.69039466  0.08934662 -0.23939662 -0.09756661
-  -0.04954   ]
- [ 0.3048664  -0.30520205  0.05548236  0.53958993 -0.65208579 -0.21847102
-   0.21616463]
- [-0.12212308 -0.3716691   0.01759851 -0.33171763 -0.00893025  0.34021077
-   0.78789506]]</code></pre>
+[[-0.03084694 -0.28856822 -0.06626171  0.1718304  -0.65853337  0.66737184
+   0.05300179]
+ [-0.69771318  0.05888819 -0.66508565 -0.19819073  0.12985032  0.10594535
+   0.00494806]
+ [-0.03471916 -0.16908509 -0.15650007 -0.0428144  -0.51456224 -0.5373596
+  -0.62477983]
+ [-0.06921197  0.67433775 -0.08956347  0.70522824 -0.07998613  0.03219644
+  -0.1663593 ]
+ [ 0.70644581  0.02634234 -0.69324472 -0.0425596   0.09906735  0.0859372
+  -0.02532377]
+ [-0.08239763 -0.65482314 -0.10477276  0.63696157  0.3682022  -0.09337857
+  -0.05854486]
+ [-0.01984967 -0.02126341 -0.17085375  0.15647184 -0.36457294 -0.48733326
+   0.7583352 ]]</code></pre>
 </div>
 </div>
 </section>
 <section id="choosing-principal-components" class="level3">
 <h3 class="anchored" data-anchor-id="choosing-principal-components">Choosing Principal Components</h3>
-<p>Computing the eigenvectors and ordering them by their eigenvalues in descending order allow us to find the principal components in order of significance. In this step, we discarded low eigen values and form with the remaining ones a matrix of vectors that we call a feature vector.</p>
+<p>Computing the eigenvectors and ordering them by their eigenvalues in descending order allow us to find the principal components in order of significance. In this step, we discard low eigen values and form with the remaining ones a matrix of vectors that we call a feature vector.</p>
 <p>Principal components represent the directions of the data that explain a maximal amount of variance. Within the code below, I am determing the number of components that maximize the variance.</p>
-<p>We can think of principal components as new variables that are constructed as linear combinations or mixtures of the initial variables. They are the new axes that provide the best angle to see and evaluate the data, so that the differences between the observations are better visible.</p>
-<div class="cell" data-execution_count="29">
+<p>We can think of principal components as new variables that are constructed as linear combinations or mixtures of the initial variables. They are the new axes that provide the best angle to see and evaluate the data. These principal componenets make it easier to see the difference between variables.</p>
+<div class="cell" data-execution_count="42">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort eigenvalues in descending order</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sorted_indices <span class="op">=</span> np.argsort(eigenvalues)[::<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sorted_eigenvalues <span class="op">=</span> eigenvalues[sorted_indices]</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the cumulative explained variance</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cumulative explained variance</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>cumulative_explained_variance <span class="op">=</span> np.cumsum(sorted_eigenvalues) <span class="op">/</span> np.<span class="bu">sum</span>(sorted_eigenvalues)</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(cumulative_explained_variance) <span class="op">+</span> <span class="dv">1</span>), cumulative_explained_variance, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Cumulative Explained Variance'</span>)</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Principal Components'</span>)</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cumulative Explained Variance'</span>)</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>desired_variance <span class="op">=</span> <span class="fl">0.50</span> <span class="co">#I want to find the number of variables it takes to reach a variance of 0.90</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>desired_variance <span class="op">=</span> <span class="fl">0.50</span> <span class="co">#I want to find the number of variables it takes to reach a variance of 0.5</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>num_components <span class="op">=</span> np.argmax(cumulative_explained_variance <span class="op">&gt;=</span> desired_variance) <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of components to capture </span><span class="sc">{</span>desired_variance <span class="op">*</span> <span class="dv">100</span><span class="sc">}</span><span class="ss">% variance: </span><span class="sc">{</span>num_components<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of components to capture 50.0% variance: 3</code></pre>
+<pre><code>Number of components to capture 50.0% variance: 2</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="pca_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="30">
+<div class="cell" data-execution_count="43">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># PCA with components decided above</span></span>
@@ -558,17 +558,15 @@ Eigenvectors:
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(explained_variance_ratio) <span class="op">+</span> <span class="dv">1</span>), explained_variance_ratio, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Scree Plot'</span>)</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Components'</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Explained Variance Ratio'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Explained Variance Ratio'</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Explained Variance Ratio for Each Component:
-[0.27981751 0.20917748 0.15525656]</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="30">
-<pre><code>Text(0, 0.5, 'Explained Variance Ratio')</code></pre>
+[0.26786871 0.23311127]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="pca_files/figure-html/cell-8-output-3.png" class="img-fluid"></p>
+<p><img src="pca_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>These principal components are linear combinations of the original features and provide a new coordinate system capturing the most important patterns in the data. As you can see, the first few components capture a majority of the variance.</p>
@@ -576,14 +574,14 @@ Eigenvectors:
 <section id="plotting-pca" class="level3">
 <h3 class="anchored" data-anchor-id="plotting-pca">Plotting PCA</h3>
 <p>Below I have created a scatter plot that shows the first two principal components. Currently, you can not infer much from the plot but once I apply clustering we will be able to gather more insights.</p>
-<div class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="44">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'#A9DFBF'</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Scatter Plot'</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_pca[:, <span class="dv">0</span>], X_pca[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'#A9DFBF'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Scatter Plot'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="pca_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
