@@ -37,8 +37,11 @@ website:
         - comparison.ipynb
       - href: clustering.ipynb
         text: Clustering
-      - href: trees.ipynb
-        text: Trees
+      - text: Trees
+        menu: 
+        - trees.ipynb
+        - classification.ipynb
+        - regression.ipynb
       - href: arm.ipynb
         text: ARM
       - href: conclusions.ipynb

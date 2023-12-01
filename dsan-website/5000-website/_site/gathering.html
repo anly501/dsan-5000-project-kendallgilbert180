@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability - Data Sources</title>
+<title>Ocean Sustainability - Data Gathering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,7 +126,7 @@ div.csl-indent {
   </li>  
         <li>
     <a class="dropdown-item" href="./gathering.html" rel="" target="">
- <span class="dropdown-text">Data Sources</span></a>
+ <span class="dropdown-text">Data Gathering</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./cleaning.html" rel="" target="">
@@ -199,10 +199,25 @@ div.csl-indent {
     <a class="nav-link" href="./clustering.html" rel="" target="">
  <span class="menu-text">Clustering</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./trees.html" rel="" target="">
- <span class="menu-text">Trees</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-trees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Trees</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-trees">    
+        <li>
+    <a class="dropdown-item" href="./trees.html" rel="" target="">
+ <span class="dropdown-text">Decision Trees</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./classification.html" rel="" target="">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./regression.html" rel="" target="">
+ <span class="dropdown-text">Regression</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./arm.ipynb" rel="" target="">
  <span class="menu-text">ARM</span></a>
@@ -227,7 +242,7 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-gathering" id="toc-data-gathering" class="nav-link active" data-scroll-target="#data-gathering">Data Gathering</a>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link active" data-scroll-target="#data-sources">Data Sources</a>
   <ul class="collapse">
   <li><a href="#plastic-leakage-by-region" id="toc-plastic-leakage-by-region" class="nav-link" data-scroll-target="#plastic-leakage-by-region"><strong>Plastic Leakage by Region</strong></a></li>
   <li><a href="#marine-pollution-act-numbers" id="toc-marine-pollution-act-numbers" class="nav-link" data-scroll-target="#marine-pollution-act-numbers"><strong>Marine Pollution Act Numbers</strong></a></li>
@@ -235,9 +250,9 @@ div.csl-indent {
   <li><a href="#ocean-related-envtech-inventions" id="toc-ocean-related-envtech-inventions" class="nav-link" data-scroll-target="#ocean-related-envtech-inventions"><strong>Ocean Related ENVTECH Inventions</strong></a></li>
   <li><a href="#policy-instruments" id="toc-policy-instruments" class="nav-link" data-scroll-target="#policy-instruments"><strong>Policy Instruments</strong></a></li>
   <li><a href="#fishing-exports" id="toc-fishing-exports" class="nav-link" data-scroll-target="#fishing-exports"><strong>Fishing Exports</strong></a></li>
-  <li><a href="#python-api" id="toc-python-api" class="nav-link" data-scroll-target="#python-api">Python API</a></li>
-  <li><a href="#r-api" id="toc-r-api" class="nav-link" data-scroll-target="#r-api">R API</a></li>
   </ul></li>
+  <li><a href="#python-apis" id="toc-python-apis" class="nav-link" data-scroll-target="#python-apis">Python API’s</a></li>
+  <li><a href="#r-api" id="toc-r-api" class="nav-link" data-scroll-target="#r-api">R API</a></li>
   </ul>
 </nav>
     </div>
@@ -246,7 +261,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Sources</h1>
+<h1 class="title">Data Gathering</h1>
 </div>
 
 
@@ -261,14 +276,14 @@ div.csl-indent {
 
 </header>
 
-<section id="data-gathering" class="level1">
-<h1>Data Gathering</h1>
 <center>
 <img src="images/oecd.png" class="img-fluid" style="width:50.0%">
 </center>
 <p>Data gathering is crucial for any project. Within this tab, I will go over all the sources of my data as well as the methods I used to extract this data.</p>
-<p>The data that I have chosen to use for this project comes from the OECD. OECD stands for Organization for Economic Co-operation and Development. This organization, founded in 1961 has 38 member countries and was created in attempt to stimulate economic progress and world trade.<span class="citation" data-cites="noauthor_united_nodate">(<a href="#ref-noauthor_united_nodate" role="doc-biblioref"><span>“United <span>States</span> - <span>OECD</span>”</span> n.d.</a>)</span></p>
+<p>The data that I have chosen to use for this project comes from the OECD. OECD stands for Organization for Economic Co-operation and Development. This organization, founded in 1961 has 38 member countries and was created in attempt to stimulate economic progress and world trade. <span class="citation" data-cites="noauthor_united_nodate">(<a href="#ref-noauthor_united_nodate" role="doc-biblioref"><span>“United <span>States</span> - <span>OECD</span>”</span> n.d.</a>)</span></p>
 <p>Within this tab I will summarize the dataset I found and what questions it could possibly answer, provide a link to the dataset, a link to the cleaned data and the data extraction method and a pictute of the data before extracted.</p>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
 <section id="plastic-leakage-by-region" class="level3">
 <h3 class="anchored" data-anchor-id="plastic-leakage-by-region"><strong>Plastic Leakage by Region</strong></h3>
 <p><a href="https://stats.oecd.org/viewhtml.aspx?datasetcode=PLASTIC_LEAKAGE_V2_2&amp;lang=en">Source</a></p>
@@ -287,7 +302,7 @@ div.csl-indent {
 <ul>
 <li>Gives the numbers for the total MPA in a country</li>
 <li>Extraction Method: Export as XLS</li>
-<li>Link to Cleaned Data: <a href="data/01-modified-data/mpa_.csv">Here</a></li>
+<li>Link to Cleaned Data: <a href="./Users/kendallgilbert/dsan-5000-project-kendallgilbert180/dsan-website/5000-website/data/01-modified-data/mpa_clean">Here</a></li>
 </ul>
 <center>
 <img src="images/mpa.png" class="img-fluid" style="width:50.0%">
@@ -337,14 +352,17 @@ div.csl-indent {
 <img src="images/fish.png" class="img-fluid" style="width:50.0%">
 </center>
 </section>
-<section id="python-api" class="level2">
-<h2 class="anchored" data-anchor-id="python-api">Python API</h2>
+</section>
+<section id="python-apis" class="level2">
+<h2 class="anchored" data-anchor-id="python-apis">Python API’s</h2>
+<p><strong>News API</strong></p>
 <p>I used the news API that we were introduced to in class. I used this API to pull news about ocean sustainability. I put the title and descriptions into text files and will do text analysis with this data.</p>
 <center>
 <img src="images/newsapi.png" class="img-fluid" style="width:30.0%">
 </center>
 <p>Link to Code: <a href="./codes/01-data-gathering/Python API/apinews_gathering.html">Here</a></p>
 <p>This code also cleans the text data.</p>
+<p><strong>Reddit API</strong></p>
 <p>Additionally, I used the REDDIT API to gather text data on posts regarding the ocean and plastic pollution. You can find the code I used to gather this text <a href="./codes/01-data-gathering/reddit_api.html">here</a></p>
 </section>
 <section id="r-api" class="level2">
@@ -354,7 +372,6 @@ div.csl-indent {
 
 
 
-</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
