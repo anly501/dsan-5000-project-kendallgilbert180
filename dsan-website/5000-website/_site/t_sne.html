@@ -233,16 +233,27 @@ div.csl-indent {
     <a class="nav-link" href="./clustering.html" rel="" target="">
  <span class="menu-text">Clustering</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./trees.ipynb" rel="" target="">
- <span class="menu-text">Trees</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-trees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Trees</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-trees">    
+        <li>
+    <a class="dropdown-item" href="./trees.html" rel="" target="">
+ <span class="dropdown-text">Decision Trees</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./arm.ipynb" rel="" target="">
- <span class="menu-text">ARM</span></a>
+        <li>
+    <a class="dropdown-item" href="./classification.html" rel="" target="">
+ <span class="dropdown-text">Classification</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./regression.html" rel="" target="">
+ <span class="dropdown-text">Regression</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./conclusions.ipynb" rel="" target="">
+    <a class="nav-link" href="./conclusions.html" rel="" target="">
  <span class="menu-text">Conclusions</span></a>
   </li>  
 </ul>
@@ -298,7 +309,7 @@ div.csl-indent {
 
 <section id="what-is-tsne" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-tsne">What is TSNE?</h2>
-<p>T-distributed Stochastic Neighbor Embedding is an unsupervised non-linear dimensionality reduction technique for data exploration and visualizing high-dimensional data. The objective of t-sne is to visualize compex datasets in high dimensional space.</p>
+<p>T-distributed Stochastic Neighbor Embedding is an unsupervised non-linear dimensionality reduction technique for data exploration and visualizing high-dimensional data. The objective of t-sne is to visualize complex datasets in high dimensional space.</p>
 <p>T-sne finds the similarity measures between pairs of instances in higher and lower dimensional space. Then, it tries to optimize two similarity measures.<span class="citation" data-cites="noauthor_introduction_nodate">(<a href="#ref-noauthor_introduction_nodate" role="doc-biblioref"><span>“Introduction to t-<span>SNE</span>: <span>Nonlinear</span> <span>Dimensionality</span> <span>Reduction</span> and <span>Data</span> <span>Visualization</span>”</span> n.d.</a>)</span></p>
 <p>T-sne is used for things such as clustering and classification (see clustering tab), anomoly detection, NLP, computer security and cancer research.</p>
 <p>To learn more about T-sne visit this website <a href="https://www.datacamp.com/tutorial/introduction-t-sne">here!</a></p>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ocean Sustainability - PCA vs.&nbsp;T-SNE</title>
+<title>Ocean Sustainability - Conclusions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -200,11 +200,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./arm.html" rel="" target="">
- <span class="menu-text">ARM</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./conclusions.html" rel="" target="">
+    <a class="nav-link active" href="./conclusions.html" rel="" target="" aria-current="page">
  <span class="menu-text">Conclusions</span></a>
   </li>  
 </ul>
@@ -219,14 +215,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#data-gathering" id="toc-data-gathering" class="nav-link" data-scroll-target="#data-gathering">Data Gathering</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+  <li><a href="#naive-bayes" id="toc-naive-bayes" class="nav-link" data-scroll-target="#naive-bayes">Naive Bayes</a></li>
+  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction">Dimensionality Reduction</a></li>
+  <li><a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering">Clustering</a></li>
+  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link" data-scroll-target="#decision-trees">Decision Trees</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap Up</a></li>
+  <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">Thank You!</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PCA vs.&nbsp;T-SNE</h1>
+<h1 class="title">Conclusions</h1>
 </div>
 
 
@@ -241,26 +252,77 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>PCA and T-SNE are two widely used dimensionality reduction techniques used within the data science world. I have built out tabs specifically describing what each dimensionality technique is capable of achieving. This tab will <strong>compare</strong> the two.</p>
-<p>PCA is a linear technique that works best with data that has a linear structure. The goal of PCA is to identify the principal components in the data by projecting onto lower dimensions, minimizing variance, and preserving large pairwise distances. PCA may not do the best job with non linear structures.</p>
-<p>T-SNE is a nonlinear technique that focuses on preserving the pairwise similarities between data points in a lower-dimensional space. T-SNE is concerned with preserving small pairwise distances.</p>
-<p>The difference between the two of these techniques is evident when producing plots. Furthermore, t-sne is often used just as a visualization technique.</p>
-<p><strong>When to USE PCA vs T-SNE</strong></p>
-<p>Use PCA when:</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Within this project I had the opportunity to complete an abundance of data science techniques in an attempt to learn more about ocean sustainability. The main objective of this project was to answer questions like:</p>
 <ul>
-<li>The data has a linear structure</li>
-<li>You want to capture global trends</li>
+<li>What is the Importance of Ocean Sustainability?</li>
+<li>What Negative Impacts Do Humans Have on Ocean Sustainability?</li>
+<li>What Is Currently Being Done for Ocean Sustainability?</li>
 </ul>
-<p>Use t-SNE when:</p>
+<p>I believe that I was successful in answering these questions. Throughout this conclusion I will elaborate on my findings. I have also analyzed and elaborated on my findings in more depth within each tab.</p>
+</section>
+<section id="data-gathering" class="level2">
+<h2 class="anchored" data-anchor-id="data-gathering">Data Gathering</h2>
+<p>I collected a majority of my data from OECD - the Organization for Economic Cooperation and Development. I obtained six datasets from this resource regarding marine protected area, fishing exports, policy instruments, inventions, percentage of policy relating to ocean sustainability and aquaculture production. Furthermore I gathered text data from a Reddit API. This API allowed me to gather posts regarding ocean sustainability and ocean pollution. You can view my data gathering steps <a href="./gathering.html">here</a>.</p>
+</section>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<p>After gathering my data I then had to clean my data. Data cleaning takes a significant amount of time. Within this process I cleaned and tidied the data as well as merged all datasets that came from OECD. You can view my data cleaning steps <a href="./cleaning.html">here</a>.</p>
+</section>
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
+<p>Next, I completed EDA on my data. I did both univariate and multivariate EDA. The findings within this section helped set me up for success within future steps of this process. First, within the univariate EDA I was able to understand trends within my data. For example I learned:</p>
 <ul>
-<li>Data has non-linear structures.</li>
-<li>You want to preserve local relationships and identify clusters</li>
-<li>Dataset is moderate in size</li>
+<li>The number of environmental technology inventions increased around 2010 and since then has decreased</li>
+<li>The number of policy instruments are slowly increasing each year</li>
+<li>Aquaculture Production is increasing</li>
+<li>Aquaculture production is highest in the United States, New Zealand and Australia</li>
+<li>Marine Protected Area is steadily increasing each year.</li>
+<li>Marine Protected Area is highest in China</li>
+<li>The predicted average tonnes of plastic is steadily increasing until 2060</li>
 </ul>
-<p>Soures Used:</p>
-<p>https://www.geeksforgeeks.org/difference-between-pca-vs-t-sne/ https://medium.com/analytics-vidhya/pca-vs-t-sne-17bcd882bf3d</p>
+<p>It was also beneficial to look at the five number summaries for each variable to start taking note of any outliers or strange numbers.</p>
+<p>Within the multivariate EDA I explored correlations and relationships between variables. I did this through the use of Pearson correlation and scatter plots. From this EDA I was able to understand that the correlations within my dataset were relatively low besides the strong correlation between Marine Protected Area and Fishing Exports.</p>
+<p>Overall, EDA is a crucial step in the data science process that helped set my project up for success. I learned about my data which allowed me to successfully complete my models in the future. EDA helped me explore questions like what is currently being done to help ocean sustainability, the correlation between ocean sustainability movements and how sustainability is important to marine life and the wellness of communities. It also allows us to infer what will happen if sustainability is ignored.</p>
+</section>
+<section id="naive-bayes" class="level2">
+<h2 class="anchored" data-anchor-id="naive-bayes">Naive Bayes</h2>
+<p>The first machine learning model we completed was Naive Bayes. I completed Naive Bayes on my record data as well as my text data.</p>
+<p>My Naive Bayes model on record data aimed to explore whether specific variables are good indicators of the extent to which policies relate to the ocean. The model can help identify which aspects or attributes of policies are more strongly correlated with ocean-related policies and which are not. If the model performed well, the findings could have the ability to inform data-driven decision-making in policy development specifically with regard to ocean sustainability and conservation efforts. My model had a decent accuracy score at 70%. This model has the ability to help researchers find patterns, understand feature impact, and use it as a resource when coming up with policy and identifying committed countries.</p>
+<p>Furthermore, I completed a Naive Bayes model on text data. The ultimate goal of this model was to train a model to explore whether reddit posts regarding ocean sustainability and plastic pollution are good indicators of what sub reddit class they come from. This model had a 44% testing accuracy so it did not perform as well as the record data naive bayes. This model allows readers to gain insights into the prevalence of discussions related to ocean sustainability and plastic pollution across various subreddits as well as track trends and changes in the discussions related to ocean sustainability and plastic pollution over time.</p>
+<p>Naive Bayes helped me achieve my objective of answering questions like what is being done to help ocean sustainability and what is working more so than not.</p>
+</section>
+<section id="dimensionality-reduction" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction">Dimensionality Reduction</h2>
+<p>I completed two forms of dimensionality reduction on my data - Principal Component Analysis and T-distributed Stochastic Neighbor Embedding. This dimensionality reduction ultimately helped me within clustering. PCA was able to help me view my seven dimensional data using two principal components. The plot showed me a lot of points close together as well as outliers. Additionally, I completed t-sne with three different perplexities. T-sne helped me understand how data points were close together in the higher dimension space. Overall, these dimensionality techniques told me that countries within my data set were similar in a high dimensional space and there are also countries that are not similar.</p>
+<p>Dimensionality reduction helps us infer that some countries are focused on ocean sustainability and others are not.</p>
+</section>
+<section id="clustering" class="level2">
+<h2 class="anchored" data-anchor-id="clustering">Clustering</h2>
+<p>I clustered my data using three different methods of clustering - K-Means, DBSCAN and hierarchical. Each method of clustering allowed me to learn something new about my data. The optimal number of clusters for my data seemed to be 3. The three clusters obtained using DBSCAN clustering seem to have done the best job clustering my dimensionality reduced data. This is due to the fact that there are small distances between the points in clusters and large distances between the clusters.</p>
+</section>
+<section id="decision-trees" class="level2">
+<h2 class="anchored" data-anchor-id="decision-trees">Decision Trees</h2>
+<p>I performed classification and regression decision trees and random forests on my data.</p>
+<p>I received a high accuracy using classification decision trees at 91% and the random forest accuracy was 96%. This decision tree was made to explore whether specific variables are good indicators of the extent to which policies relate to the ocean. The decision tree visualization allows us to see which features are most important in determining the sustainability category. This tree tells us that the most important feature when classifying which variables are good indicators of how policies relate to the ocean is the number of policy instruments.</p>
+<p>The regression decision tree was created to explore how well a model does at predicting the “value” which is the percentage of policy relating to ocean sustainability per year. The mean squared error was very large, although completing random forests decreased the mean squared error significantly.</p>
+<p>Overall, decision trees helped us understand import features like Marine Protected Area and policy instruments and their ability to help researchers predict how much a country will implement policy relating to ocean sustainability.</p>
+</section>
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap Up</h2>
+<p>Overall, this project allowed me to dive into data from a wealth of countries regarding ocean sustainability. Data science tools allowed me to understand key things like what features have an impact on ocean sustainability, what will happen in the future if sustainability is ignored and what is currently being done that helps countries (that may be unknown).</p>
+<p>The most prominent features that have an impact on overall ocean sustainability throughout the world are marine protected areas, fishing exports and policy instruments. An increase in marine protected areas results in an increase in fishing exports. Furthermore, the amount of policy instruments (policy related to environment) also has an impact on ocean sustainability.</p>
+<p>Without the machine learning algorithms that I have implemented on this data throughout the course of this semester I would be unaware of what features need to be looked at more closely.</p>
+<p>I also was able to learn about what is currently being done and how it has the power to help a country’s overall attempt at ocean sustainability.</p>
+<p>In the future, I would love to look more closely at marine protected area data and explore the impact marine protected area has on a countries overall sustainability.</p>
+</section>
+<section id="thank-you" class="level2">
+<h2 class="anchored" data-anchor-id="thank-you">Thank You!</h2>
+<p>Special thanks to my DSAN Professors and friends who helped me successfully complete this project :)</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

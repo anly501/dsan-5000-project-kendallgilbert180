@@ -42,8 +42,6 @@ website:
         - trees.ipynb
         - classification.ipynb
         - regression.ipynb
-      - href: arm.ipynb
-        text: ARM
       - href: conclusions.ipynb
         text: Conclusions
     background: "#B7E0EE"

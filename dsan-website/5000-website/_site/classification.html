@@ -237,11 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./arm.ipynb" rel="" target="">
- <span class="menu-text">ARM</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./conclusions.ipynb" rel="" target="">
+    <a class="nav-link" href="./conclusions.html" rel="" target="">
  <span class="menu-text">Conclusions</span></a>
   </li>  
 </ul>
@@ -466,7 +462,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="baseline-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="baseline-comparison">Baseline Comparison</h3>
-<p>This baseline comparison can be used to act as a simple benchmark that helps us understand how well the decision tree models are performing and whether the chosen metrics are appropriate for your problem. If the decision tree model below cannot outperform this simple random prediction… there might be issues with the models or data.</p>
+<p>This baseline comparison can be used to act as a simple benchmark that helps us understand how well the decision tree models are performing and whether the chosen metrics are appropriate. If the decision tree model below cannot outperform this simple random prediction… there might be issues with the models or data.</p>
 <div class="cell" data-execution_count="47">
 <details>
 <summary>Code</summary>
@@ -865,7 +861,7 @@ weighted avg       0.97      0.97      0.96       155
 <section id="results-and-conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="results-and-conclusions">Results and Conclusions</h2>
 <p>Overall the decision tree and random forest models have very high accuracy. Although, this may be due to the large number of countries that fall within Bin 1 - as shown by the class distribution.</p>
-<p>Decision trees are a very intuitive machine learning model. This model allows readers to see what attributes are taken into account when classifying a tuple as sustainable.</p>
+<p>Decision trees are a very intuitive machine learning model. This model allows readers to see what attributes are taken into account when classifying a tuple as sustainable. The decision tree visualization allows us to see which features are most important in determining the sustainability category.</p>
 <p>A few interesting things to point out:</p>
 <ul>
 <li>The top most condition is based off of Policy Instruments. Policy Instruments are the amount of policy that has been released per year relating to sustainability (not just ocean sustainabiloty) by country.</li>
