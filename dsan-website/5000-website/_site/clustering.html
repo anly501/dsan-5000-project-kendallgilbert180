@@ -346,7 +346,7 @@ require(['plotly'], function(Plotly) {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Within this tab I will complete three different kinds of clustering on my datset. I will use the same dataset that I have worked with containg the seven features. The three kinds of clustering I will use are k-means, dbscan and hierarchical clustering. I will provide a summary of these clustering techniques as well as walk through the steps I completed to perform these clustering techniques on my data. My goal with this clustering tab is to find patterns within my dataset. I will also include a results and conclusion section to illustrate what these clustering techniques are doing on my data and what my results mean in non-technical wording.</p>
+<p>Within this tab I will complete three different kinds of clustering on my datset. I will use the same dataset that I have worked with containing the seven features. The three kinds of clustering I will use are k-means, dbscan and hierarchical clustering. I will provide a summary of these clustering techniques as well as walk through the steps I completed to perform these clustering techniques on my data. My goal with this clustering tab is to find patterns within my dataset. I will also include a results and conclusion section to illustrate what these clustering techniques are doing on my data and what my results mean in non-technical wording.</p>
 <p>Within class we learned about two heuristic goals to determine what makes an optimal cluster. These two goals are:</p>
 <ol type="1">
 <li>To minimize the distance between points within a cluster</li>
@@ -365,9 +365,9 @@ require(['plotly'], function(Plotly) {
 </section>
 <section id="dbscan" class="level3">
 <h3 class="anchored" data-anchor-id="dbscan">DBSCAN</h3>
-<p>DBSCAN is based off of the idea of clusters and noise. The main idea is that for each point within a cluster, the neighberhood of a given radius has to contain at least a minimum number of points. DBSCAN works better for data that contains irregularities.</p>
-<p>The parameters for DBSCAN are EPS and MinPts. EPS is a distance measure used to locate points in the neighberhood of any point. MinPts is the minimum number of points clustered together for a region to be considered dense.</p>
-<p>So why use DBSCAN over K-Means? Often times k-means may cluster loosely related observations together. Every observation becomes part of a cluster eventually in k-means. This problem is reduced in dbscan as a result of the way dbscan works.</p>
+<p>DBSCAN is based on the idea of clusters and noise. The main idea is that for each point within a cluster, the neighborhood of a given radius has to contain at least a minimum number of points. DBSCAN works better for data that contains irregularities.</p>
+<p>The parameters for DBSCAN are EPS and MinPts. EPS is a distance measure used to locate points in the neighborhood of any point. MinPts is the minimum number of points clustered together for a region to be considered dense.</p>
+<p>So why use DBSCAN over K-Means? Oftentimes k-means may cluster loosely related observations together. Every observation becomes part of a cluster eventually in k-means. This problem is reduced in dbscan as a result of the way dbscan works.</p>
 <p>Data scientists sometimes prefer dbscan as you do not have to specify the number of clusters. <span class="citation" data-cites="noauthor_dbscan_2019">(<a href="#ref-noauthor_dbscan_2019" role="doc-biblioref"><span>“<span>DBSCAN</span> <span>Clustering</span> in <span>ML</span> <span></span> <span>Density</span> Based Clustering”</span> 2019</a>)</span></p>
 </section>
 <section id="hierarchical-clustering" class="level3">
@@ -377,8 +377,8 @@ require(['plotly'], function(Plotly) {
 <li><p><strong>Agglomerative:</strong> Each object is its own cluster. The clusters are merged step by step until a single cluster remains. At the end of the cluster merging process, a cluster containing all the elements is formed.</p></li>
 <li><p><strong>Divisive:</strong> Opposite of the agglomerative method. In the beginning, all objects are considered in a single cluster. The division process is performed until each object forms a different cluster. The cluster division or splitting procedure is carried out according to some principles that maximum distance between neighboring objects in the cluster.</p></li>
 </ol>
-<p>Agglomerative is the preffered method.</p>
-<p>Within hierarchical clustering clusters are visually represeneted in a hierarchical tree called a dendrogram. This method is sometimes preferred as you do not need to specify the number of clusters and the data is easily summarized into a hierarchy using dendrograms.</p>
+<p>Agglomerative is the preferred method.</p>
+<p>Within hierarchical clustering clusters are visually represented in a hierarchical tree called a dendrogram. This method is sometimes preferred as you do not need to specify the number of clusters and the data is easily summarized into a hierarchy using dendrograms.</p>
 <p>Keep scrolling to see each clustering method on my data set!</p>
 </section>
 </section>
