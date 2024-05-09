@@ -7,8 +7,6 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - href: about_me.ipynb
-        text: Me
       - href: intro.ipynb
         text: Intro
       - href: https://github.com/anly501/dsan-5000-project-kendallgilbert180/tree/main/dsan-website/5000-website/codes
